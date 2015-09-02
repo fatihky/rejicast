@@ -83,16 +83,16 @@ select {
     -webkit-appearance: none; -moz-appearance: none; appearance: none;
     box-shadow:1px 1px 6px -3px #000;
 }
-a[data-role="button"],button {
+a[data-role="button"], button {
     width:90%; margin:10px auto 10px; display:block; text-align:center;
     padding:20px 0; background:#FFF; border:1px solid #CCCCCC;
     border-radius:4px; box-shadow:1px 1px 6px -3px #000;
     color:#333; text-decoration:none; font-weight:700; font-size:1.8em;
 }
-input {
+input, textarea {
     padding:10px 2%; width:86%; display:block; border:1px solid #CCC; border-radius:4px;
     margin:10px auto 10px; font-family: 'Exo 2', sans-serif; font-size:1.2em;
-    background: #FFFFFF; box-shadow:2px 2px 8px -3px #000 inset;
+    background: #FFFFFF; box-shadow:2px 2px 8px -3px #000 inset !important;
 }
 .profiles {
     width:86%; padding:10px 2%; margin:10px auto 10px;
