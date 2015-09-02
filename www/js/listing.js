@@ -1,9 +1,6 @@
-document.addEventListener('deviceready', clickButton, false);
-document.addEventListener('resume', clickButton, false);
-
-function clickButton() {
+$(document).on("deviceready resume", function() {
     $("#btn").on("click", getList);
-}
+});
 
 function getList() {
     $(".loader-container").show();
@@ -16,9 +13,7 @@ function getList() {
         "field_kilo_value": $("#weight").val(),
         "field_egitim_duzeyi_value": $("#education").val(),
         "field_kategorisi_value": $("#category").val(),
-
     },
-
     function (data) {
         $(".container").fadeOut(50);
         if (data.nodes.length === 0) {

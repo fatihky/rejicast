@@ -1,5 +1,6 @@
-document.addEventListener("deviceready", function(){
+$(document).on("deviceready resume", function() {
   $("#tel").mask("999 999-9999");
+  $("#tel2").mask("999 999-9999");
   $("#privacy").on("change", function() {
     $("#submit").toggleClass("hidden");
   });
