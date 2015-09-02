@@ -9,6 +9,7 @@ $(function() {
   });
   $("#tel").mask("999 999-9999");
   $("#tel2").mask("999 999-9999");
+  $("#tckn").mask("99999999999");
   $("#privacy").on("change", function() {
     $("#submit").toggleClass("hidden");
   });
