@@ -9,12 +9,23 @@ $(function() {
   });
   $("#tel").mask("999 999-9999");
   $("#tel2").mask("999 999-9999");
+  $("#tckn").mask("99999999999");
   $("#privacy").on("change", function() {
     $("#submit").toggleClass("hidden");
   });
   $("a#inst").on('tap', function(event) {
     window.open('inst.html');
     event.stopPropagation();
+  });
+  $("#canvas").cropper({
+    aspectRatio: 16 / 9,
+    autoCropArea: 0.65,
+    strict: false,
+    guides: false,
+    highlight: false,
+    dragCrop: false,
+    cropBoxMovable: false,
+    cropBoxResizable: false
   });
   $("#submit").on("click", function() {
     $.ajax({
