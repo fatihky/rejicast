@@ -1,0 +1,161 @@
+/* genel */
+@font-face {
+    font-family:'Exo';
+    src:url(../otf/Exo-Regular.otf);
+}
+body {
+    -webkit-touch-callout:none;
+    /* prevent callout to copy image, etc when tap to hold */
+    -webkit-text-size-adjust:none;
+    /* prevent webkit from resizing text to fit */
+    -webkit-user-select:none;
+    /* prevent copy paste, to allow, change 'none' to 'text' */
+    background:fixed;
+    /*font-family:'HelveticaNeue-Light', 'HelveticaNeue', Helvetica, Arial, sans-serif;*/
+    font-family:'Exo' !important;
+    font-size:12px;
+    height:100%;
+    margin:0px;
+    padding:0px;
+    width:100%;
+}
+p {
+    font:20px Arial;
+    text-align:center;
+}
+p.btn-txt {
+    font-size:20px;
+}
+#cihaz {
+    width:100%; height:100%; float:left; min-height:600px;
+    background: url(../img/bg.png) top left;
+}
+
+#headerHolder{
+    width:100%; height:60px; z-index:99; 
+    position:fixed; top:0;
+    background:url(../img/header.png) top center no-repeat;
+}
+#headerHolder #logo{
+    position:fixed; left:5%;
+}
+#headerHolder #headerText{
+    position:fixed; right:10px; top:9px;
+    font-size:1.5em; color:#FFF; font-weight:bold;
+    text-shadow:-1px -1px 1px #000;
+}
+
+#content {
+    margin:100px 0; padding:10px;
+}
+#content .grayBtn {
+    width:90%; margin:auto;
+    border-radius:4px;
+    box-shadow:1px 1px 3px -2px #777;
+}
+
+#navHolder {
+    width:100%; height:60px; z-index:99; position:fixed; bottom:0;
+    background:url(../img/navBar.png) bottom center no-repeat;
+}
+#navHolder #homeBtn {
+    position:fixed; bottom:0px; left:20px;
+}
+#navHolder #notificationBtn {
+    position:fixed; bottom:-2px; right:20px; 
+}
+#navHolder #loginBtn {
+    position:fixed; bottom:12px; left:50%;
+    margin:0 0 0 -50px; font-size:1.5em; 
+    color:#FFF
+}
+.description {
+    font-size:0.60em;
+    font-style:italic;
+}
+label,fieldset {
+    font-weight:bold !important;
+}
+select {
+    padding:10px 2%; width:90%; display:block; border:1px solid #CCC; border-radius:4px;
+    margin:10px auto 10px; font-family: 'Exo', sans-serif; font-size:1.2em;
+    background:#FFF url(../img/select.png) right center no-repeat;
+    -webkit-appearance: none; -moz-appearance: none; appearance: none;
+    box-shadow:1px 1px 6px -3px #000;
+}
+a[data-role="button"],button {
+    width:90%; margin:10px auto 10px; display:block; text-align:center;
+    padding:20px 0; background:#FFF; border:1px solid #CCCCCC;
+    border-radius:4px; box-shadow:1px 1px 6px -3px #000;
+    color:#333; text-decoration:none; font-weight:700; font-size:1.8em;
+}
+input {
+    padding:10px 2%; width:86%; display:block; border:1px solid #CCC; border-radius:4px;
+    margin:10px auto 10px; font-family: 'Exo 2', sans-serif; font-size:1.2em;
+    background: #FFFFFF; box-shadow:2px 2px 8px -3px #000 inset;
+}
+.profiles {
+    width:86%; padding:10px 2%; margin:10px auto 10px;
+    border-radius:4px; border:1px solid #CCC; overflow:hidden;
+    background:#FFF; box-shadow:1px 1px 6px -3px #000;
+}
+
+.profileimage{
+    float:left; width:50px; height:50px;  margin: -10px 10px -10px -11px;
+}
+
+.profilename{
+    font-size:1.6em; font-weight:700; margin:0 0 0 20px;
+}
+/* listeleme */
+
+.loader-container {
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translateX(-50%) translateY(-50%);
+    height:150px;
+    width:250px;
+    background:#000;
+    border-radius:5px;
+    color:#fff;
+    opacity:0.5;
+    display:none;
+}
+
+.loader {
+    margin:0 auto;
+    width:25px;
+    height:25px;
+    border-top:8px solid transparent;
+    border-right:8px solid transparent;
+    border-bottom:8px solid transparent;
+    border-left:8px solid #333;
+    border-radius:50%;
+    -webkit-animation:ani .7s infinite linear;
+    animation:ani .7s infinite linear;
+}
+@-webkit-keyframes ani {
+    from {
+        -webkit-transform:rotate(0deg);
+    }
+    to {
+        -webkit-transform:rotate(360deg);
+    }
+}
+@keyframes ani {
+    from {
+        transform:rotate(0deg);
+    }
+    to {
+        transform:rotate(360deg);
+    }
+}
+.oyuncu-adi {
+    float:right;
+    font:10px Arial;
+}
+.foto {
+    vertical-align:text-top;
+    border-radius:100%;
+}
