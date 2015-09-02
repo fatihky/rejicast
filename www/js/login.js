@@ -34,7 +34,7 @@ $('#login').on('click', function () {
                 dataType: "json",
                 success: function(gelen) {
                     $.each(gelen.nodes), function(key, value) {
-                        var cnt = $('<div class="container"><img class="foto" src="' + value.node.field_oyuncu_fotografi.src + '"><div class="oyuncu-adi">' + value.node.field_gosterilecek_ad + '</div><hr></div>');
+                        var cnt = $('<div class="profilesr"><img class="profileimage" src="' + value.node.field_oyuncu_fotografi.src + '"><div class="profilename">' + value.node.field_gosterilecek_ad + '</div><hr></div>');
                         cnt.hide().appendTo($('body')).fadeIn(500);
                     }
                 }
