@@ -1,4 +1,12 @@
 $(function() {
+  $("#profilepicture").on("change", function(e) {
+    var ctx = $("#canvas")[0].getContext('2d');
+    var img = new Image;
+    img.src = URL.createObjectURL(e.target.files[0]);
+    img.onload = function() {
+      ctx.drawImage(img, 100,100);
+    }
+  });
   $("#tel").mask("999 999-9999");
   $("#tel2").mask("999 999-9999");
   $("#privacy").on("change", function() {
