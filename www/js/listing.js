@@ -1,4 +1,4 @@
-$(document).on("deviceready resume", function() {
+$(function() {
     $("#btn").on("click", getList);
 });
 

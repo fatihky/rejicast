@@ -1,4 +1,4 @@
-$(document).on("deviceready resume", function(){
+$(function() {
     $('#login').on('click', function () {
         var name = $('#username').val();
         if (!name) {

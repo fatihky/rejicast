@@ -1,7 +1,7 @@
-$(document).on("deviceready resume", function() {
+$(function() {
   $("#lostpassbtn").on("click", function(){
     if (!$("#lostpass").val()) {
-      alert("Lütfen geçerli bir e-posta adresi giriniz")
+      alert("Lütfen kullanıcı adınızı giriniz")
     } else {
       $.ajax({
         url: "http://www.rejicast.com/services/user/request_new_password.json",
@@ -16,5 +16,5 @@ $(document).on("deviceready resume", function() {
         },
       })
     }
-  })
+  });
 });
