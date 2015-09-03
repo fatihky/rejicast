@@ -79,8 +79,8 @@ label,fieldset {
 select {
     padding:10px 2%; width:90%; display:block; border:1px solid #CCC; border-radius:4px;
     margin:10px auto 10px; font-family: 'Exo', sans-serif; font-size:1.2em;
-    background:#FFF url(../img/select.png) right center no-repeat;
-    -webkit-appearance: none; -moz-appearance: none; appearance: none;
+    background:#FFF url(../img/select.png) right center no-repeat !important;
+    -webkit-appearance:none; -moz-appearance:none; appearance:none;
     box-shadow:1px 1px 6px -3px #000;
 }
 a[data-role="button"], button {
@@ -111,8 +111,8 @@ input, textarea {
 
 .loader-container {
     position:absolute;
-    top:50%;
-    left:50%;
+    top:40%;
+    left:30%;
     transform:translateX(-50%) translateY(-50%);
     height:150px;
     width:250px;

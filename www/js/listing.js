@@ -5,17 +5,18 @@ $(function() {
 function getList() {
     $(".loader-container").show();
     $.get('http://www.rejicast.com/oyuncular.json', {
-        "field_yasadigi_sehir_value": $("#sehir").val(),
-        "field_cinsiyet_value": $("#sex").val(),
-        "field_boy_value": $("#height").val(),
-        "field_goz_rengi_value": $("#eyecolour").val(),
-        "field_ten_rengi_value": $("#skincolour").val(),
-        "field_kilo_value": $("#weight").val(),
-        "field_egitim_duzeyi_value": $("#education").val(),
-        "field_kategorisi_value": $("#category").val(),
+        "field_yasadigi_sehir_value": $("#city option:selected").val(),
+        "field_cinsiyet_value": $("#gender option:selected").val(),
+        "field_boy_value": $("#height option:selected").val(),
+        "field_goz_rengi_value": $("#eyecolour option:selected").val(),
+        "field_ten_rengi_value": $("#skincolour option:selected").val(),
+        "field_kilo_value": $("#weight option:selected").val(),
+        "field_egitim_duzeyi_value": $("#education option:selected").val(),
+        "field_kategorisi_value": $("#category option:selected").val(),
     },
     function (data) {
-        $(".container").fadeOut(50);
+        $("#content").hide();
+        $("div.ui-page").hide();
         if (data.nodes.length === 0) {
             $(".container").fadeOut(50);
             $(".loader-container").hide();
