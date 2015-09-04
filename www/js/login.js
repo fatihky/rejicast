@@ -25,7 +25,9 @@ $(function() {
                 $("#submit").remove();
                 $("#drupal-username").text(duser.name);
                 $(".loader-container").show();
-                $.mobile.changePage("applications.html", "slide");
+                setTimeout(function() {
+                    $.mobile.changePage("applications.html", "slide");
+                },1500);
                 $.ajax({
                     url: "http://www.rejicast.com/oyuncularim.json",
                     type: "post",
