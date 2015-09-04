@@ -16,7 +16,6 @@ function getList() {
     },
     function (data) {
         $("#content").hide();
-        $("div.ui-page").hide();
         if (data.nodes.length === 0) {
             $(".container").fadeOut(50);
             $(".loader-container").hide();
@@ -24,7 +23,7 @@ function getList() {
         }
         $(".loader-container").fadeOut(500);
         $.each(data.nodes, function (key, value) {
-            var cnt = $('<div class="container"><img class="foto" src="' + value.node.field_oyuncu_fotografi.src + '"><div class="oyuncu-adi">' + value.node.field_gosterilecek_ad + '</div><hr></div>');
+            var cnt = $('<div class="container"><img class="foto" src="' + value.node.field_oyuncu_fotografi.src + '" data-nid="'+value.node.nid+'"><div class="oyuncu-adi">' + value.node.field_gosterilecek_ad + '</div><hr></div>');
             cnt.hide().appendTo($('body')).fadeIn(500);
         });
     });
