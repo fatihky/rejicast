@@ -15,16 +15,29 @@ function getList() {
         "field_kategorisi_value": $("#category option:selected").val(),
     },
     function (data) {
-        $("#content").hide();
+        /*
+        $(".ui-select").remove();
+        $("label").remove();
+        $("#btn").remove();
+        */
+        $("div[data-role='page']").css("z-index", -1);
+        var content = $("<div id='content'>");
+        /*
+            cihaz = $("<div id='cihaz'>"),
+            headerHolder = $("<div id='headerHolder'>");
+        $("body").append(cihaz);
+        cihaz.append(headerHolder);
+        cihaz.append(content);
+        */
         if (data.nodes.length === 0) {
             $(".container").fadeOut(50);
             $(".loader-container").hide();
-            alert($("select option:selected").html() + " için kayıt bulunamadı");
+            alert("Oyuncu bulunamadı");
         }
         $(".loader-container").fadeOut(500);
         $.each(data.nodes, function (key, value) {
-            var cnt = $('<div class="container"><img class="foto" src="' + value.node.field_oyuncu_fotografi.src + '" data-nid="'+value.node.nid+'"><div class="oyuncu-adi">' + value.node.field_gosterilecek_ad + '</div><hr></div>');
-            cnt.hide().appendTo($('body')).fadeIn(500);
+            var profile = $('<div class="profile"><img class="profile-image" src="' + value.node.field_oyuncu_fotografi.src + '" data-nid="'+value.node.nid+'"><div class="oyuncu-adi">' + value.node.field_gosterilecek_ad + '</div><hr></div>');
+            content.append(profile);
         });
     });
 }
