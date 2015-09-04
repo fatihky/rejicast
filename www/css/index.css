@@ -10,8 +10,7 @@ body {
     /* prevent webkit from resizing text to fit */
     -webkit-user-select:none;
     /* prevent copy paste, to allow, change 'none' to 'text' */
-    /*background-attachment:fixed;
-    font-family:'HelveticaNeue-Light', 'HelveticaNeue', Helvetica, Arial, sans-serif;*/
+    background:fixed;
     font-family:'Exo' !important;
     font-size:12px;
     height:100%;
@@ -21,6 +20,7 @@ body {
 }
 #content {
     margin-left:10%;
+    padding:10px;
 }
 p {
     font:20px Arial;
@@ -48,9 +48,6 @@ p.btn-txt {
     text-shadow:-1px -1px 1px #000;
 }
 
-#content {
-    margin:100px 0; padding:10px;
-}
 #content .grayBtn {
     width:90%; margin:auto;
     border-radius:4px;
@@ -97,7 +94,7 @@ input, textarea {
     margin:10px auto 10px; font-family: 'Exo 2', sans-serif; font-size:1.2em;
     background: #FFFFFF; box-shadow:2px 2px 8px -3px #000 inset !important;
 }
-.profiles {
+.profile {
     width:86%; padding:10px 2%; margin:10px auto 10px;
     border-radius:4px; border:1px solid #CCC; overflow:hidden;
     background:#FFF; box-shadow:1px 1px 6px -3px #000;
@@ -110,6 +107,7 @@ input, textarea {
 .profilename{
     font-size:1.6em; font-weight:700; margin:0 0 0 20px;
 }
+
 /* listeleme */
 
 .loader-container {
