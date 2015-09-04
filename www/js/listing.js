@@ -23,9 +23,9 @@ function getList() {
                 "field_kategorisi_value": $("#category").val()
         },
         success: function (data) {
+            $("label").remove();
             $(".ui-select").remove();
             $(".ui-btn").remove();
-            $("label").remove();
             if (data.nodes.length === 0) {
                 $(".container").fadeOut(50);
                 $(".loader-container").hide();

@@ -10,8 +10,8 @@ body {
     /* prevent webkit from resizing text to fit */
     -webkit-user-select:none;
     /* prevent copy paste, to allow, change 'none' to 'text' */
-    background-attachment:fixed;
-    /*font-family:'HelveticaNeue-Light', 'HelveticaNeue', Helvetica, Arial, sans-serif;*/
+    /*background-attachment:fixed;
+    font-family:'HelveticaNeue-Light', 'HelveticaNeue', Helvetica, Arial, sans-serif;*/
     font-family:'Exo' !important;
     font-size:12px;
     height:100%;
