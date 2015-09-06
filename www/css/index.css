@@ -99,6 +99,7 @@ input, textarea {
     margin:10px auto 10px; font-family: 'Exo 2', sans-serif; font-size:1.2em;
     background: #FFFFFF; box-shadow:2px 2px 8px -3px #000 inset !important;
 }
+/*
 .profile {
     width:40%; float: left; margin:5%;
     border-radius:4px; overflow:hidden;
@@ -110,6 +111,20 @@ input, textarea {
 
 .profilename {
     font-size:0.85em; font-weight:700; margin:0 0 0 20px; text-align:center;
+}
+*/
+
+.profile {
+    width:40%; float: left; margin:5%;
+    border-radius:4px; overflow:hidden;
+    background:#FFF; box-shadow:1px 1px 6px -3px #000;
+}
+.profileimage {
+    width:100%; height:auto; 
+}
+
+.profilename {
+    font-size:1.6em; font-weight:700; margin:0 0 0 20px;
 }
 
 /* listeleme */
