@@ -37,7 +37,7 @@ $(function() {
                     },
                     success: function(gelen) {
                         $.each(gelen.nodes), function(key, value) {
-                            var profile = $('<div class="profile"><img class="profileimage" src="' + value.node.field_oyuncu_fotografi.src + '"><div class="profilename">' + value.node.field_gosterilecek_ad + '</div><hr></div>');
+                            var profile = $('<div class="profile"><img class="profileimage" src="' + value.node.field_oyuncu_fotografi.src + '"><div class="profilename">' + value.node.field_gosterilecek_ad + '</div></div>');
                             $("#content.login").append(profile);
                         }
                     }
