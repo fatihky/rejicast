@@ -33,7 +33,7 @@ function getList() {
             }
             $(".loader-container").fadeOut(500);
             $.each(data.nodes, function (key, value) {
-                var profile = $('<div class="profile"><img class="profileimage" src="' + value.node.field_oyuncu_fotografi.src + '"><div class="profilename">' + value.node.field_gosterilecek_ad + '</div><hr></div>');
+                var profile = $('<div class="profile"><img class="profileimage" data-nic="' + value.node.nid + '" src="' + value.node.field_oyuncu_fotografi.src + '"><div class="profilename">' + value.node.field_gosterilecek_ad + '</div></div>');
                 $("#content.profiles").append(profile);
             });
         }
