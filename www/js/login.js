@@ -13,8 +13,11 @@ $(function() {
         $.ajax({
             url: "http://www.rejicast.com/services/user/login.json",
             type: "post",
-            data: "username=" + encodeURIComponent(name) + "&password=" + encodeURIComponent(pass),
             dataType: "json",
+            data: {
+                username: name.trim(),
+                password: pass
+            },
             statusCode: {
                 401:function() {
                     alert('Kullanıcı adı ya da şifre yanlış, tekrar deneyiniz.');
@@ -25,20 +28,17 @@ $(function() {
                 $("#submit").remove();
                 $("#drupal-username").text(duser.name);
                 $(".loader-container").show();
-                setTimeout(function() {
-                    $.mobile.changePage("applications.html", "slide");
-                },1500);
                 $.ajax({
                     url: "http://www.rejicast.com/oyuncularim.json",
-                    type: "post",
+                    type: "get",
+                    dataType: "json",
                     data: {
                         uid: duser.uid
                     },
-                    dataType: "json",
                     success: function(gelen) {
                         $.each(gelen.nodes), function(key, value) {
-                            var cnt = $('<div class="profilesr"><img class="profileimage" src="' + value.node.field_oyuncu_fotografi.src + '"><div class="profilename">' + value.node.field_gosterilecek_ad + '</div><hr></div>');
-                            cnt.hide().appendTo($('body')).fadeIn(500);
+                            var profile = $('<div class="profile"><img class="profileimage" src="' + value.node.field_oyuncu_fotografi.src + '"><div class="profilename">' + value.node.field_gosterilecek_ad + '</div><hr></div>');
+                            $("#content.login").append(profile);
                         }
                     }
                 })
