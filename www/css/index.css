@@ -20,12 +20,13 @@ body {
 }
 
 #appHolder {
-    width:100%; height:100X;
+    width:100%;
     background:url(../img/bg.png) top center;
 }
 #topHolder {
     position:fixed; top:0; width:100%; height:60px;
     background:url(../img/header.png) top center no-repeat;
+    z-index:1;
 }
 
 #logoHolder {
@@ -41,7 +42,7 @@ body {
 }
 
 #contentHolder {
-    padding:70px 4% 70px 4%; overflow:hidden;
+    padding:70px 4% 70px 4%; overflow:hidden; min-height:600px;
 }
 
 #navHolder {

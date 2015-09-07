@@ -1,9 +1,6 @@
-(function() {
-    $("#btn").on("click", getList);
-});
-
 $(function () {
     $("#btn").on("click", getList);
+    $(".profile").on("click", getProfile);
 });
 
 function getList() {
@@ -33,9 +30,27 @@ function getList() {
             }
             $(".loader-container").fadeOut(500);
             $.each(data.nodes, function (key, value) {
-                var profile = $('<div class="profile"><img class="profileImage" data-nic="' + value.node.nid + '" src="' + value.node.field_oyuncu_fotografi.src + '"><div class="profileName">' + value.node.field_gosterilecek_ad + '</div></div>');
+                var profile = $('<div class="profile"><img class="profileImage" data-nid="' + value.node.nid + '" src="' + value.node.field_oyuncu_fotografi.src + '"><div class="profileName">' + value.node.field_gosterilecek_ad + '</div></div>');
                 $("#contentHolder.profiles").append(profile);
             });
         }
     });
+}
+
+function getProfile(e) {
+    /*
+    $(".loader-container").show();
+    $.ajax({
+        url: 'http://www.rejicast.com/oyuncu.json',
+        type: 'get',
+        dataType: 'json',
+        data: {
+            uid: e.nid,
+        },
+        success: function(data) {
+            $(".profile").hide();
+        },
+    })
+    */
+    alert('Clicked!');
 }
