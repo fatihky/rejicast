@@ -42,7 +42,7 @@ body {
 }
 
 #contentHolder {
-    padding:70px 4% 70px 4%; overflow:hidden; min-height:600px;
+    padding:70px 4% 70px 4%; overflow:hidden;
 }
 
 #navHolder {
@@ -72,7 +72,7 @@ p {
     font-size:1.2em;
 }
 
-#btn {
+a[data-role='button'], #btn {
     width:90%; margin:10px auto 10px; display:block; text-align:center;
     padding:20px 0; background:#FFF; border:1px solid #CCCCCC;
     border-radius:4px; box-shadow:1px 1px 6px -3px #000;
