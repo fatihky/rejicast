@@ -3,6 +3,7 @@
     font-family:'Exo';
     src:url(../otf/Exo-Regular.otf);
 }
+
 body {
     -webkit-touch-callout:none;
     /* prevent callout to copy image, etc when tap to hold */
@@ -12,123 +13,129 @@ body {
     /* prevent copy paste, to allow, change 'none' to 'text' */
     background:fixed;
     font-family:'Exo' !important;
-    font-size:12px;
-    height:100%;
-    margin:0px;
-    padding:0px;
-    width:100%;
-}
-#content {
-    padding:70px 4% 70px 4%;
-    overflow:hidden;
-    /*
-    margin:20% 0;
-    padding:10px;
-    height:75%;
-    */
-}
-p {
-    font:20px Arial;
-    text-align:center;
-}
-p.btn-txt {
-    font-size:20px;
-}
-#cihaz {
-    width:100%; height:100%; float:left;
-    background: url(../img/bg.png) top left;
+    font-size:14px;
+    font-weight:400;
+    margin:0;
+    padding:0;    
 }
 
-#headerHolder{
-    width:100%; height:60px; z-index:99; 
-    position:fixed; top:0;
+#appHolder {
+    width:100%; height:600px; 
+    background:url(../img/bg.png) top center;
+}
+#topHolder {
+    position:fixed; top:0; width:100%; height:60px;
     background:url(../img/header.png) top center no-repeat;
 }
-#headerHolder #logo{
-    position:fixed; left:5%;
+
+#logoHolder {
+    position:fixed; top:3px; left:6%;
 }
-#headerHolder #headerText{
-    position:fixed; right:10px; top:9px;
-    font-size:1.5em; color:#FFF; font-weight:bold;
-    text-shadow:-1px -1px 1px #000;
+#logo {
+    width:45px; height:auto;
 }
 
-#content .grayBtn {
-    width:90%; margin:auto;
-    border-radius:4px;
-    box-shadow:1px 1px 3px -2px #777;
+#titleHolder {
+    font-size:1.9em; font-weight:600; color:white; position:fixed;
+    right:4%; top:4px; text-shadow:-1px -1px 1px #000;
+}
+
+#contentHolder {
+    padding:70px 4% 70px 4%; overflow:hidden;
 }
 
 #navHolder {
-    width:100%; height:60px; z-index:99; position:fixed; bottom:0; left:0;
+    position:fixed; bottom:0; width:100%; height:60px;
     background:url(../img/navBar.png) bottom center no-repeat;
 }
-#navHolder #homeBtn {
-    position:fixed; bottom:0px; left:20px;
+#homeHolder {
+    position:fixed; bottom:0; left:5%;
 }
-#navHolder #notificationBtn {
-    position:fixed; bottom:-2px; right:20px; 
+#loginHolder {
+    position:fixed; bottom:10px; left:10%; width:80%; text-align:center;
+    font-size:1.9em; font-weight:600; color:white;
 }
-#navHolder #loginBtn {
-    position:fixed; bottom:12px; left:50%;
-    margin:0 0 0 -50px; font-size:1.5em; 
-    color:#FFF
+#notificationHolder {
+    position:fixed; bottom:0; right:5%;
 }
-.description {
-    font-size:0.60em;
-    font-style:italic;
+#notification {
+    position:fixed; bottom:36px; right:10%;
+    border-radius:10px; background:red;
+    border:2px solid #FFF; box-shadow:0 0 5px 0 #000;  
+    color:#FFF; font-weight:700; text-align:center;
+    width:15px; height:15px; padding:0 2px 2px 1px;
 }
-label,fieldset {
-    font-weight:bold !important;
+
+p {
+    width:90%; padding:10px 0; margin:10px auto 10px;
+    font-size:1.2em;
 }
-select {
-    padding:10px 2%; width:90%; display:block; border:1px solid #CCC; border-radius:4px;
-    margin:10px auto 10px; font-family: 'Exo', sans-serif; font-size:1.2em;
-    background:#FFF url(../img/select.png) right center no-repeat !important;
-    -webkit-appearance:none; -moz-appearance:none; appearance:none;
-    box-shadow:1px 1px 6px -3px #000;
-}
-a[data-role="button"], button {
+
+#btn {
     width:90%; margin:10px auto 10px; display:block; text-align:center;
     padding:20px 0; background:#FFF; border:1px solid #CCCCCC;
     border-radius:4px; box-shadow:1px 1px 6px -3px #000;
     color:#333; text-decoration:none; font-weight:700; font-size:1.8em;
 }
-input, textarea {
+input {
     padding:10px 2%; width:86%; display:block; border:1px solid #CCC; border-radius:4px;
     margin:10px auto 10px; font-family: 'Exo 2', sans-serif; font-size:1.2em;
-    background: #FFFFFF; box-shadow:2px 2px 8px -3px #000 inset !important;
+    background: #FFFFFF; box-shadow:2px 2px 8px -3px #000 inset;
 }
-/*
+select {
+    padding:10px 2%; width:90%; display:block; border:1px solid #CCC; border-radius:4px;
+    margin:10px auto 10px; font-family: 'Exo 2', sans-serif; font-size:1.2em;
+    background:#FFF url("https://www.aradekor.com/sites/all/themes/fresh_theme/images/select.png) right center no-repeat;
+    -webkit-appearance: none; -moz-appearance: none; appearance: none;
+    box-shadow:1px 1px 6px -3px #000;
+}
+option {
+    font-family: 'Exo', sans-serif;
+}
+
+.userNotification {
+    width:86%; padding:10px 2%; margin:10px auto 10px;
+    border-radius:4px; border:1px solid #CCC;  font-size:1.2em;
+    background: -moz-linear-gradient(#f1ffa0 0%, #ddeb8c 99%);
+    background: -o-linear-gradient(#f1ffa0 0%, #ddeb8c 99%);
+    background: linear-gradient(#f1ffa0 0%, #ddeb8c 99%);
+    box-shadow:1px 1px 6px -3px #000;
+}
+.generalNotification {
+    width:86%; padding:10px 2%; margin:10px auto 10px;
+    border-radius:4px; border:1px solid #CCC; font-size:1.2em;
+    background: -webkit-linear-gradient(#FFFFFF 0%, #EEEEEE 99%);
+    background: -moz-linear-gradient(#FFFFFF 0%, #EEEEEE 99%);
+    background: -o-linear-gradient(#FFFFFF 0%, #EEEEEE 99%);
+    background: linear-gradient(#FFFFFF 0%, #EEEEEE 99%);
+    box-shadow:1px 1px 6px -3px #000;
+}
+.userNotification h3 {
+    font-size:1.3em; font-weight:600; margin:3px 0;
+}
+.generalNotification h3 {
+    font-size:1.3em; font-weight:600; margin:3px 0;
+}
+
+.ornekBasvurularim {
+    width:86%; padding:10px 2%; margin:10px auto 10px;
+    border-radius:4px; border:1px solid #CCC; overflow:hidden;
+    background:#FFF; box-shadow:1px 1px 6px -3px #000;
+}
 .profile {
     width:40%; float: left; margin:5%;
     border-radius:4px; overflow:hidden;
     background:#FFF; box-shadow:1px 1px 6px -3px #000;
 }
-.profileimage {
-    width:100%; height:auto; 
+
+.profileImage {
+    width:100%; height:auto;
 }
 
-.profilename {
-    font-size:0.85em; font-weight:700; margin:0 0 0 20px; text-align:center;
+.profileName {
+    font-weight:bold; text-align:center;
+        padding:2%;
 }
-*/
-
-.profile {
-    width:40%; float: left; margin:5%;
-    border-radius:4px; overflow:hidden;
-    background:#FFF; box-shadow:1px 1px 6px -3px #000;
-}
-.profileimage {
-    width:100%; height:auto; 
-}
-
-.profilename {
-    font-size:1.6em; font-weight:700; margin:0 0 0 20px;
-}
-
-/* listeleme */
-
 .loader-container {
     position:absolute;
     margin:0 auto;
@@ -141,7 +148,6 @@ input, textarea {
     opacity:0.5;
     display:none;
 }
-
 .loader {
     margin:0 auto;
     width:25px;
@@ -169,12 +175,4 @@ input, textarea {
     to {
         transform:rotate(360deg);
     }
-}
-.oyuncu-adi {
-    float:right;
-    font:10px Arial;
-}
-.foto {
-    vertical-align:text-top;
-    border-radius:100%;
 }

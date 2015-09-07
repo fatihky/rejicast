@@ -37,8 +37,8 @@ $(function() {
                     },
                     success: function(gelen) {
                         $.each(gelen.nodes), function(key, value) {
-                            var profile = $('<div class="profile"><img class="profileimage" data-nid="' + value.node.nid + '" src="' + value.node.field_oyuncu_fotografi.src + '"><div class="profilename">' + value.node.field_gosterilecek_ad + '</div></div>');
-                            $("#content.login").append(profile);
+                            var profile = $('<div class="profile"><img class="profileImage" data-nid="' + value.node.nid + '" src="' + value.node.field_oyuncu_fotografi.src + '"><div class="profileName">' + value.node.field_gosterilecek_ad + '</div></div>');
+                            $("#contentHolder.login").append(profile);
                         }
                     }
                 })
