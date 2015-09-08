@@ -135,11 +135,29 @@ option {
 
 .profileName {
     font-weight:bold; text-align:center;
-        padding:2%;
+    padding:2%;
+}
+.singleProfileImage {
+    margin:auto; width:100%; height:auto;
+}
+.singleProfileName {
+    width:90%; margin:.1em auto .1em; font-size:2em;
+    font-weight:bold;
+}
+.singleProfileSkin {
+    width:90%; margin:.1em auto .1em;
+}
+.singleProfileLabel {
+    float:left; width:30%; font-weight:bold;
+}
+.singleProfileContent {
+    float:left; width:70%;
 }
 .loader-container {
     position:absolute;
-    margin:0 auto;
+    top:40%;
+    left:25%;
+    /*margin:0 auto;*/
     transform:translateX(-50%) translateY(-50%);
     height:150px;
     width:250px;
@@ -148,6 +166,7 @@ option {
     color:#fff;
     opacity:0.5;
     display:none;
+    text-align:center;
 }
 .loader {
     margin:0 auto;

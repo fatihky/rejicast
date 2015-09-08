@@ -15,9 +15,9 @@ $("#btn").on("click", function() {
             "field_kategorisi_value": $("#category").val()
         },
         success: function (data) {
-            $("label").remove();
-            $(".ui-select").remove();
-            $(".ui-btn").remove();
+            $("#contentHolder.profiles label").hide();
+            $("#contentHolder.profiles .ui-select").hide();
+            $("#contentHolder.profiles .ui-btn").hide();
             if (data.nodes.length === 0) {
                 $(".container").fadeOut(50);
                 $(".loader-container").hide();
@@ -29,6 +29,7 @@ $("#btn").on("click", function() {
                 $("#contentHolder.profiles").append(profile);
             });
             $(".profileImage").on("click", function(ev) {
+                $(".loader-container > p").text('Oyuncu bilgileri alınıyor');
                 $(".loader-container").show();
                 var nid=$(ev.target).attr("data-nid");
                 $.ajax({
@@ -39,7 +40,10 @@ $("#btn").on("click", function() {
                         nid: nid,
                     },
                     success: function(data) {
-                        console.log(JSON.stringify(data));
+                        $(".loader-container").hide();
+                        $("#contentHolder.profiles > .profile").hide();
+                        var profile = $('<img class="singleProfileImage" src="' + data.nodes[0].node.field_oyuncu_fotografi.src + '"><div class="singleProfileName">' + data.nodes[0].node.field_gosterilecek_ad + '</div><div class="singleProfileSkin"><div class="singleProfileLabel">Ten Rengi:</div><div class="singleProfileContent">' + data.nodes[0].node.field_ten_rengi + '</div></div>');
+                        $("#contentHolder.profiles").append(profile);
                     },
                 })
             });
