@@ -154,10 +154,9 @@ option {
     float:left; width:70%;
 }
 .loader-container {
-    position:absolute;
+    position:fixed;
     top:40%;
-    left:25%;
-    /*margin:0 auto;*/
+    left:50%;
     transform:translateX(-50%) translateY(-50%);
     height:150px;
     width:250px;
@@ -167,6 +166,7 @@ option {
     opacity:0.5;
     display:none;
     text-align:center;
+    margin:0 0 0 -125px;
 }
 .loader {
     margin:0 auto;
