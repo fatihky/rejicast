@@ -1,4 +1,5 @@
 $("#btn").on("click", function() {
+    $(".loader-container > p").text("Lütfen bekleyin, liste yükleniyor");
     $(".loader-container").show();
     $.ajax({
         url: 'http://www.rejicast.com/oyuncular.json',
@@ -15,12 +16,12 @@ $("#btn").on("click", function() {
             "field_kategorisi_value": $("#category").val()
         },
         success: function (data) {
-            $("#contentHolder.profiles label").hide();
-            $("#contentHolder.profiles .ui-select").hide();
-            $("#contentHolder.profiles .ui-btn").hide();
+            $("#contentHolder.profiles label").remove();
+            $("#contentHolder.profiles .ui-select").remove();
+            $("#contentHolder.profiles .ui-btn").remove();
             if (data.nodes.length === 0) {
                 $(".container").fadeOut(50);
-                $(".loader-container").hide();
+                $(".loader-container").remove();
                 alert("Oyuncu bulunamadı");
             }
             $(".loader-container").fadeOut(500);
@@ -40,8 +41,8 @@ $("#btn").on("click", function() {
                         nid: nid,
                     },
                     success: function(data) {
-                        $(".loader-container").hide();
-                        $("#contentHolder.profiles > .profile").hide();
+                        $(".loader-container").remove();
+                        $("#contentHolder.profiles > .profile").remove();
                         var profile = $('<img class="singleProfileImage" src="' + data.nodes[0].node.field_oyuncu_fotografi.src + '"><div class="singleProfileName">' + data.nodes[0].node.field_gosterilecek_ad + '</div><div class="singleProfileSkin"><div class="singleProfileLabel">Ten Rengi:</div><div class="singleProfileContent">' + data.nodes[0].node.field_ten_rengi + '</div></div>');
                         $("#contentHolder.profiles").append(profile);
                     },
