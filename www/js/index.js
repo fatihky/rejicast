@@ -1,7 +1,7 @@
-$("#homeHolder").on("click", function(){
+$("#navHolder #homeBtn").on("click", function(){
   $.mobile.changePage("index.html", "slide");
 });
-$("#notificationHolder").on("click", function(){
+$("#navHolder #notificationBtn").on("click", function(){
   $.mobile.changePage("notifications.html", "slide");
   $.ajax({
     url: 'http://www.rejicast.com/genel-duyurular.json',
