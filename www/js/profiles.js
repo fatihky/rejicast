@@ -21,7 +21,7 @@ $("#btn").on("click", function() {
             $("#contentHolder.profiles .ui-btn").remove();
             if (data.nodes.length === 0) {
                 $(".container").fadeOut(50);
-                $(".loader-container").remove();
+                $(".loader-container").hide();
                 alert("Oyuncu bulunamadı");
             }
             $(".loader-container").fadeOut(500);
@@ -41,7 +41,7 @@ $("#btn").on("click", function() {
                         nid: nid,
                     },
                     success: function(data) {
-                        $(".loader-container").remove();
+                        $(".loader-container").hide();
                         $("#contentHolder.profiles > .profile").remove();
                         var profile = $('<img class="singleProfileImage" src="' + data.nodes[0].node.field_oyuncu_fotografi.src + '"><div class="singleProfileName">' + data.nodes[0].node.field_gosterilecek_ad + '</div><div class="singleProfileSkin"><div class="singleProfileLabel">Ten Rengi:</div><div class="singleProfileContent">' + data.nodes[0].node.field_ten_rengi + '</div></div>');
                         $("#contentHolder.profiles").append(profile);
