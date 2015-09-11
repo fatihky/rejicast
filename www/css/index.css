@@ -159,6 +159,11 @@ option {
 .singleProfileContent {
     float:left; width:70%;
 }
+.singleProfileOtherPics {
+    width:100%; height:auto; margin:5px auto 10px; display:block;
+    padding:20px 0; background:#FFF; border:1px solid #CCCCCC;
+    border-radius:4px; box-shadow:1px 1px 6px -3px #000;
+}
 .loader-container {
     position:fixed;
     top:40%;

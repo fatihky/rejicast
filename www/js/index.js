@@ -24,7 +24,7 @@ function startUp() {
     type: 'post',
     dataType: 'json',
     success: function(data) {
-      console.log(JSON.stringify(data));
+      alert(JSON.stringify(data));
     }
   });
 }
