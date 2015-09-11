@@ -20,7 +20,7 @@ function startUp() {
     })
   });
   $.ajax({
-    url: 'http://www.rejicast.com/services/system/connect',
+    url: 'http://www.rejicast.com/services/system/connect.json',
     type: 'post',
     dataType: 'json',
     success: function(data) {
