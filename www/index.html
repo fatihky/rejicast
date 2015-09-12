@@ -7,6 +7,10 @@
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
         <link rel="stylesheet" type="text/css" href="css/index.css">
         <link rel="stylesheet" type="text/css" href="css/jquery.mobile.css">
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="js/jquery.js"></script>
+        <script type="text/javascript" src="js/jquery.mobile.js"></script>
+        <script type="text/javascript" src="js/index.js"></script>
         <title>Rejicast</title>
     </head>
     <body>
@@ -21,16 +25,11 @@
                 </div>
             </div>
             <div id="contentHolder" class="index">
-                <h3>
-                    <a class="grayBtn" href="apply.html" data-transition="slide" data-role="button">Başvuru Yap</a>
-                </h3>
-                <h3>
-                    <a class="grayBtn" href="login.html" data-transition="slide" data-role="button">Başvurularım</a>
-                </h3>
-                <h3>
-                    <a class="grayBtn" href="profiles.html" data-transition="slide" data-role="button">Tüm Oyuncular</a>
-                </h3>
-                <a data-role="button" onclick="logout()" id="logoutBtn" >Çıkış yap</a>
+                <a class="grayBtn" href="apply.html" data-transition="slide" data-role="button">Başvuru Yap</a>
+                <a class="grayBtn" href="applications.html" data-transition="slide" data-role="button">Başvurularım</a>
+                <a class="grayBtn" href="profiles.html" data-transition="slide" data-role="button">Tüm Oyuncular</a>
+                <a class="grayBtn" href="login.html" data-transition="slide" data-role="button" id="loginBtn">Giriş yap</a>
+                <a class="grayBtn" data-role="button" onclick="logout()" id="logoutBtn">Çıkış yap</a>
                 <div class="loader-container">
                     <p></p>
                     <div class="loader"></div>
@@ -49,9 +48,5 @@
                 </div>
             </div>
         </div>
-        <script type="text/javascript" src="cordova.js"></script>
-        <script type="text/javascript" src="js/jquery.js"></script>
-        <script type="text/javascript" src="js/jquery.mobile.js"></script>
-        <script type="text/javascript" src="js/index.js"></script>
     </body>
 </html>
