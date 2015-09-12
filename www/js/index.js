@@ -51,3 +51,20 @@ function checkNotification() {
     }
   });
 }
+
+function logout() {
+  $(".loader-container > p").text("Çıkış yapılıyor, lütfen bekleyin");
+  $(".loader-container").show;
+  $.ajax({
+    url: 'http://www.rejicast.com/services/user/logout.json'
+    type: 'post',
+    dataType: 'json',
+    data: {
+      uid:data.user.uid
+    },
+    success: function() {
+      $(".loader-container > p").text("Başarıyla çıkış yapıldı");
+      $("#loginBtn").text("Giriş yap");
+    }
+  })
+}
