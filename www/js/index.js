@@ -18,10 +18,16 @@ function deviceReady() {
         },
         success: function(data) {
           var duser = data.user;
-          if (duser.nid == 0) {
-            $("#loginHolder").text("Giriş yap");
+          console.log(duser);
+          if (duser.uid === 0) {
+            $("#loginBtn").css("display","block");
+            $("#logoutBtn").css("display","none");
+          } 
+          else {
+            $("#loginBtn").css("display","none");
+            $("#logoutBtn").css("display","block");
+            $("#loginHolder").text(data.user.name);
           }
-          $("#loginHolder").text(data.user.name);
         }
       });
     }
@@ -53,18 +59,36 @@ function checkNotification() {
 }
 
 function logout() {
-  $(".loader-container > p").text("Çıkış yapılıyor, lütfen bekleyin");
-  $(".loader-container").show;
-  $.ajax({
-    url: 'http://www.rejicast.com/services/user/logout.json'
-    type: 'post',
-    dataType: 'json',
-    data: {
-      uid:data.user.uid
-    },
-    success: function() {
-      $(".loader-container > p").text("Başarıyla çıkış yapıldı");
-      $("#loginBtn").text("Giriş yap");
-    }
-  })
+  if (confirm("Çıkış yapmak istiyor musunuz?")) {
+    $(".loader-container > p").text("Çıkış yapılıyor, lütfen bekleyin");
+    $(".loader-container").show;
+    setTimeout(function() {
+      $(".loader-container").fadeOut(500);
+    }, 1000);
+    $.ajax({
+      url: 'http://www.rejicast.com/services/user/token.json',
+      type: 'post',
+      dataType: 'json',
+      success: function(token) {
+        $.ajax({
+          url: 'http://www.rejicast.com/services/user/logout.json',
+          type: 'post',
+          dataType: 'json',
+          beforeSend: function(r) {
+            r.setRequestHeader("X-CSRF-Token", token.token)
+          },
+          success: function() {
+            $(".loader-container > p").text("Başarıyla çıkış yapıldı");
+            $(".loader-container").show;
+            setTimeout(function() {
+              $(".loader-container").fadeOut(500);
+            }, 1000);
+            $("#loginBtn").css("display","block");
+            $("#logoutBtn").css("display","none");
+            $("#loginHolder").text("");
+          }
+        })
+      }
+    });
+  }
 }
