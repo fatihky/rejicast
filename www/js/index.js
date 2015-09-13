@@ -61,7 +61,7 @@ function checkNotification() {
 function logout() {
   if (confirm("Çıkış yapmak istiyor musunuz?")) {
     $(".loader-container > p").text("Çıkış yapılıyor, lütfen bekleyin");
-    $(".loader-container").show;
+    $(".loader-container").show();
     setTimeout(function() {
       $(".loader-container").fadeOut(500);
     }, 1000);
