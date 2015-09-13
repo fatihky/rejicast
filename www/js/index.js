@@ -79,7 +79,7 @@ function logout() {
           },
           success: function() {
             $(".loader-container > p").text("Başarıyla çıkış yapıldı");
-            $(".loader-container").show;
+            $(".loader-container").show();
             setTimeout(function() {
               $(".loader-container").fadeOut(500);
             }, 1000);
@@ -91,4 +91,4 @@ function logout() {
       }
     });
   }
-}
+
