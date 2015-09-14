@@ -1,4 +1,4 @@
-$(function() {
+document.addEventListener("deviceready", function() {
   $("#profilepicture").on("change", function(e) {
     var ctx = $("#canvas")[0].getContext('2d');
     var img = new Image;
@@ -6,6 +6,16 @@ $(function() {
     img.onload = function() {
       ctx.drawImage(img, 100,100);
     }
+  });
+  $("#addmoreprods").on("click", function () {
+    var tr = $(".prods").first().clone();
+    tr.find('input').val('');
+    $("#prods").append(tr);
+  });
+  $("#addmorevideos").on("click", function () {
+    var tr = $(".videos").first().clone();
+    tr.find('input').val('');
+    $("#videos").append(tr);
   });
   $("#tel").mask("999 999-9999");
   $("#tel2").mask("999 999-9999");
@@ -16,16 +26,6 @@ $(function() {
   $("a#inst").on('tap', function(event) {
     window.open('inst.html');
     event.stopPropagation();
-  });
-  $("#canvas").cropper({
-    aspectRatio: 16 / 9,
-    autoCropArea: 0.65,
-    strict: false,
-    guides: false,
-    highlight: false,
-    dragCrop: false,
-    cropBoxMovable: false,
-    cropBoxResizable: false
   });
   $("#submit").on("click", function() {
     $.ajax({
@@ -40,4 +40,4 @@ $(function() {
       }
     });
   });
-});
+})
