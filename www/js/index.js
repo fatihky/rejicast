@@ -25,10 +25,12 @@ function checkStatus() {
           if (duser.uid === 0) {
             $("#loginBtn").css("display","block");
             $("#logoutBtn").css("display","none");
+            $("a[href='applications.html']").css("display","none");
           } 
           else {
             $("#loginBtn").css("display","none");
             $("#logoutBtn").css("display","block");
+            $("a[href='applications.html']").css("display","block");
             $("#loginHolder").text(data.user.name);
           }
         }
