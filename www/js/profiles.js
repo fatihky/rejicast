@@ -17,8 +17,8 @@ $("#btn").on("click", function() {
         },
         success: function (data) {
             $("#contentHolder.profiles label").remove();
-            $("#contentHolder.profiles .ui-select").remove();
-            $("#contentHolder.profiles .ui-btn").remove();
+            $("#contentHolder.profiles select").remove();
+            $("#contentHolder.profiles #btn").remove();
             if (data.nodes.length === 0) {
                 $(".container").fadeOut(50);
                 $(".loader-container").hide();
@@ -54,3 +54,15 @@ $("#btn").on("click", function() {
         }
     });
 });
+document.addEventListener("deviceready", function() {
+    $(".singleProfileImage").on("click", function() {
+        console.log('Clicked');
+        $("#share").css("display","block");
+    });
+    $("#email").on("click", function() {
+        window.plugins.socialsharing.shareViaEmail('http://www.rejicast.com/node/'+nid);
+    });
+    $("#whatsapp").on("click", function() {
+        window.plugins.socialsharing.shareViaWhatsApp('http://www.rejicast.com/node/'+nid);
+    });
+})

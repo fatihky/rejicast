@@ -140,6 +140,24 @@
 }
 
 - (void)shareViaFacebookWithPasteMessageHint:(CDVInvokedUrlCommand*)command {
+  // If Fb app is installed a message is not prefilled.
+  // When shared through the default iOS widget (iOS Settings > Facebook) the message is prefilled already.
+  NSString *message = [command.arguments objectAtIndex:0];
+  if (message != (id)[NSNull null]) {
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 1000 * NSEC_PER_MSEC), dispatch_get_main_queue(), ^{
+      BOOL fbAppInstalled = [[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:@"fb://"]];
+      if (fbAppInstalled) {
+        UIPasteboard *pasteboard = [UIPasteboard generalPasteboard];
+        [pasteboard setValue:message forPasteboardType:@"public.text"];
+        NSString *hint = [command.arguments objectAtIndex:4];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:hint delegate:nil cancelButtonTitle:nil otherButtonTitles:nil];
+        [alert show];
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 2800 * NSEC_PER_MSEC), dispatch_get_main_queue(), ^{
+          [alert dismissWithClickedButtonIndex:-1 animated:YES];
+        });
+      }
+    });
+  }
   [self shareViaInternal:command type:SLServiceTypeFacebook];
 }
 
@@ -294,7 +312,7 @@
           fileName = @"attachment.";
           fileName = [fileName stringByAppendingString:(NSString*)[[mimeType componentsSeparatedByString: @"/"] lastObject]];
           NSString *base64content = (NSString*)[[basename componentsSeparatedByString: @","] lastObject];
-          data = [NSData dataFromBase64String:base64content];
+          data = [SocialSharing dataFromBase64String:base64content];
         } else {
           fileName = [basename pathComponents].lastObject;
           mimeType = [self getMimeTypeFromFileExtension:[basename pathExtension]];
@@ -346,7 +364,7 @@
            didFinishWithResult:(MFMailComposeResult)result
                          error:(NSError*)error {
   bool ok = result == MFMailComposeResultSent;
-  [self.viewController dismissViewControllerAnimated:YES completion:^{[self cycleTheGlobalMailComposer];}];
+  [self.globalMailComposer dismissViewControllerAnimated:YES completion:^{[self cycleTheGlobalMailComposer];}];
   CDVPluginResult * pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsBool:ok];
   [self.commandDelegate sendPluginResult:pluginResult callbackId:_command.callbackId];
 }
@@ -556,7 +574,7 @@
       NSString *fileType = (NSString*)[[[fileName substringFromIndex:5] componentsSeparatedByString: @";"] objectAtIndex:0];
       fileType = (NSString*)[[fileType componentsSeparatedByString: @"/"] lastObject];
       NSString *base64content = (NSString*)[[fileName componentsSeparatedByString: @","] lastObject];
-      NSData *fileData = [NSData dataFromBase64String:base64content];
+      NSData *fileData = [SocialSharing dataFromBase64String:base64content];
       file = [NSURL fileURLWithPath:[self storeInFile:[NSString stringWithFormat:@"%@.%@", @"file", fileType] fileData:fileData]];
     } else {
       // assume anywhere else, on the local filesystem
@@ -581,6 +599,12 @@
     NSError *error;
     [[NSFileManager defaultManager]removeItemAtPath:_tempStoredFile error:&error];
   }
+}
+
++ (NSData*) dataFromBase64String:(NSString*)aString {
+  size_t outputLength = 0;
+  void* outputBuffer = CDVNewBase64Decode([aString UTF8String], [aString length], &outputLength);
+  return [NSData dataWithBytesNoCopy:outputBuffer length:outputLength freeWhenDone:YES];
 }
 
 #pragma mark - UIPopoverControllerDelegate methods

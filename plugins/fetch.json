@@ -7,15 +7,6 @@
         "is_top_level": true,
         "variables": {}
     },
-    "nl.x-services.plugins.socialsharing": {
-        "source": {
-            "type": "git",
-            "url": "https://github.com/Telerik-Verified-Plugins/SocialSharing",
-            "subdir": "."
-        },
-        "is_top_level": true,
-        "variables": {}
-    },
     "phonegap-plugin-push": {
         "source": {
             "type": "git",
@@ -39,6 +30,14 @@
             "id": "org.chromium.common"
         },
         "is_top_level": false,
+        "variables": {}
+    },
+    "nl.x-services.plugins.socialsharing": {
+        "source": {
+            "type": "registry",
+            "id": "nl.x-services.plugins.socialsharing"
+        },
+        "is_top_level": true,
         "variables": {}
     }
 }
