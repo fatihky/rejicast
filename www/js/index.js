@@ -5,6 +5,7 @@ function deviceReady() {
   $("#navHolder #homeBtn").on("click", returnHome);
   $("#navHolder #notificationBtn").on("click", checkNotification);
   checkStatus();
+  share();
 }
 
 function checkStatus() {
@@ -110,3 +111,17 @@ function logout() {
   }
 }
 
+function share() {
+    $(".share").on("mousedown", function() {
+        console.log('Clicked the share div');
+        //ndow.plugins.socialsharing.shareViaEmail('http://www.rejicast.com/node/'+nid);
+    });
+    $("#shareViaEmail").on("click", function() {
+        console.log('Clicked the email icon');
+        window.plugins.socialsharing.shareViaEmail('http://www.rejicast.com/node/'+nid);
+    });
+    $("#shareViaWhatsApp").on("click", function() {
+        console.log('Clicked the whatsaap icon');
+        window.plugins.socialsharing.shareViaWhatsApp('http://www.rejicast.com/node/'+nid);
+    });
+}
