@@ -169,8 +169,8 @@ option {
 #loginHolder {
     font-size:0.9em;
 }
-#share {
-    display:none;
+#email {
+    float:left;
 }
 #whatsapp {
     float:right;
