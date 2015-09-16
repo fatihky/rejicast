@@ -1,10 +1,10 @@
-document.addEventListener("deviceready", function() {
+$(function() {
   $("#profilepicture").on("change", function(e) {
     var ctx = $("#canvas")[0].getContext('2d');
     var img = new Image;
     img.src = URL.createObjectURL(e.target.files[0]);
     img.onload = function() {
-      ctx.drawImage(img, 100,100);
+      ctx.drawImage(img,10,10,600,800);
     }
   });
   $("#addmoreprods").on("click", function () {
