@@ -21,199 +21,200 @@
                 </div>
             </div>
             <div id="contentHolder" class="apply">
-                <label for="profilepicture">Profil fotoğrafı</label>
-                <input type="file" id="profilepicture" required/>
-                <canvas width="400" height="300" id="canvas"></canvas>
-                <input type="text" id="name" placeholder="Adı & Soyadı" required/>
-                <input type="number" id="tckn" placeholder="TC Kimlik No" required/>
-                <select id="sgk" required>
-                    <option selected disabled style="display:none">- SGK durumu -</option>
-                    <option value="devam_ediyor">Devam ediyor</option>
-                    <option value="emekli">Emekli</option>
-                </select>
-                <input type="tel" id="tel" placeholder="Telefon" required/>
-                <input type="tel" id="tel2" placeholder="Telefon 2" required/>
-                <div class="description">Size ulaşamadığımız durumda ulaşabileceğimiz bir yakınınızın telefonunu yazınız.</div>
-                <input type="text" id="address" placeholder="Adres" required/>
-                <select id="city" required>
-                    <option selected disabled style="display:none;">- Yaşadığı şehir -</option>
-                    <option value="01">Adana</option>
-                    <option value="02">Adıyaman</option>
-                    <option value="03">Afyon</option>
-                    <option value="04">Ağrı</option>
-                    <option value="05">Amasya</option>
-                    <option value="06">Ankara</option>
-                    <option value="07">Antalya</option>
-                    <option value="08">Artvin</option>
-                    <option value="09">Aydın</option>
-                    <option value="10">Balıkesir</option>
-                    <option value="11">Bilecik</option>
-                    <option value="12">Bingöl</option>
-                    <option value="13">Bitlis</option>
-                    <option value="14">Bolu</option>
-                    <option value="15">Burdur</option>
-                    <option value="16">Bursa</option>
-                    <option value="17">Çanakkale</option>
-                    <option value="18">Çankırı</option>
-                    <option value="19">Çorum</option>
-                    <option value="20">Denizli</option>
-                    <option value="21">Diyarbakır</option>
-                    <option value="22">Edirne</option>
-                    <option value="23">Elazığ</option>
-                    <option value="24">Erzincan</option>
-                    <option value="25">Erzurum</option>
-                    <option value="26">Eskişehir</option>
-                    <option value="27">Gaziantep</option>
-                    <option value="28">Giresun</option>
-                    <option value="29">Gümüşhane</option>
-                    <option value="30">Hakkari</option>
-                    <option value="31">Hatay</option>
-                    <option value="32">Isparta</option>
-                    <option value="33">Mersin</option>
-                    <option value="34">İstanbul</option>
-                    <option value="35">İzmir</option>
-                    <option value="36">Kars</option>
-                    <option value="37">Kastamonu</option>
-                    <option value="38">Kayseri</option>
-                    <option value="39">Kırklareli</option>
-                    <option value="40">Kırşehir</option>
-                    <option value="41">Kocaeli</option>
-                    <option value="42">Konya</option>
-                    <option value="43">Kütahya</option>
-                    <option value="44">Malatya</option>
-                    <option value="45">Manisa</option>
-                    <option value="46">K.Maraş</option>
-                    <option value="47">Mardin</option>
-                    <option value="48">Muğla</option>
-                    <option value="49">Muş</option>
-                    <option value="50">Nevşehir</option>
-                    <option value="51">Niğde</option>
-                    <option value="52">Ordu</option>
-                    <option value="53">Rize</option>
-                    <option value="54">Sakarya</option>
-                    <option value="55">Samsun</option>
-                    <option value="56">Siirt</option>
-                    <option value="57">Sinop</option>
-                    <option value="58">Sivas</option>
-                    <option value="59">Tekirdağ</option>
-                    <option value="60">Tokat</option>
-                    <option value="61">Trabzon</option>
-                    <option value="62">Tunceli</option>
-                    <option value="63">Şanlıurfa</option>
-                    <option value="64">Uşak</option>
-                    <option value="65">Van</option>
-                    <option value="66">Yozgat</option>
-                    <option value="67">Zonguldak</option>
-                    <option value="68">Aksaray</option>
-                    <option value="69">Bayburt</option>
-                    <option value="70">Karaman</option>
-                    <option value="71">Kırıkkale</option>
-                    <option value="72">Batman</option>
-                    <option value="73">Şırnak</option>
-                    <option value="74">Bartın</option>
-                    <option value="75">Ardahan</option>
-                    <option value="76">Iğdır</option>
-                    <option value="77">Yalova</option>
-                    <option value="78">Karabük</option>
-                    <option value="79">Kilis</option>
-                    <option value="80">Osmaniye</option>
-                </select>
-                <input id="email" type="email" placeholder="E-posta" required/>
-                <select id="gender" required>
-                    <option selected disabled style="display:none;">- Cinsiyet -</option>
-                    <option value="bay">Bay</option>
-                    <option value="bayan">Bayan</option>
-                </select>
-                <fieldset>
-                    <legend>Kategorisi</legend>
-                    <input type="checkbox" id="oyuncu" name="kategori" value="oyuncu">Oyuncu<br>
-                    <input type="checkbox" id="cocuk_oyuncu" name="kategori" value="cocuk_oyuncu">Çocuk oyuncu<br>
-                    <input type="checkbox" id="yardimci_oyuncu" name="kategori" value="yardimci_oyuncu">Yardımcı oyuncu<br>
-                    <input type="checkbox" id="stand_hostesi" name="kategori" value="stand_hostesi">Stand hostesi<br>
-                    <input type="checkbox" id="yesilcam" name="kategori" value="yesilcam">Yeşilçam<br>
-                </fieldset>
-                <label for="dob">Doğum Tarihi</label>
-                <input type="date" id="dob" required/>
-                <select id="height" required>
-                    <option selected disabled style="display:none;">- Boy -</option>
-                    <option value="150">1.50 - 1.60</option>
-                    <option value="160">1.61 - 1.70</option>
-                    <option value="170">1.71 - 1.80</option>
-                    <option value="180">1.81 - 1.90</option>
-                    <option value="190">1.91 - 2.00</option>
-                    <option value="200">2.01 - 2.10</option>
-                </select>
-                <select id="weight" required>
-                    <option selected disabled style="display:none;">- Kilo -</option>
-                    <option value="45">40 - 50</option>
-                    <option value="55">51 - 60</option>
-                    <option value="65">61 - 70</option>
-                    <option value="75">71 - 80</option>
-                    <option value="85">81 - 90</option>
-                    <option value="95">91 - 100</option>
-                    <option value="105">101 - 110</option>
-                </select>
-                <select id="eyecolour" required class="chosen-processed">
-                    <option selected disabled style="display:none;">- Göz rengi -</option>
-                    <option value="akahve">Açık kahve</option>
-                    <option value="kkahve">Koyu kahve</option>
-                    <option value="siyah">Siyah</option>
-                    <option value="mavi">Mavi</option>
-                    <option value="yesil">Yeşil</option>
-                    <option value="ela">Ela</option>
-                    <option value="gri">Gri</option>
-                </select>
-                <select id="skincolour" required class="chosen-processed">
-                    <option selected disabled style="display:none;">- Ten rengi -</option>
-                    <option value="esmer">Esmer</option>
-                    <option value="beyaz">Beyaz</option>
-                    <option value="siyahi">Siyahi</option>
-                    <option value="bugday">Buğday</option>
-                </select>
-                <select id="shoesize" required class="chosen-processed">
-                    <option selected disabled style="display:none;">- Ayak no -</option>
-                    <option value="35">35</option>
-                    <option value="36">36</option>
-                    <option value="37">37</option>
-                    <option value="38">38</option>
-                    <option value="39">39</option>
-                    <option value="40">40</option>
-                    <option value="41">41</option>
-                    <option value="42">42</option>
-                    <option value="43">43</option>
-                    <option value="44">44</option>
-                    <option value="45">45</option>
-                    <option value="46">46</option>
-                    <option value="47">47</option>
-                    <option value="48">48</option>
-                    <option value="49">49</option>
-                    <option value="50">50</option>
-                </select>
-                <select id="education" required class="chosen-processed">
-                    <option selected disabled style="display:none;">- Eğitim düzeyi -</option>
-                    <option value="İlkokul">İlkokul</option>
-                    <option value="Ortaokul">Ortaokul</option>
-                    <option value="Lise">Lise</option>
-                    <option value="Önlisans">Önlisans</option>
-                    <option value="Lisans">Lisans</option>
-                    <option value="Yüksek_lisans">Yüksek lisans</option>
-                    <option value="Doktora">Doktora</option>
-                </select>
-                <textarea id="training" placeholder="Oyunculuk eğitimleri" rows="3"></textarea>
-                <div class="description">Virgül ile ayırabilirsiniz</div>
-                <input type="text" id="languages" placeholder="Diller" required/>
-                <div class="description">Virgül ile ayırabilirsiniz</div>
-                <input type="text" id="skills" placeholder="Beceriler"/>
-                <div class="description">Virgül ile ayırabilirsiniz</div>
-                <input type="text" id="personal" placeholder="Kişisel" required/>
-                <div class="description">Oyuncu hakkında biyografi niteliğinde bilgi</div>
-                <legend>Yeni bir fotoğraf ekleyin</legend>
-                <input type="file" id="images" required/>
-                <input type="button" id="upload" value="Yükle" required/>
-                <table id="prods">
+                <form id="basvuru_formu">
+                    <label for="profilepicture">Profil fotoğrafı</label>
+                    <input type="file" id="profilepicture" name="field_oyuncu_fotografi_value"/>
+                    <canvas width="400" height="300" id="canvas"></canvas>
+                    <input type="text" id="name" placeholder="Adı & Soyadı" required name="title"/>
+                    <input type="number" id="tckn" placeholder="TC Kimlik No" required name="field_tc_kimlik_no_value"/>
+                    <select id="sgk" required name="field_sgk_durumu_value">
+                        <option selected disabled style="display:none">- SGK durumu -</option>
+                        <option value="devam_ediyor">Devam ediyor</option>
+                        <option value="emekli">Emekli</option>
+                    </select>
+                    <input type="tel" id="tel" placeholder="Telefon" required name="field_telefon_value"/>
+                    <input type="tel" id="tel2" placeholder="Telefon 2" required name="field_telefon2_value"/>
+                    <div class="description">Size ulaşamadığımız durumda ulaşabileceğimiz bir yakınınızın telefonunu yazınız.</div>
+                    <input type="text" id="address" placeholder="Adres" required name="field_adres_value"/>
+                    <select id="city" required name="field_yasadigi_sehir_value">
+                        <option selected disabled style="display:none;">- Yaşadığı şehir -</option>
+                        <option value="01">Adana</option>
+                        <option value="02">Adıyaman</option>
+                        <option value="03">Afyon</option>
+                        <option value="04">Ağrı</option>
+                        <option value="05">Amasya</option>
+                        <option value="06">Ankara</option>
+                        <option value="07">Antalya</option>
+                        <option value="08">Artvin</option>
+                        <option value="09">Aydın</option>
+                        <option value="10">Balıkesir</option>
+                        <option value="11">Bilecik</option>
+                        <option value="12">Bingöl</option>
+                        <option value="13">Bitlis</option>
+                        <option value="14">Bolu</option>
+                        <option value="15">Burdur</option>
+                        <option value="16">Bursa</option>
+                        <option value="17">Çanakkale</option>
+                        <option value="18">Çankırı</option>
+                        <option value="19">Çorum</option>
+                        <option value="20">Denizli</option>
+                        <option value="21">Diyarbakır</option>
+                        <option value="22">Edirne</option>
+                        <option value="23">Elazığ</option>
+                        <option value="24">Erzincan</option>
+                        <option value="25">Erzurum</option>
+                        <option value="26">Eskişehir</option>
+                        <option value="27">Gaziantep</option>
+                        <option value="28">Giresun</option>
+                        <option value="29">Gümüşhane</option>
+                        <option value="30">Hakkari</option>
+                        <option value="31">Hatay</option>
+                        <option value="32">Isparta</option>
+                        <option value="33">Mersin</option>
+                        <option value="34">İstanbul</option>
+                        <option value="35">İzmir</option>
+                        <option value="36">Kars</option>
+                        <option value="37">Kastamonu</option>
+                        <option value="38">Kayseri</option>
+                        <option value="39">Kırklareli</option>
+                        <option value="40">Kırşehir</option>
+                        <option value="41">Kocaeli</option>
+                        <option value="42">Konya</option>
+                        <option value="43">Kütahya</option>
+                        <option value="44">Malatya</option>
+                        <option value="45">Manisa</option>
+                        <option value="46">K.Maraş</option>
+                        <option value="47">Mardin</option>
+                        <option value="48">Muğla</option>
+                        <option value="49">Muş</option>
+                        <option value="50">Nevşehir</option>
+                        <option value="51">Niğde</option>
+                        <option value="52">Ordu</option>
+                        <option value="53">Rize</option>
+                        <option value="54">Sakarya</option>
+                        <option value="55">Samsun</option>
+                        <option value="56">Siirt</option>
+                        <option value="57">Sinop</option>
+                        <option value="58">Sivas</option>
+                        <option value="59">Tekirdağ</option>
+                        <option value="60">Tokat</option>
+                        <option value="61">Trabzon</option>
+                        <option value="62">Tunceli</option>
+                        <option value="63">Şanlıurfa</option>
+                        <option value="64">Uşak</option>
+                        <option value="65">Van</option>
+                        <option value="66">Yozgat</option>
+                        <option value="67">Zonguldak</option>
+                        <option value="68">Aksaray</option>
+                        <option value="69">Bayburt</option>
+                        <option value="70">Karaman</option>
+                        <option value="71">Kırıkkale</option>
+                        <option value="72">Batman</option>
+                        <option value="73">Şırnak</option>
+                        <option value="74">Bartın</option>
+                        <option value="75">Ardahan</option>
+                        <option value="76">Iğdır</option>
+                        <option value="77">Yalova</option>
+                        <option value="78">Karabük</option>
+                        <option value="79">Kilis</option>
+                        <option value="80">Osmaniye</option>
+                    </select>
+                    <input id="email" type="email" placeholder="E-posta" required name="field_e_posta_value"/>
+                    <select id="gender" required name="field_cinsiyet_value">
+                        <option selected disabled style="display:none;">- Cinsiyet -</option>
+                        <option value="bay">Bay</option>
+                        <option value="bayan">Bayan</option>
+                    </select>
+                    <fieldset>
+                        <legend>Kategorisi</legend>
+                        <input type="checkbox" id="oyuncu" name="field_kategorisi_value" value="oyuncu">Oyuncu<br>
+                        <input type="checkbox" id="cocuk_oyuncu" name="field_kategorisi_value" value="cocuk_oyuncu">Çocuk oyuncu<br>
+                        <input type="checkbox" id="yardimci_oyuncu" name="field_kategorisi_value" value="yardimci_oyuncu">Yardımcı oyuncu<br>
+                        <input type="checkbox" id="stand_hostesi" name="field_kategorisi_value" value="stand_hostesi">Stand hostesi<br>
+                        <input type="checkbox" id="yesilcam" name="field_kategorisi_value" value="yesilcam">Yeşilçam<br>
+                    </fieldset>
+                    <label for="dob">Doğum Tarihi</label>
+                    <input type="date" id="dob" required name="field_dogum_tarihi_value"/>
+                    <select id="height" required name="field_boy_value">
+                        <option selected disabled style="display:none;">- Boy -</option>
+                        <option value="150">1.50 - 1.60</option>
+                        <option value="160">1.61 - 1.70</option>
+                        <option value="170">1.71 - 1.80</option>
+                        <option value="180">1.81 - 1.90</option>
+                        <option value="190">1.91 - 2.00</option>
+                        <option value="200">2.01 - 2.10</option>
+                    </select>
+                    <select id="weight" required name="field_kilo_value">
+                        <option selected disabled style="display:none;">- Kilo -</option>
+                        <option value="45">40 - 50</option>
+                        <option value="55">51 - 60</option>
+                        <option value="65">61 - 70</option>
+                        <option value="75">71 - 80</option>
+                        <option value="85">81 - 90</option>
+                        <option value="95">91 - 100</option>
+                        <option value="105">101 - 110</option>
+                    </select>
+                    <select id="eyecolour" required name="field_goz_rengi_value" class="chosen-processed">
+                        <option selected disabled style="display:none;">- Göz rengi -</option>
+                        <option value="akahve">Açık kahve</option>
+                        <option value="kkahve">Koyu kahve</option>
+                        <option value="siyah">Siyah</option>
+                        <option value="mavi">Mavi</option>
+                        <option value="yesil">Yeşil</option>
+                        <option value="ela">Ela</option>
+                        <option value="gri">Gri</option>
+                    </select>
+                    <select id="skincolour" required name="field_ten_rengi_value" class="chosen-processed">
+                        <option selected disabled style="display:none;">- Ten rengi -</option>
+                        <option value="esmer">Esmer</option>
+                        <option value="beyaz">Beyaz</option>
+                        <option value="siyahi">Siyahi</option>
+                        <option value="bugday">Buğday</option>
+                    </select>
+                    <select id="shoesize" required name="field_ayak_no_value" class="chosen-processed">
+                        <option selected disabled style="display:none;">- Ayak no -</option>
+                        <option value="35">35</option>
+                        <option value="36">36</option>
+                        <option value="37">37</option>
+                        <option value="38">38</option>
+                        <option value="39">39</option>
+                        <option value="40">40</option>
+                        <option value="41">41</option>
+                        <option value="42">42</option>
+                        <option value="43">43</option>
+                        <option value="44">44</option>
+                        <option value="45">45</option>
+                        <option value="46">46</option>
+                        <option value="47">47</option>
+                        <option value="48">48</option>
+                        <option value="49">49</option>
+                        <option value="50">50</option>
+                    </select>
+                    <select id="education" required name="field_egitim_duzeyi_value" class="chosen-processed">
+                        <option selected disabled style="display:none;">- Eğitim düzeyi -</option>
+                        <option value="İlkokul">İlkokul</option>
+                        <option value="Ortaokul">Ortaokul</option>
+                        <option value="Lise">Lise</option>
+                        <option value="Önlisans">Önlisans</option>
+                        <option value="Lisans">Lisans</option>
+                        <option value="Yüksek_lisans">Yüksek lisans</option>
+                        <option value="Doktora">Doktora</option>
+                    </select>
+                    <textarea id="training" placeholder="Oyunculuk eğitimleri" rows="3" name="field_oyunculuk_egitimleri_value"></textarea>
+                    <div class="description">Virgül ile ayırabilirsiniz</div>
+                    <input type="text" id="languages" placeholder="Diller" required name="field_diller_value"/>
+                    <div class="description">Virgül ile ayırabilirsiniz</div>
+                    <input type="text" id="skills" placeholder="Beceriler"/>
+                    <div class="description">Virgül ile ayırabilirsiniz</div>
+                    <input type="text" id="personal" placeholder="Kişisel" required name="field_kisisel_value"/>
+                    <div class="description">Oyuncu hakkında biyografi niteliğinde bilgi</div>
+                    <legend>Yeni bir fotoğraf ekleyin</legend>
+                    <input type="file" id="images" />
+                    <input type="button" id="upload" value="Yükle" required/>
+                    <!--<table id="prods">
                     <tr class="prods">
                         <td>
-                            <input type="text" class="title" name="field_diskografi[und][0][value]" placeholder="Yapım adı">
+                            <input type="text" class="title" name="field_diskografi_value" placeholder="Yapım adı">
                         </td>
                         <td>
                             <select id="prodtype" name="field_diskografi[und][0][value]">
@@ -287,24 +288,25 @@
                         </td>
                     </tr>
                 </table>
-                <button id="addmoreprods">Başka bir öğe ekle</button>
-                <label>Yer Aldığı Yapımlar</label>
-                <label for="videos">Videolar</label>
-                <table id="videos">
-                    <tr class="videos">
-                        <td>
-                            <fieldset>
-                                <input type="text" class="videolink" placeholder="Video linki (Youtube, Vimeo)"/>
-                                <input type="text" class="videodesc" placeholder="Açıklama"/>
-                                <div class="description">Açıklama alanı aynı zamanda başlık olarak kullanılacaktır.</div>
-                                <button id="addmorevideos">Başka bir öğe ekle</button>
-                            </fieldset>
-                        </td>
-                    </tr>
-                </table>
-                <input type="checkbox" id="privacy" value="0">
-                <label for="privacy">Sayın üyemiz, başvuru formunda yer alan bilgiler, üçüncü şahıslar tarafından görüntülenmeyecektir. Lütfen <a href="inst.html" data-transition="pop" id="inst">başvuru talimatını</a> okuyunuz.</label>
-                <a id="submit" data-role="button" class="hidden">Kaydol</a>
+                <button id="addmoreprods">Başka bir öğe ekle</button>-->
+                    <label>Yer Aldığı Yapımlar</label>
+                    <label for="videos">Videolar</label>
+                    <table id="videos">
+                        <tr class="videos">
+                            <td>
+                                <fieldset>
+                                    <input type="text" class="videolink" placeholder="Video linki (Youtube, Vimeo)"/>
+                                    <input type="text" class="videodesc" placeholder="Açıklama"/>
+                                    <div class="description">Açıklama alanı aynı zamanda başlık olarak kullanılacaktır.</div>
+                                    <button id="addmorevideos">Başka bir öğe ekle</button>
+                                </fieldset>
+                            </td>
+                        </tr>
+                    </table>
+                    <input type="checkbox" id="privacy" value="0">
+                    <label for="privacy">Sayın üyemiz, başvuru formunda yer alan bilgiler, üçüncü şahıslar tarafından görüntülenmeyecektir. Lütfen <a href="inst.html" data-transition="pop" id="inst">başvuru talimatını</a> okuyunuz.</label>
+                    <a id="submit" data-role="button" class="hidden">Kaydol</a>
+                </form>
             </div>
             <div id="navHolder">
                 <div id="homeHolder">
