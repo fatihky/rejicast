@@ -178,6 +178,9 @@ option {
 a[href="applications.html"] {
     display:none;
 }
+#picture,#canvas {
+    display:none;
+}
 .loader-container {
     position:fixed;
     top:40%;

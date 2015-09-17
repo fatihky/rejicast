@@ -24,7 +24,10 @@
                 <form id="basvuru_formu">
                     <label for="profilepicture">Profil fotoğrafı</label>
                     <input type="file" id="profilepicture" name="field_oyuncu_fotografi_value"/>
-                    <canvas width="400" height="300" id="canvas"></canvas>
+                    <div id="image">
+                        <img id="picture"/>
+                        <canvas width="400" height="300" id="canvas"></canvas>
+                    </div>
                     <input type="text" id="name" placeholder="Adı & Soyadı" required name="title"/>
                     <input type="number" id="tckn" placeholder="TC Kimlik No" required name="field_tc_kimlik_no_value"/>
                     <select id="sgk" required name="field_sgk_durumu_value">
@@ -327,5 +330,6 @@
     <script type="text/javascript" src="js/jquery.maskedinput.js"></script>
     <script type="text/javascript" src="js/chosen.jquery.min.js"></script>
     <script type="text/javascript" src="js/apply.js"></script>
+    <script type="text/javascript" src="js/cropper/dist/cropper.js"></script>
 </body>
 </html>
