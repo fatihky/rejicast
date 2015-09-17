@@ -77,7 +77,7 @@ function checkNotification() {
 }
 
 function logout() {
-  if (confirm("Çıkış yapmak istiyor musunuz?")) {
+  navigator.notification.confirm("Çıkış yapmak istiyor musunuz?", function() {
     $(".loader-container > p").text("Çıkış yapılıyor, lütfen bekleyin");
     $(".loader-container").show();
     setTimeout(function() {
@@ -108,7 +108,7 @@ function logout() {
         })
       }
     });
-  }
+  }, 'Onay', ['Evet', 'Hayır']);
 }
 
 function share() {
