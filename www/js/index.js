@@ -1,12 +1,20 @@
-document.addEventListener("deviceready", deviceReady);
+/*
 document.addEventListener("resume", resume);
+*/
+document.addEventListener("deviceready", function() {
+  $("#shareViaEmail #email").on("click", function() {
+    console.log('Clicked the email icon');
+    window.plugins.socialsharing.shareViaEmail('http://www.rejicast.com/node/'+nid);
+  });
+  $("#shareViaWhatsApp #whatsapp").on("click", function() {
+    console.log('Clicked the whatsaap icon');
+    window.plugins.socialsharing.shareViaWhatsApp('http://www.rejicast.com/node/'+nid);
+  });
+});
 
-function deviceReady() {
-  $("#navHolder #homeBtn").on("click", returnHome);
-  $("#navHolder #notificationBtn").on("click", checkNotification);
-  checkStatus();
-  share();
-}
+$("#navHolder #homeBtn").on("click", returnHome);
+$("#navHolder #notificationBtn").on("click", checkNotification);
+checkStatus();
 
 function checkStatus() {
   $.ajax({
@@ -57,11 +65,17 @@ function resume() {
 }
 
 function returnHome() {
+  window.location.href = "index.html";
+  /*
   $.mobile.changePage("index.html", "slide");
+  */
 }
 
 function checkNotification() {
+  window.location.href = "notifications.html";
+  /*
   $.mobile.changePage("notifications.html", "slide");
+  */
   $.ajax({
     url: 'http://www.rejicast.com/genel-duyurular.json',
     type: 'get',
@@ -114,19 +128,4 @@ function logout() {
       });
     }
   }, 'Onay', ['Evet', 'Hayır']);
-}
-
-function share() {
-    $(".share").on("mousedown", function() {
-        console.log('Clicked the share div');
-        //ndow.plugins.socialsharing.shareViaEmail('http://www.rejicast.com/node/'+nid);
-    });
-    $("#shareViaEmail").on("click", function() {
-        console.log('Clicked the email icon');
-        window.plugins.socialsharing.shareViaEmail('http://www.rejicast.com/node/'+nid);
-    });
-    $("#shareViaWhatsApp").on("click", function() {
-        console.log('Clicked the whatsaap icon');
-        window.plugins.socialsharing.shareViaWhatsApp('http://www.rejicast.com/node/'+nid);
-    });
 }

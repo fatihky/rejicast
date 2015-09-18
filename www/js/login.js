@@ -1,15 +1,14 @@
 $('#login').on('click', function () {
-    console.log("login.js is "+window.location.pathname);
     $(".loader-container > p").text("Giriş yapılıyor");
     $(".loader-container").show();
     var name = $('#username').val();
     if (!name) {
-        alert("Lütfen kullanıcı adınızı girin.");
+        navigator.notification.alert("Lütfen kullanıcı adınızı girin.");
         return false;
     }
     var pass = $('#password').val();
     if (!pass) {
-        alert("Lütfen şifrenizi girin.");
+        navigator.notification.alert("Lütfen şifrenizi girin.");
         return false;
     }
     $.ajax({
@@ -27,7 +26,7 @@ $('#login').on('click', function () {
                 },
                 statusCode: {
                     401: function() {
-                        alert("Kullanıcı adı ya da şifreniz yanlış");
+                        navigator.notification.alert("Kullanıcı adı ya da şifreniz yanlış");
                     }
                 },
                 success: function (data) {
@@ -36,12 +35,14 @@ $('#login').on('click', function () {
                     setTimeout(function() {
                         $(".loader-container").fadeOut(500);
                     }, 1000);
-                    $(".loader-container > p").text("Hoşgeldin "+data.user.name);
-                    checkNunmberofNot();
+                    checkNumberofNot();
                     $("#loginBtn").css("display","none");
                     $("#logoutBtn").css("display","block");
                     $("#loginHolder").text(data.user.name);
+                    window.location.href = "index.html";
+                    /*
                     $.mobile.changePage("index.html", {reloadPage:true},{allowSamePageTransition:true},{transition:'slide'});
+                    */
                     checkStatus();
                 }
             });

@@ -1,7 +1,7 @@
 $(function() {
   $("#lostpassbtn").on("click", function(){
     if (!$("#lostpass").val()) {
-      alert("Lütfen kullanıcı adınızı giriniz")
+      navigator.notification.alert("Lütfen kullanıcı adınızı girin.");
     } else {
       $.ajax({
         url: "http://www.rejicast.com/services/user/request_new_password.json",
@@ -11,8 +11,11 @@ $(function() {
           name: encodeURIComponent($("#lostpass").val())
         },
         success: function() {
-          alert("Şifre sıfırlama talimatları kayıtlı e-posta adresinize gönderildi, lütfen kontrol ediniz.");
+          navigator.notification.alert("Şifre sıfırlama talimatları kayıtlı e-posta adresinize gönderildi, lütfen kontrol ediniz.");
+          window.location.href = "index.html";
+          /*
           $.mobile.changePage("login.html", "slide");
+          */
         },
       })
     }
