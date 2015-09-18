@@ -1,6 +1,3 @@
-/*
-document.addEventListener("resume", resume);
-*/
 document.addEventListener("deviceready", function() {
   $("#shareViaEmail #email").on("click", function() {
     console.log('Clicked the email icon');
@@ -10,11 +7,16 @@ document.addEventListener("deviceready", function() {
     console.log('Clicked the whatsaap icon');
     window.plugins.socialsharing.shareViaWhatsApp('http://www.rejicast.com/node/'+nid);
   });
+  checkStatus();
 });
 
-$("#navHolder #homeBtn").on("click", returnHome);
-$("#navHolder #notificationBtn").on("click", checkNotification);
-checkStatus();
+$("#navHolder #homeBtn").on("click", function() {
+  window.location.href = "index.html";
+});
+$("#navHolder #notificationBtn").on("click", function() {
+  window.location.href = "notifications.html";
+});
+//checkStatus();
 
 function checkStatus() {
   $.ajax({
@@ -59,40 +61,6 @@ function checkNumberofNot() {
   });
 }
 
-function resume() {
-  $("#navHolder #homeBtn").on("click", returnHome);
-  $("#navHolder #notificationBtn").on("click", checkNotification);
-}
-
-function returnHome() {
-  window.location.href = "index.html";
-  /*
-  $.mobile.changePage("index.html", "slide");
-  */
-}
-
-function checkNotification() {
-  window.location.href = "notifications.html";
-  /*
-  $.mobile.changePage("notifications.html", "slide");
-  */
-  $.ajax({
-    url: 'http://www.rejicast.com/genel-duyurular.json',
-    type: 'get',
-    dataType: 'json',
-    success: function (data) {
-      console.log(JSON.stringify(data));
-      $.each(data.nodes, function (key,value) {
-        var announcement = $('<div class="generalNotification  ' + value.node.field_ozel_duyuru +' '+ value.node.field_kime +'"><h3>' + value.node.title + '</h3><p>' + value.node.field_icerik + '</div>');
-        $('#contentHolder.notifications').append(announcement);
-      });
-    }
-  });
-}
-
-function confirmLogout() {
-
-}
 function logout() {
   navigator.notification.confirm("Çıkış yapmak istiyor musunuz?", function(buttonIndex) {
     if (buttonIndex === 1) {
