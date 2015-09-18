@@ -76,38 +76,43 @@ function checkNotification() {
   });
 }
 
+function confirmLogout() {
+
+}
 function logout() {
-  navigator.notification.confirm("Çıkış yapmak istiyor musunuz?", function() {
-    $(".loader-container > p").text("Çıkış yapılıyor, lütfen bekleyin");
-    $(".loader-container").show();
-    setTimeout(function() {
-      $(".loader-container").fadeOut(500);
-    }, 1000);
-    $.ajax({
-      url: 'http://www.rejicast.com/services/user/token.json',
-      type: 'post',
-      dataType: 'json',
-      success: function(token) {
-        $.ajax({
-          url: 'http://www.rejicast.com/services/user/logout.json',
-          type: 'post',
-          dataType: 'json',
-          beforeSend: function(r) {
-            r.setRequestHeader("X-CSRF-Token", token.token)
-          },
-          success: function() {
-            $(".loader-container > p").text("Başarıyla çıkış yapıldı");
-            $(".loader-container").show();
-            setTimeout(function() {
-              $(".loader-container").fadeOut(500);
-            }, 1000);
-            $("#loginBtn").css("display","block");
-            $("#logoutBtn").css("display","none");
-            $("#loginHolder").text("");
-          }
-        })
-      }
-    });
+  navigator.notification.confirm("Çıkış yapmak istiyor musunuz?", function(buttonIndex) {
+    if (buttonIndex === 1) {
+      $(".loader-container > p").text("Çıkış yapılıyor, lütfen bekleyin");
+      $(".loader-container").show();
+      setTimeout(function() {
+        $(".loader-container").fadeOut(500);
+      }, 1000);
+      $.ajax({
+        url: 'http://www.rejicast.com/services/user/token.json',
+        type: 'post',
+        dataType: 'json',
+        success: function(token) {
+          $.ajax({
+            url: 'http://www.rejicast.com/services/user/logout.json',
+            type: 'post',
+            dataType: 'json',
+            beforeSend: function(r) {
+              r.setRequestHeader("X-CSRF-Token", token.token)
+            },
+            success: function() {
+              $(".loader-container > p").text("Başarıyla çıkış yapıldı");
+              $(".loader-container").show();
+              setTimeout(function() {
+                $(".loader-container").fadeOut(500);
+              }, 1000);
+              $("#loginBtn").css("display","block");
+              $("#logoutBtn").css("display","none");
+              $("#loginHolder").text("");
+            }
+          })
+        }
+      });
+    }
   }, 'Onay', ['Evet', 'Hayır']);
 }
 
