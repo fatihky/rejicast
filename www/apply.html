@@ -28,18 +28,18 @@
                         <img id="picture"/>
                         <canvas width="400" height="300" id="canvas"></canvas>
                     </div>
-                    <input type="text" id="name" placeholder="Adı & Soyadı" required name="title"/>
-                    <input type="number" id="tckn" placeholder="TC Kimlik No" required name="field_tc_kimlik_no_value"/>
-                    <select id="sgk" required name="field_sgk_durumu_value">
+                    <input type="text" id="name" placeholder="Adı & Soyadı" name="title"/>
+                    <input type="number" id="tckn" placeholder="TC Kimlik No" name="field_tc_kimlik_no_value"/>
+                    <select id="sgk" name="field_sgk_durumu_value">
                         <option selected disabled style="display:none">- SGK durumu -</option>
                         <option value="devam_ediyor">Devam ediyor</option>
                         <option value="emekli">Emekli</option>
                     </select>
-                    <input type="tel" id="tel" placeholder="Telefon" required name="field_telefon_value"/>
-                    <input type="tel" id="tel2" placeholder="Telefon 2" required name="field_telefon2_value"/>
+                    <input type="tel" id="tel" placeholder="Telefon" name="field_telefon_value"/>
+                    <input type="tel" id="tel2" placeholder="Telefon 2" name="field_telefon2_value"/>
                     <div class="description">Size ulaşamadığımız durumda ulaşabileceğimiz bir yakınınızın telefonunu yazınız.</div>
-                    <input type="text" id="address" placeholder="Adres" required name="field_adres_value"/>
-                    <select id="city" required name="field_yasadigi_sehir_value">
+                    <input type="text" id="address" placeholder="Adres" name="field_adres_value"/>
+                    <select id="city" name="field_yasadigi_sehir_value">
                         <option selected disabled style="display:none;">- Yaşadığı şehir -</option>
                         <option value="01">Adana</option>
                         <option value="02">Adıyaman</option>
@@ -122,8 +122,8 @@
                         <option value="79">Kilis</option>
                         <option value="80">Osmaniye</option>
                     </select>
-                    <input id="email" type="email" placeholder="E-posta" required name="field_e_posta_value"/>
-                    <select id="gender" required name="field_cinsiyet_value">
+                    <input id="email" type="email" placeholder="E-posta" name="field_e_posta_value"/>
+                    <select id="gender" name="field_cinsiyet_value">
                         <option selected disabled style="display:none;">- Cinsiyet -</option>
                         <option value="bay">Bay</option>
                         <option value="bayan">Bayan</option>
@@ -137,8 +137,8 @@
                         <input type="checkbox" id="yesilcam" name="field_kategorisi_value" value="yesilcam">Yeşilçam<br>
                     </fieldset>
                     <label for="dob">Doğum Tarihi</label>
-                    <input type="date" id="dob" required name="field_dogum_tarihi_value"/>
-                    <select id="height" required name="field_boy_value">
+                    <input type="date" id="dob" name="field_dogum_tarihi_value"/>
+                    <select id="height" name="field_boy_value">
                         <option selected disabled style="display:none;">- Boy -</option>
                         <option value="150">1.50 - 1.60</option>
                         <option value="160">1.61 - 1.70</option>
@@ -147,7 +147,7 @@
                         <option value="190">1.91 - 2.00</option>
                         <option value="200">2.01 - 2.10</option>
                     </select>
-                    <select id="weight" required name="field_kilo_value">
+                    <select id="weight" name="field_kilo_value">
                         <option selected disabled style="display:none;">- Kilo -</option>
                         <option value="45">40 - 50</option>
                         <option value="55">51 - 60</option>
@@ -157,7 +157,7 @@
                         <option value="95">91 - 100</option>
                         <option value="105">101 - 110</option>
                     </select>
-                    <select id="eyecolour" required name="field_goz_rengi_value" class="chosen-processed">
+                    <select id="eyecolour" name="field_goz_rengi_value" class="chosen-processed">
                         <option selected disabled style="display:none;">- Göz rengi -</option>
                         <option value="akahve">Açık kahve</option>
                         <option value="kkahve">Koyu kahve</option>
@@ -167,14 +167,14 @@
                         <option value="ela">Ela</option>
                         <option value="gri">Gri</option>
                     </select>
-                    <select id="skincolour" required name="field_ten_rengi_value" class="chosen-processed">
+                    <select id="skincolour" name="field_ten_rengi_value" class="chosen-processed">
                         <option selected disabled style="display:none;">- Ten rengi -</option>
                         <option value="esmer">Esmer</option>
                         <option value="beyaz">Beyaz</option>
                         <option value="siyahi">Siyahi</option>
                         <option value="bugday">Buğday</option>
                     </select>
-                    <select id="shoesize" required name="field_ayak_no_value" class="chosen-processed">
+                    <select id="shoesize" name="field_ayak_no_value" class="chosen-processed">
                         <option selected disabled style="display:none;">- Ayak no -</option>
                         <option value="35">35</option>
                         <option value="36">36</option>
@@ -193,7 +193,7 @@
                         <option value="49">49</option>
                         <option value="50">50</option>
                     </select>
-                    <select id="education" required name="field_egitim_duzeyi_value" class="chosen-processed">
+                    <select id="education" name="field_egitim_duzeyi_value" class="chosen-processed">
                         <option selected disabled style="display:none;">- Eğitim düzeyi -</option>
                         <option value="İlkokul">İlkokul</option>
                         <option value="Ortaokul">Ortaokul</option>
@@ -205,15 +205,15 @@
                     </select>
                     <textarea id="training" placeholder="Oyunculuk eğitimleri" rows="3" name="field_oyunculuk_egitimleri_value"></textarea>
                     <div class="description">Virgül ile ayırabilirsiniz</div>
-                    <input type="text" id="languages" placeholder="Diller" required name="field_diller_value"/>
+                    <input type="text" id="languages" placeholder="Diller" name="field_diller_value"/>
                     <div class="description">Virgül ile ayırabilirsiniz</div>
                     <input type="text" id="skills" placeholder="Beceriler"/>
                     <div class="description">Virgül ile ayırabilirsiniz</div>
-                    <input type="text" id="personal" placeholder="Kişisel" required name="field_kisisel_value"/>
+                    <input type="text" id="personal" placeholder="Kişisel" name="field_kisisel_value"/>
                     <div class="description">Oyuncu hakkında biyografi niteliğinde bilgi</div>
                     <legend>Yeni bir fotoğraf ekleyin</legend>
                     <input type="file" id="images" />
-                    <input type="button" id="upload" value="Yükle" required/>
+                    <input type="button" id="upload" value="Yükle"/>
                     <!--<table id="prods">
                     <tr class="prods">
                         <td>
