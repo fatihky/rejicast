@@ -19,6 +19,8 @@ $("#navHolder #notificationBtn").on("click", function() {
 //checkStatus();
 
 function checkStatus() {
+  $(".loader-container > p").text("Başlangıç kontrolleri yapılıyor, lütfen bekleyin");
+  $(".loader-container").show();
   $.ajax({
     url: 'http://www.rejicast.com/services/user/token.json',
     type: 'post',
@@ -32,6 +34,7 @@ function checkStatus() {
           r.setRequestHeader("X-CSRF-Token", token.token)
         },
         success: function(data) {
+          $(".loader-container").fadeOut(500);
           var duser = data.user;
           if (duser.uid === 0) {
             $("#loginBtn").css("display","block");
