@@ -92,6 +92,7 @@ function logout() {
               }, 1000);
               $("#loginBtn").css("display","block");
               $("#logoutBtn").css("display","none");
+              $("a[href='applications.html']").css("display","none");
               $("#loginHolder").text("");
             }
           })
