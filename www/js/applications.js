@@ -53,6 +53,14 @@ $.ajax({
                                         });
                                     }
                                     $("#contentHolder.applications").append(share);
+                                    $("#shareViaEmail").on("click", function() {
+                                        console.log('Clicked the email icon');
+                                        window.plugins.socialsharing.shareViaEmail('http://www.rejicast.com/node/'+nid);
+                                    });
+                                    $("#shareViaWhatsApp").on("click", function() {
+                                        console.log('Clicked the whatsaap icon');
+                                        window.plugins.socialsharing.shareViaWhatsApp('http://www.rejicast.com/node/'+nid);
+                                    });
                                 },
                             });
                         });
