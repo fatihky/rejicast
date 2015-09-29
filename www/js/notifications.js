@@ -1,3 +1,5 @@
+$(".loader-container > p").text("Duyurular alınıyor, lütfen bekleyin.")
+$(".loader-container").show();
 $.ajax({
     url: 'http://www.rejicast.com/services/user/token.json',
     type: 'post',
@@ -17,6 +19,7 @@ $.ajax({
                     type: 'get',
                     dataType: 'json',
                     success: function (data) {
+                        $(".loader-container").fadeOut(500);
                         $.each(data.nodes, function (key,value) {
                             var announcement = $('<div class="generalNotification ' + value.node.field_ozel_duyuru +' '+ value.node.field_kime +'"><h3>' + value.node.title + '</h3><p>' + value.node.field_icerik + '</div>');
                             $('#contentHolder.notifications').append(announcement);
