@@ -53,6 +53,10 @@ $("#btn").on("click", function() {
                                 $("#contentHolder.profiles").append('<img class="singleProfileOtherPics" src="' + this.src + '"/>');
                             });
                         }
+                        $.each(data.nodes[0].node.field_videolar.split(" "),function(k,v) {
+                            console.log(v+"/"+v.split("=")[1]);
+                            //$("#contentHolder.profiles").append('<a href='+v+'>');
+                        });
                         $("#contentHolder.profiles").append(share);
                         $("#shareViaEmail").on("click", function() {
                             console.log('Clicked the email icon');

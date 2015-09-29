@@ -52,6 +52,9 @@ $.ajax({
                                             $("#contentHolder.profiles").append('<img class="singleProfileOtherPics" src="' + this.src + '"/>');
                                         });
                                     }
+                                    $.each(data.nodes[0].node.field_videolar.split(" "),function(k,v) {
+                                        $("#contentHolder.applications").append('<a href='+v+'>');
+                                    });
                                     $("#contentHolder.applications").append(share);
                                     $("#shareViaEmail").on("click", function() {
                                         console.log('Clicked the email icon');
