@@ -3,17 +3,39 @@ document.addEventListener("deviceready", function() {
     console.log("Clicked");
     navigator.camera.getPicture(onSuccess, onFail, {
       quality:50,
+      allowEdit:true,
+      targetWidth:200,
+      targetHeight:200,
       destinationType:Camera.DestinationType.DATA_URL,
-      sourceType:Camera.PictureSourceType.PHOTOLIBRARY
+      sourceType:Camera.PictureSourceType.PHOTOLIBRARY,
+      correctOrientation:true
     });
   });
 });
-function onSuccess() {
-  return;
+function onSuccess(imageData) {
+  var image = $("img#image");
+  image.attr("src", "data:image/jpeg;base64," + imageData);
 }
 function onFail() {
-  navigator.notification.alert("Bir hata oluştu", function(){return;}, "Hata", "Tamam");
+  setTimeout(function() { //iOS quirk for camera plugin
+    navigator.notification.alert("Bir hata oluştu", function(){return;}, "Hata", "Tamam");
+  }, 0);
 }
+$(function() {
+  $('#profilepicture #image').cropper();
+});
+$('#profilepicture #image').cropper({
+  aspectRatio: 16 / 9,
+  crop: function(e) {
+    console.log(e.x);
+    console.log(e.y);
+    console.log(e.width);
+    console.log(e.height);
+    console.log(e.rotate);
+    console.log(e.scaleX);
+    console.log(e.scaleY);
+  }
+});
 $("#addmoreprods").on("click", function () {
   var tr = $(".prods").first().clone();
   tr.find('input').val('');
