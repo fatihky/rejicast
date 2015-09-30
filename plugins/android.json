@@ -9,6 +9,10 @@
                 "parents": {
                     "/*": [
                         {
+                            "xml": "<feature name=\"Camera\"><param name=\"android-package\" value=\"org.apache.cordova.camera.CameraLauncher\" /></feature>",
+                            "count": 1
+                        },
+                        {
                             "xml": "<feature name=\"Whitelist\"><param name=\"android-package\" value=\"org.apache.cordova.whitelist.WhitelistPlugin\" /><param name=\"onload\" value=\"true\" /></feature>",
                             "count": 1
                         },
@@ -23,33 +27,23 @@
                         {
                             "xml": "<feature name=\"PushNotification\"><param name=\"android-package\" value=\"com.adobe.phonegap.push.PushPlugin\" /></feature>",
                             "count": 1
-                        },
-                        {
-                            "xml": "<feature name=\"Camera\"><param name=\"android-package\" value=\"org.apache.cordova.camera.CameraLauncher\" /></feature>",
-                            "count": 1
                         }
                     ]
                 }
             },
             "AndroidManifest.xml": {
                 "parents": {
-                    "/*": [
-                        {
-                            "xml": "<uses-permission android:name=\"android.permission.WRITE_EXTERNAL_STORAGE\" />",
-                            "count": 2
-                        }
-                    ],
                     "/manifest": [
+                        {
+                            "xml": "<uses-permission android:name=\"android.permission.VIBRATE\" />",
+                            "count": 1
+                        },
                         {
                             "xml": "<uses-permission android:name=\"android.permission.ACCESS_NETWORK_STATE\" />",
                             "count": 1
                         },
                         {
                             "xml": "<uses-permission android:name=\"android.permission.WAKE_LOCK\" />",
-                            "count": 1
-                        },
-                        {
-                            "xml": "<uses-permission android:name=\"android.permission.VIBRATE\" />",
                             "count": 1
                         },
                         {
@@ -78,12 +72,21 @@
                             "xml": "<service android:name=\"com.adobe.phonegap.push.GCMIntentService\" />",
                             "count": 1
                         }
+                    ],
+                    "/*": [
+                        {
+                            "xml": "<uses-permission android:name=\"android.permission.WRITE_EXTERNAL_STORAGE\" />",
+                            "count": 2
+                        }
                     ]
                 }
             }
         }
     },
     "installed_plugins": {
+        "cordova-plugin-camera": {
+            "PACKAGE_NAME": "com.webcinizim.rejicast"
+        },
         "cordova-plugin-whitelist": {
             "PACKAGE_NAME": "com.webcinizim.rejicast"
         },
@@ -94,9 +97,6 @@
             "PACKAGE_NAME": "com.webcinizim.rejicast"
         },
         "phonegap-plugin-push": {
-            "PACKAGE_NAME": "com.webcinizim.rejicast"
-        },
-        "cordova-plugin-camera": {
             "PACKAGE_NAME": "com.webcinizim.rejicast"
         }
     },
