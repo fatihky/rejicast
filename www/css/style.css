@@ -78,7 +78,7 @@ p {
     font-size:1.2em;
 }
 
-a[data-role='button'], #btn {
+a[data-role='button'], button {
     width:90%; margin:10px auto 10px; display:block; text-align:center;
     padding:20px 0; background:#FFF; border:1px solid #CCCCCC;
     border-radius:4px; box-shadow:1px 1px 6px -3px #000;
