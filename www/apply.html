@@ -126,13 +126,29 @@
                     <option value="bay">Bay</option>
                     <option value="bayan">Bayan</option>
                 </select>
-                <fieldset>
+                <fieldset id="oyuncuKategori">
                     <legend>Kategorisi</legend>
-                    <input type="checkbox" id="oyuncu">Oyuncu<br>
-                    <input type="checkbox" id="cocuk_oyuncu">Çocuk oyuncu<br>
-                    <input type="checkbox" id="yardimci_oyuncu">Yardımcı oyuncu<br>
-                    <input type="checkbox" id="stand_hostesi">Stand hostesi<br>
-                    <input type="checkbox" id="yesilcam">Yeşilçam<br>
+
+                    <div class="roundedOne">
+                        <input type="checkbox" id="oyuncu" class="squareTwo" />
+                        <label for="oyuncu">Oyuncu</label>
+                    </div>
+                    <div class="roundedOne">
+                        <input type="checkbox" id="cocuk_oyuncu" class="squareTwo" />
+                        <label for="cocuk_oyuncu">Çocuk oyuncu</label>
+                    </div>
+                    <div class="roundedOne">
+                        <input type="checkbox" id="yardimci_oyuncu" class="squareTwo" />
+                        <label for="yardimci_oyuncu">Yardımcı oyuncu</label>
+                    </div>
+                    <div class="roundedOne">
+                        <input type="checkbox" id="stand_hostesi" class="squareTwo" />
+                        <label for="stand_hostesi">Stand hostesi</label>
+                    </div>
+                    <div class="roundedOne">
+                        <input type="checkbox" id="yesilcam" class="squareTwo" />
+                        <label for="yesilcam">Yeşilçam</label>
+                    </div>
                 </fieldset>
                 <label for="dob">Doğum Tarihi</label>
                 <input type="date" id="dob"/>
@@ -201,12 +217,9 @@
                     <option value="Yüksek_lisans">Yüksek lisans</option>
                     <option value="Doktora">Doktora</option>
                 </select>
-                <textarea id="training" placeholder="Oyunculuk eğitimleri" rows="3"></textarea>
-                <div class="description">Virgül ile ayırabilirsiniz</div>
+                <textarea id="training" placeholder="Oyunculuk eğitimleri (Virgül ile ayırabilirsiniz)" rows="3"></textarea>
                 <input type="text" id="languages" placeholder="Diller"/>
-                <div class="description">Virgül ile ayırabilirsiniz</div>
-                <input type="text" id="skills" placeholder="Beceriler"/>
-                <div class="description">Virgül ile ayırabilirsiniz</div>
+                <input type="text" id="skills" placeholder="Beceriler (Virgül ile ayırabilirsiniz)"/>
                 <textarea id="personal" placeholder="Kişisel" rows="2"/></textarea>
                 <div class="description">Oyuncu hakkında biyografi niteliğinde bilgi</div>
                 <legend>Yeni bir fotoğraf ekleyin</legend>

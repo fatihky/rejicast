@@ -39,6 +39,11 @@ function checkStatus() {
             $("a[href='applications.html']").css("display","block");
             $("#loginHolder").text(data.user.name);
           }
+        },
+        error: function(xhr,status,message) {
+          console.log(xhr);
+          console.log(status);
+          console.log(message);
         }
       });
     }
@@ -87,7 +92,7 @@ function logout() {
               $("a[href='applications.html']").css("display","none");
               $("#loginHolder").text("");
             }
-          })
+          });
         }
       });
     }

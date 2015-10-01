@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="debug">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/platforms/android/build/intermediates/pre-dexed/debug/android-support-v13-33878d40a8930789d5a7b97b6f849c8be8de419b.jar!/" />
+      <root url="jar://$PROJECT_DIR$/platforms/android/build/intermediates/pre-dexed/debug/gcm-2e90ecc5902cd71782efbe01b5171af5bf9579f7.jar!/" />
+      <root url="jar://$PROJECT_DIR$/platforms/android/build/intermediates/pre-dexed/debug/classes-d45870c4b926cf84fad19196b8378a8e6aaf05d8.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

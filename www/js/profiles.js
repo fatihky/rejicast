@@ -22,7 +22,7 @@ $("#btn").on("click", function() {
             if (data.nodes.length === 0) {
                 $(".container").fadeOut(50);
                 $(".loader-container").hide();
-                alert("Oyuncu bulunamadı");
+                navigator.notification.alert("Oyuncu bulunamadı", function() {return;}, "Hata", "Tamam");
             }
             $(".loader-container").fadeOut(500);
             $.each(data.nodes, function (key, value) {

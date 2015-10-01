@@ -32,11 +32,15 @@ $.ajax({
     }
 });
 
-
+$('#genNot').addClass('notificationActive');
 
 $('#selfNot').click(function(){
     $('.hayir').hide();
+    $('#genNot').removeClass('notificationActive');
+    $('#selfNot').addClass('notificationActive');
 });
 $('#genNot').click(function(){
     $('.hayir').show();
+    $('#genNot').addClass('notificationActive');
+    $('#selfNot').removeClass('notificationActive');
 });
