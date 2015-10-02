@@ -25,7 +25,7 @@
                 <div id="profilepicture">
                     <img id="image"/>
                 </div>
-                <button id="uploadimage">Yükle</button>
+                <button id="uploadimage">Fotoğraf seçin</button>
                 <input type="text" id="name" placeholder="Adı & Soyadı" name="title"/>
                 <input type="number" id="tckn" placeholder="TC Kimlik No"/>
                 <select id="sgk">
@@ -130,23 +130,23 @@
                     <legend>Kategorisi</legend>
 
                     <div class="roundedOne">
-                        <input type="checkbox" id="oyuncu" class="squareTwo" />
+                        <input type="checkbox" name="kategori" id="oyuncu" class="squareTwo" />
                         <label for="oyuncu">Oyuncu</label>
                     </div>
                     <div class="roundedOne">
-                        <input type="checkbox" id="cocuk_oyuncu" class="squareTwo" />
-                        <label for="cocuk_oyuncu">Çocuk oyuncu</label>
-                    </div>
-                    <div class="roundedOne">
-                        <input type="checkbox" id="yardimci_oyuncu" class="squareTwo" />
+                        <input type="checkbox" name="kategori" id="yardimci_oyuncu" class="squareTwo" />
                         <label for="yardimci_oyuncu">Yardımcı oyuncu</label>
                     </div>
                     <div class="roundedOne">
-                        <input type="checkbox" id="stand_hostesi" class="squareTwo" />
+                        <input type="checkbox" name="kategori" id="cocuk_oyuncu" class="squareTwo" />
+                        <label for="cocuk_oyuncu">Çocuk oyuncu</label>
+                    </div>
+                    <div class="roundedOne">
+                        <input type="checkbox" name="kategori" id="stand_hostesi" class="squareTwo" />
                         <label for="stand_hostesi">Stand hostesi</label>
                     </div>
                     <div class="roundedOne">
-                        <input type="checkbox" id="yesilcam" class="squareTwo" />
+                        <input type="checkbox" name="kategori" id="yesilcam" class="squareTwo" />
                         <label for="yesilcam">Yeşilçam</label>
                     </div>
                 </fieldset>
@@ -218,7 +218,7 @@
                     <option value="Doktora">Doktora</option>
                 </select>
                 <textarea id="training" placeholder="Oyunculuk eğitimleri (Virgül ile ayırabilirsiniz)" rows="3"></textarea>
-                <input type="text" id="languages" placeholder="Diller"/>
+                <input type="text" id="languages" placeholder="Diller (Virgül ile ayırabilirsiniz)"/>
                 <input type="text" id="skills" placeholder="Beceriler (Virgül ile ayırabilirsiniz)"/>
                 <textarea id="personal" placeholder="Kişisel" rows="2"/></textarea>
                 <div class="description">Oyuncu hakkında biyografi niteliğinde bilgi</div>
