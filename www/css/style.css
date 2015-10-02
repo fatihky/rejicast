@@ -120,6 +120,9 @@ option {
 #genNot {
     float:right; margin-right:5%;
 }
+#selfNot {
+    float:left;
+}
 .generalNotification.hayir {
     width:86%; padding:10px 2%; margin:10px auto 10px;
     border-radius:4px; border:1px solid #CCC; font-size:1.2em;
