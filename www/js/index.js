@@ -1,5 +1,6 @@
 document.addEventListener("deviceready", function() {
   checkStatus();
+  checkNotifications();
 });
 
 $("#navHolder #homeBtn").on("click", function() {
@@ -50,17 +51,6 @@ function checkStatus() {
   });
 }
 
-function checkNumberofNot() {
-  $.ajax({
-    url: 'http://www.rejicast.com/genel-duyurular.json',
-    type: 'get',
-    dataType: 'json',
-    success: function (data) {
-      console.log(JSON.stringify(data));
-    }
-  });
-}
-
 function logout() {
   navigator.notification.confirm("Çıkış yapmak istiyor musunuz?", function(buttonIndex) {
     if (buttonIndex === 1) {
@@ -91,10 +81,44 @@ function logout() {
               $("#logoutBtn").css("display","none");
               $("a[href='applications.html']").css("display","none");
               $("#loginHolder").text("");
+              $("#notification").text("");
             }
           });
         }
       });
     }
   }, 'Onay', ['Evet', 'Hayır']);
+}
+function checkNotifications() {
+  $.ajax({
+    url: 'http://www.rejicast.com/services/user/token.json',
+    type: 'post',
+    dataType: 'json',
+    success: function(token) {
+      $.ajax({
+        url: 'http://www.rejicast.com/services/system/connect.json',
+        type: 'post',
+        dataType: 'json',
+        beforeSend: function(r) {
+          r.setRequestHeader("X-CSRF-Token", token.token)
+        },
+        success: function(connect) {
+          $.ajax({
+            url: 'http://www.rejicast.com/duyurular.json',
+            type: 'get',
+            dataType: 'json',
+            success: function (data) {
+              var num = data.nodes.reduce(function(currNum, node) { 
+                if (node.node.field_kime.indexOf(connect.user.uid) !== -1) { 
+                  currNum++;
+                }
+                return currNum;
+              }, 0);
+              $("#notification").text(num);
+            }
+          });
+        }
+      });
+    }
+  });
 }
