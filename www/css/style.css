@@ -71,6 +71,7 @@ body {
     border:2px solid #FFF; box-shadow:0 0 5px 0 #000;  
     color:#FFF; font-weight:700; text-align:center;
     width:15px; height:15px; padding:0 2px 2px 1px;
+    display:none;
 }
 
 p {

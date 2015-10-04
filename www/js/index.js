@@ -39,6 +39,7 @@ function checkStatus() {
             $("#logoutBtn").css("display","block");
             $("a[href='applications.html']").css("display","block");
             $("#loginHolder").text(data.user.name);
+            var loggedIn = 1;
           }
         },
         error: function(xhr,status,message) {
@@ -82,6 +83,7 @@ function logout() {
               $("a[href='applications.html']").css("display","none");
               $("#loginHolder").text("");
               $("#notification").text("");
+              $("#notification").css("display","none");
             }
           });
         }
@@ -114,7 +116,14 @@ function checkNotifications() {
                 }
                 return currNum;
               }, 0);
-              $("#notification").text(num);
+              if (connect.user.uid > 0) {
+                $("#notification").text(num);
+                if (num === 0) {
+                  $("#notification").css("display","none");
+                } else {
+                  $("#notification").css("display","block");
+                }
+              }
             }
           });
         }

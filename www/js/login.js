@@ -35,12 +35,10 @@ $('#login').on('click', function () {
                     setTimeout(function() {
                         $(".loader-container").fadeOut(500);
                     }, 1000);
-                    checkNumberofNot();
                     $("#loginBtn").css("display","none");
                     $("#logoutBtn").css("display","block");
                     $("#loginHolder").text(data.user.name);
                     window.location.href = "index.html";
-                    checkStatus();
                 }
             });
             return false;
