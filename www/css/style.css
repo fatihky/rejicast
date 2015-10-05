@@ -125,7 +125,7 @@ option {
     float:left;
 }
 .generalNotification.hayir {
-    width:86%; padding:10px 2%; margin:50px auto 10px;
+    width:86%; padding:10px 2%; margin:10px auto 10px;
     border-radius:4px; border:1px solid #CCC; font-size:1.2em;
     background: -webkit-linear-gradient(#FFFFFF 0%, #EEEEEE 99%);
     background: -moz-linear-gradient(#FFFFFF 0%, #EEEEEE 99%);
@@ -133,14 +133,17 @@ option {
     background: linear-gradient(#FFFFFF 0%, #EEEEEE 99%);
     box-shadow:1px 1px 6px -3px #000;
 }
-.generalNotification.evet{
-    width:86%; padding:10px 2%; margin:50px auto 10px;
+.generalNotification.evet {
+    width:86%; padding:10px 2%; margin:10px auto 10px;
     border-radius:4px; border:1px solid #CCC;  font-size:1.2em;
     background: -webkit-linear-gradient(#f1ffa0 0%, #ddeb8c 99%);
     background: -moz-linear-gradient(#f1ffa0 0%, #ddeb8c 99%);
     background: -o-linear-gradient(#f1ffa0 0%, #ddeb8c 99%);
     background: linear-gradient(#f1ffa0 0%, #ddeb8c 99%);
     box-shadow:1px 1px 6px -3px #000;
+}
+.generalNotification h3 {
+    font-size:1.3em; font-weight:600; margin:3px 0;
 }
 .notificationActive{
     background: -webkit-linear-gradient(#777777 0%, #222222 99%) !important;
@@ -152,10 +155,6 @@ option {
 .userNotification h3 {
     font-size:1.3em; font-weight:600; margin:3px 0;
 }
-.generalNotification h3 {
-    font-size:1.3em; font-weight:600; margin:3px 0;
-}
-
 .ornekBasvurularim {
     width:86%; padding:10px 2%; margin:10px auto 10px;
     border-radius:4px; border:1px solid #CCC; overflow:hidden;
