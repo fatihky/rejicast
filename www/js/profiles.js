@@ -54,6 +54,7 @@ $("#btn").on("click", function() {
                             });
                         }
                         console.log(JSON.stringify(data));
+                        $("#contentHolder.profiles").append('<object width="475" height="381"><param value="http://www.youtube.com/v/rz6BFrgmRig&showsearch=0&rel=0&fs=1&autoplay=0&amp;ap=%2526fmt%3D18" name="movie" /><param value="window" name="wmode" /><param value="true" name="allowFullScreen" /><embed width="475" height="381" wmode="window" allowfullscreen="true" type="application/x-shockwave-flash" src="http://www.youtube.com/v/rz6BFrgmRig&showsearch=0&fs=1&rel=0&autoplay=0&amp;ap=%2526fmt%3D18"></embed></object><br /><a href="http://www.youtube.com/watch?v=rz6BFrgmRig" target="_blank">View on YouTube</a>');
                         /*
                          $.each(data.nodes[0].node.field_videolar, function(k,v) {
                             $("#contentHolder.profiles").append('<a href='+v.video_url+'>');
