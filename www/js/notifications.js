@@ -13,7 +13,7 @@ $.ajax({
                 r.setRequestHeader("X-CSRF-Token", token.token)
             },
             success: function(connect) {
-                console.log(JSON.stringify(connect));
+                $("#loginHolder").text(connect.user.name);
                 $.ajax({
                     url: 'http://www.rejicast.com/duyurular.json',
                     type: 'get',
