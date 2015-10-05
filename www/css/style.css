@@ -74,6 +74,10 @@ body {
     display:none;
 }
 
+#notButtonHolder {
+  width:100%; margin:15px auto 10px; overflow:hidden;
+}
+
 p {
     width:90%; padding:10px 0; margin:10px auto 10px;
     font-size:1.2em;
@@ -145,7 +149,7 @@ option {
 .generalNotification h3 {
     font-size:1.3em; font-weight:600; margin:3px 0;
 }
-.notificationActive{
+.notificationActive {
     background: -webkit-linear-gradient(#777777 0%, #222222 99%) !important;
     background: -moz-linear-gradient(#777777 0%, #222222 99%) !important;
     background: -o-linear-gradient(#777777 0%, #222222 99%) !important;
