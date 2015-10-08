@@ -33,17 +33,23 @@
             },
             "AndroidManifest.xml": {
                 "parents": {
-                    "/manifest": [
+                    "/*": [
                         {
-                            "xml": "<uses-permission android:name=\"android.permission.VIBRATE\" />",
-                            "count": 1
-                        },
+                            "xml": "<uses-permission android:name=\"android.permission.WRITE_EXTERNAL_STORAGE\" />",
+                            "count": 2
+                        }
+                    ],
+                    "/manifest": [
                         {
                             "xml": "<uses-permission android:name=\"android.permission.ACCESS_NETWORK_STATE\" />",
                             "count": 1
                         },
                         {
                             "xml": "<uses-permission android:name=\"android.permission.WAKE_LOCK\" />",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<uses-permission android:name=\"android.permission.VIBRATE\" />",
                             "count": 1
                         },
                         {
@@ -72,18 +78,7 @@
                             "xml": "<service android:name=\"com.adobe.phonegap.push.GCMIntentService\" />",
                             "count": 1
                         }
-                    ],
-                    "/*": [
-                        {
-                            "xml": "<uses-permission android:name=\"android.permission.WRITE_EXTERNAL_STORAGE\" />",
-                            "count": 2
-                        }
                     ]
-                }
-            },
-            "config.xml": {
-                "parents": {
-                    "/*": []
                 }
             }
         }
