@@ -1,4 +1,20 @@
-
+/*
+$(document).ready(function() {
+  $('.profilepicture > #image').cropper();
+  $('.profilepicture > #image').cropper({
+    aspectRatio: 16 / 9,
+    crop: function(e) {
+      console.log(e.x);
+      console.log(e.y);
+      console.log(e.width);
+      console.log(e.height);
+      console.log(e.rotate);
+      console.log(e.scaleX);
+      console.log(e.scaleY);
+    }
+  });
+});
+*/
 document.addEventListener("deviceready", function() {
   $("#uploadimage").on("click", function() {
     navigator.camera.getPicture(onSuccess, onFail, {
@@ -16,6 +32,7 @@ function onSuccess(imageData) {
   var image = $("img#image");
   image.attr("src", "data:image/jpeg;base64," + imageData);
   image.css("display", "block");
+  canvas.css("display", "block");
   fileData = {
     "file":{
       "file":imageData,
@@ -89,20 +106,3 @@ $("#submit").on("click", function() {
     }
   });
 });
-/*
-   $(document).ready(function() {
-   $('#profilepicture #image').cropper();
-   $('#profilepicture #image').cropper({
-aspectRatio: 16 / 9,
-crop: function(e) {
-console.log(e.x);
-console.log(e.y);
-console.log(e.width);
-console.log(e.height);
-console.log(e.rotate);
-console.log(e.scaleX);
-console.log(e.scaleY);
-}
-});
-});
-*/

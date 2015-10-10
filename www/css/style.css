@@ -215,6 +215,7 @@ a[href="applications.html"] {
     display:none;
 }
 img#image {
+    margin:0 auto;
     display:none;
 }
 label {
@@ -305,6 +306,9 @@ input[type=checkbox] {
 .roundedOne input[type=checkbox]:checked + label:after {
     -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
     filter: alpha(opacity=100); opacity: .5;
+}
+#canvas {
+    display:none;
 }
 .loader-container {
     position:fixed;
