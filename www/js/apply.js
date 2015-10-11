@@ -30,7 +30,8 @@ document.addEventListener("deviceready", function() {
 });
 function onSuccess(imageData) {
   var image = $("img#image");
-  image.attr("src", "data:image/jpeg;base64," + imageData);
+  var canvas = $("#canvas");
+  canvas.attr("src", "data:image/jpeg;base64," + imageData);
   image.css("display", "block");
   canvas.css("display", "block");
   fileData = {
