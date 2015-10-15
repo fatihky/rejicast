@@ -6,27 +6,8 @@
         <meta name="msapplication-tap-highlight" content="no">
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
         <link rel="stylesheet" type="text/css" href="css/style.css">
-        <!--<link rel="stylesheet" type="text/css" href="css/image-crop-styles.css">-->
         <link rel="stylesheet" type="text/css" href="css/cropper.min.css">
         <title>Rejicast</title>
-        <!--<script>
-            var myApp = null;
-            (function() {
-
-             angular.module('myApp', [])
-             .controller('MainController', function($scope) {
-                 console.log('MainController');
-
-                 $scope.imageCropResult = null;
-                 $scope.showImageCropper = false;
-                 $scope.$watch('imageCropResult', function(newVal) {
-                     if (newVal) {
-                     console.log('imageCropResult', newVal);
-                     }
-                     });
-                 });
-             })();
-        </script>-->
     </head>
     <body>
         <div id="appHolder">
@@ -40,14 +21,8 @@
                 </div>
             </div>
             <div id="contentHolder" class="apply">
-                <label for="profilepicture">Profil fotoğrafı</label>
-                <div class="profilepicture">
-                    <canvas id="canvas"/>
-                    <!--<img id="image"/>-->
-                </div>
-                <button id="uploadimage">Fotoğraf seçin</button>
-                <!--<a ng-click="showImageCropper=true;imageCropStep=1">Fotoğrafı kırpın</a>
-                <image-crop data-width="300" data-height="300" data-shape="circle" data-step="imageCropStep" data-result="imageCropResult" ng-show="showImageCropper"></image-crop>-->
+                <img class="image"/>
+                <button id="uploadimage">Profil fotoğrafı seçin</button>
                 <input type="text" id="name" placeholder="Adı & Soyadı" name="title"/>
                 <input type="number" id="tckn" placeholder="TC Kimlik No"/>
                 <select id="sgk">
@@ -60,7 +35,7 @@
                 <div class="description">Size ulaşamadığımız durumda ulaşabileceğimiz bir yakınınızın telefonunu yazınız.</div>
                 <input type="text" id="address" placeholder="Adres"/>
                 <select id="city">
-                    <option selected disabled style="display:none;">- Yaşadığı şehir -</option>
+                    <option selected disabled style="display:none;">- Yaşadığınız şehir -</option>
                     <option value="01">Adana</option>
                     <option value="02">Adıyaman</option>
                     <option value="03">Afyon</option>
@@ -149,30 +124,25 @@
                     <option value="bayan">Bayan</option>
                 </select>
                 <fieldset id="oyuncuKategori">
-                    <legend>Kategorisi</legend>
-
+                    <legend>Kategori</legend>
                     <div class="roundedOne">
                         <input type="checkbox" name="kategori" id="oyuncu" class="squareTwo" />
                         <label for="oyuncu">Oyuncu</label>
-                    </div>
-                    <div class="roundedOne">
-                        <input type="checkbox" name="kategori" id="yardimci_oyuncu" class="squareTwo" />
-                        <label for="yardimci_oyuncu">Yardımcı oyuncu</label>
                     </div>
                     <div class="roundedOne">
                         <input type="checkbox" name="kategori" id="cocuk_oyuncu" class="squareTwo" />
                         <label for="cocuk_oyuncu">Çocuk oyuncu</label>
                     </div>
                     <div class="roundedOne">
+                        <input type="checkbox" name="kategori" id="yardimci_oyuncu" class="squareTwo" />
+                        <label for="yardimci_oyuncu">Yardımcı oyuncu</label>
+                    </div>
+                    <div class="roundedOne">
                         <input type="checkbox" name="kategori" id="stand_hostesi" class="squareTwo" />
                         <label for="stand_hostesi">Stand hostesi</label>
                     </div>
-                    <div class="roundedOne">
-                        <input type="checkbox" name="kategori" id="yesilcam" class="squareTwo" />
-                        <label for="yesilcam">Yeşilçam</label>
-                    </div>
                 </fieldset>
-                <label for="dob">Doğum Tarihi</label>
+                <label for="dob">Doğum Tarihiniz</label>
                 <input type="date" id="dob"/>
                 <select id="height">
                     <option selected disabled style="display:none;">- Boy -</option>
@@ -230,7 +200,7 @@
                     <option value="50">50</option>
                 </select>
                 <select id="education">
-                    <option selected disabled style="display:none;">- Eğitim düzeyi -</option>
+                    <option selected disabled style="display:none;">- Eğitim düzeyiniz -</option>
                     <option value="İlkokul">İlkokul</option>
                     <option value="Ortaokul">Ortaokul</option>
                     <option value="Lise">Lise</option>
@@ -244,10 +214,8 @@
                 <input type="text" id="skills" placeholder="Beceriler (Virgül ile ayırabilirsiniz)"/>
                 <textarea id="personal" placeholder="Kişisel" rows="2"/></textarea>
                 <div class="description">Oyuncu hakkında biyografi niteliğinde bilgi</div>
-                <legend>Daha fazla fotoğraf ekleyin</legend>
-                <input type="file" id="images" />
-                <button id="upload">Yükle</button>
-                <label>Yer Aldığı Yapımlar</label>
+                <img class="otherimage"/>
+                <button id="uploadotherimage">Daha fazla fotoğraf yükleyin</button>
                 <label for="videos">Videolar</label>
                 <table id="videos">
                     <tr class="videos">
@@ -256,7 +224,7 @@
                                 <input type="url" class="videolink" placeholder="Video linki (Youtube, Vimeo)"/>
                                 <input type="text" class="videodesc" placeholder="Açıklama"/>
                                 <div class="description">Açıklama alanı aynı zamanda başlık olarak kullanılacaktır.</div>
-                                <button id="addmorevideos">Başka bir öğe ekle</button>
+                                <button id="addmorevideos">Daha fazla ekle</button>
                             </fieldset>
                         </td>
                     </tr>
@@ -283,9 +251,6 @@
     <script type="text/javascript" src="js/jquery.js"></script>
     <script type="text/javascript" src="js/jquery.maskedinput.js"></script>
     <script type="text/javascript" src="js/index.js"></script>
-    <script type="text/javascript" src="js/cropper.min.js"></script>
-    <!--<script type="text/javascript" src="js/angular.min.js"></script>
-    <script type="text/javascript" src="js/image-crop.js"></script>-->
     <script type="text/javascript" src="js/apply.js"></script>
 </body>
 </html>
