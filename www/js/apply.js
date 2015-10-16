@@ -1,5 +1,5 @@
 document.addEventListener("deviceready", function() {
-  $("#uploadimage").on("click", function() {
+  $("#uploadpicture").on("click", function() {
     navigator.camera.getPicture(onSuccess, onFail, {
       quality:100,
       allowEdit:true,
@@ -10,7 +10,7 @@ document.addEventListener("deviceready", function() {
       correctOrientation:true
     });
   });
-  $("#uploadotherimage").on("click", function() {
+  $("#uploadotherpicture").on("click", function() {
     navigator.camera.getPicture(onSuccessOther, onFail, {
       quality:100,
       targetWidth:200,
@@ -22,7 +22,8 @@ document.addEventListener("deviceready", function() {
   });
 });
 function onSuccess(imageData) {
-  var image = $("img#image");
+  var image = $("img#picture");
+  image.attr("src", "data:image/jpeg;base64,"+imageData);
   image.css("display", "block");
   fileData = {
     "file":{
@@ -33,8 +34,9 @@ function onSuccess(imageData) {
   };
   imagedata=imageData;
 }
-function onSuccess(imageData) {
-  var image = $("img#otherimage");
+function onSuccessOther(imageData) {
+  var image = $("img#otherpicture");
+  image.attr("src", "data:image/jpeg;base64,"+imageData);
   image.css("display", "block");
   fileData = {
     "file":{
