@@ -217,6 +217,7 @@ a[href="applications.html"] {
 img#picture,img#otherpicture {
     margin:0 auto;
     display:none;
+    width:100%; height:auto;
 }
 label {
     position:relative;

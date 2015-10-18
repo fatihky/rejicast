@@ -1,6 +1,9 @@
 document.addEventListener("deviceready", function() {
-  checkStatus();
-  checkNotifications();
+  loggedIn = "";
+  if (window.location.pathname.split("/")[3] == "index.html" && loggedIn != 1) {
+    checkStatus();
+    checkNotifications();
+  }
 });
 
 $("#navHolder #homeBtn").on("click", function() {
@@ -9,7 +12,6 @@ $("#navHolder #homeBtn").on("click", function() {
 $("#navHolder #notificationBtn").on("click", function() {
   window.location.href = "notifications.html";
 });
-//checkStatus();
 
 function checkStatus() {
   $(".loader-container > p").text("Başlangıç kontrolleri yapılıyor, lütfen bekleyin");
@@ -39,7 +41,8 @@ function checkStatus() {
             $("#logoutBtn").css("display","block");
             $("a[href='applications.html']").css("display","block");
             $("#loginHolder").text(data.user.name);
-            var loggedIn = 1;
+            loggedIn = 1;
+            console.log(loggedIn);
           }
         },
         error: function(xhr,status,message) {
@@ -75,6 +78,7 @@ function logout() {
             success: function() {
               $(".loader-container > p").text("Başarıyla çıkış yapıldı");
               $(".loader-container").show();
+              loggedIn = "0";
               setTimeout(function() {
                 $(".loader-container").fadeOut(500);
               }, 1000);

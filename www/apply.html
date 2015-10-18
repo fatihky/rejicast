@@ -123,25 +123,13 @@
                     <option value="bay">Bay</option>
                     <option value="bayan">Bayan</option>
                 </select>
-                <fieldset id="oyuncuKategori">
-                    <legend>Kategori</legend>
-                    <div class="roundedOne">
-                        <input type="checkbox" name="kategori" id="oyuncu" class="squareTwo" />
-                        <label for="oyuncu">Oyuncu</label>
-                    </div>
-                    <div class="roundedOne">
-                        <input type="checkbox" name="kategori" id="cocuk_oyuncu" class="squareTwo" />
-                        <label for="cocuk_oyuncu">Çocuk oyuncu</label>
-                    </div>
-                    <div class="roundedOne">
-                        <input type="checkbox" name="kategori" id="yardimci_oyuncu" class="squareTwo" />
-                        <label for="yardimci_oyuncu">Yardımcı oyuncu</label>
-                    </div>
-                    <div class="roundedOne">
-                        <input type="checkbox" name="kategori" id="stand_hostesi" class="squareTwo" />
-                        <label for="stand_hostesi">Stand hostesi</label>
-                    </div>
-                </fieldset>
+                <select id="category">
+                    <option value="oyuncu">Oyuncu</option>
+                    <option value="cocuk_oyuncu">Çocuk oyuncu</option>
+                    <option value="yardimci_oyuncu">Yardımcı oyuncu</option>
+                    <option value="stand_hostesi">Stand hostesi</option>
+                    <option value="yesilcam">Yeşilçam</option>
+                </select>
                 <label for="dob">Doğum Tarihiniz</label>
                 <input type="date" id="dob"/>
                 <select id="height">
@@ -224,14 +212,14 @@
                                 <input type="url" class="videolink" placeholder="Video linki (Youtube, Vimeo)"/>
                                 <input type="text" class="videodesc" placeholder="Açıklama"/>
                                 <div class="description">Açıklama alanı aynı zamanda başlık olarak kullanılacaktır.</div>
-                                <button id="addmorevideos">Daha fazla ekle</button>
+                                <button id="addmorevideos">Daha fazla video ekleyin</button>
                             </fieldset>
                         </td>
                     </tr>
                 </table>
                 <input type="checkbox" id="privacy" value="0">
                 <label for="privacy">Sayın üyemiz, başvuru formunda yer alan bilgiler, üçüncü şahıslar tarafından görüntülenmeyecektir. Lütfen <a href="inst.html" data-transition="pop" id="inst">başvuru talimatını</a> okuyunuz.</label>
-                <a id="submit" data-role="button" class="hidden">Kaydol</a>
+                <a id="apply" data-role="button">Kaydol</a>
             </div>
             <div id="navHolder">
                 <div id="homeHolder">
@@ -251,6 +239,7 @@
     <script type="text/javascript" src="js/jquery.js"></script>
     <script type="text/javascript" src="js/jquery.maskedinput.js"></script>
     <script type="text/javascript" src="js/index.js"></script>
+    <script type="text/javascript" src="js/jCrop/js/jquery.Jcrop.js"></script>
     <script type="text/javascript" src="js/apply.js"></script>
 </body>
 </html>
