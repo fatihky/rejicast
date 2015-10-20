@@ -27,6 +27,7 @@ $.ajax({
                         $.each(data.nodes, function (key, value) {
                             var profile = $('<div class="profile"><img class="profileImage" data-nid="' + value.node.nid + '" src="' + value.node.field_oyuncu_fotografi.src + '"><div class="profileName">' + value.node.field_gosterilecek_ad+ '</div></div>');
                             $("#contentHolder.applications").append(profile);
+                            window.scrollTo(0,0);
                         });
                         $(".profileImage").on("click", function(ev) {
                             $(".loader-container > p").text('Oyuncu bilgileri alınıyor');
