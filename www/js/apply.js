@@ -3,24 +3,34 @@ document.addEventListener("deviceready", function() {
     navigator.camera.getPicture(onSuccess, onFail, {
       quality:100,
       allowEdit:true,
-      /*
-      targetWidth:600,
-      targetHeight:800,
-      */
       destinationType:Camera.DestinationType.DATA_URL,
       sourceType:Camera.PictureSourceType.PHOTOLIBRARY,
       correctOrientation:true
     });
   });
   $("#uploadotherpicture").on("click", function() {
-    navigator.camera.getPicture(onSuccessOther, onFail, {
-      quality:100,
-      targetWidth:600,
-      targetHeight:800,
-      destinationType:Camera.DestinationType.DATA_URL,
-      sourceType:Camera.PictureSourceType.PHOTOLIBRARY,
-      correctOrientation:true
-    });
+    window.imagePicker.getPictures(
+      function(imageUri) {
+      var file;
+      var destination = $('#otherpicture');
+      destination.html('');
+
+      // Looping in case they uploaded multiple files
+      for (var x = 0, xlen = this.files.length; x < xlen; x++) {
+        file = this.files[x];
+        if (file.type.indexOf('image') != -1) { // Very primitive "validation"
+          var reader = new FileReader();
+          reader.onload = function (e) {
+            var img = new Image();
+            img.src = e.target.result; // File contents here
+            destination.append(img);
+          };
+          reader.readAsDataURL(file);
+        }
+      }
+    }
+    );
+  }, function (error) {
   });
 });
 function onSuccess(imageData) {
@@ -36,20 +46,22 @@ function onSuccess(imageData) {
   };
   imagedata=imageData;
 }
-function onSuccessOther(imageDataOther) {
-  var image = $("img#otherpicture");
-  image.attr("src", "data:image/jpeg;base64,"+imageDataOther);
-  image.css("display", "block");
-  $("#uploadotherpicture").css("display", "none");
-  fileDataOther = {
-    "file":{
-      "file":imageDataOther,
-      "filename":"rejicast.jpg",
-      "filepath":"public://"+imageDataOther.replace(/\//g,"").replace(/\+/g,"").substr(0,10)+".jpg"
-    }
-  };
-  imagedataother=imageDataOther;
-}
+/*
+   function onSuccessOther(imageDataOther) {
+   var image = $("img#otherpicture");
+   image.attr("src", "data:image/jpeg;base64,"+imageDataOther);
+   image.css("display", "block");
+   $("#uploadotherpicture").css("display", "none");
+   fileDataOther = {
+   "file":{
+   "file":imageDataOther,
+   "filename":"rejicast.jpg",
+   "filepath":"public://"+imageDataOther.replace(/\//g,"").replace(/\+/g,"").substr(0,10)+".jpg"
+   }
+   };
+   imagedataother=imageDataOther;
+   }
+   */
 function onFail() {
   setTimeout(function() { //iOS quirk for camera plugin
     navigator.notification.alert("Bir hata oluştu", function(){return;}, "Hata", "Tamam");
