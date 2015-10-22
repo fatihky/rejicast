@@ -55,9 +55,8 @@ $("#btn").on("click", function() {
                                 $("#contentHolder.profiles").append('<img class="singleProfileOtherPics" src="' + this.src + '"/>');
                             });
                         }
-                        console.log(JSON.stringify(data));
-                         $.each(data.nodes[0].node, function(k,v) {
-                            $("#contentHolder.profiles").append('<a href='+v.field_videolar+'>');
+                        $.each(data.nodes, function() {
+                            $("#contentHolder.profiles").append('<a href='+this.node.field_videolar+'><img class="videotn" src='+this.node.field_videolar_thumbnail_path+'/>');
                         });
                         $("#contentHolder.profiles").append(share);
                         $("#shareViaEmail").on("click", function() {

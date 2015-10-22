@@ -53,16 +53,14 @@ $.ajax({
                                             $("#contentHolder.profiles").append('<img class="singleProfileOtherPics" src="' + this.src + '"/>');
                                         });
                                     }
-                                    $.each(data.nodes[0].node.field_videolar.split(" "),function(k,v) {
-                                        $("#contentHolder.applications").append('<a href='+v+'>');
+                                    $.each(data.nodes, function() {
+                                        $("#contentHolder.profiles").append('<a href='+this.node.field_videolar+'><img class="videotn" src='+this.node.field_videolar_thumbnail_path+'/>');
                                     });
                                     $("#contentHolder.applications").append(share);
                                     $("#shareViaEmail").on("click", function() {
-                                        console.log('Clicked the email icon');
                                         window.plugins.socialsharing.shareViaEmail('http://www.rejicast.com/node/'+nid);
                                     });
                                     $("#shareViaWhatsApp").on("click", function() {
-                                        console.log('Clicked the whatsaap icon');
                                         window.plugins.socialsharing.shareViaWhatsApp('http://www.rejicast.com/node/'+nid);
                                     });
                                 },

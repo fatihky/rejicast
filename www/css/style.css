@@ -246,6 +246,10 @@ input[type=checkbox] {
 #privacy {
     display:block;
 }
+img.videotn {
+    width:100%;
+    height:300px;
+}
 
 .roundedOne {
     width: 145px; height: 30px; background: #fcfff4; color:#FFF;
