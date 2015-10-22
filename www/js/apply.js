@@ -10,27 +10,23 @@ document.addEventListener("deviceready", function() {
   });
   $("#uploadotherpicture").on("click", function() {
     window.imagePicker.getPictures(
-      function(imageUri) {
+      function(res) {
       var file;
       var destination = $('#otherpicture');
       destination.html('');
-
       // Looping in case they uploaded multiple files
-      for (var x = 0, xlen = this.files.length; x < xlen; x++) {
-        file = this.files[x];
-        if (file.type.indexOf('image') != -1) { // Very primitive "validation"
-          var reader = new FileReader();
-          reader.onload = function (e) {
-            var img = new Image();
-            img.src = e.target.result; // File contents here
-            destination.append(img);
-          };
-          reader.readAsDataURL(file);
-        }
+      for(var x = 0, xlen = res.length; x < xlen; x++) {
+        file = res[x];
+        var reader = new FileReader();
+        reader.onload = function(e) {
+          var img = new Image();
+          img.attr("src", e.res); // File contents here
+          destination.append(img);
+        };
+        reader.readAsDataURL(file);
       }
     }
     );
-  }, function (error) {
   });
 });
 function onSuccess(imageData) {

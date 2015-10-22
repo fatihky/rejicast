@@ -56,8 +56,8 @@ $("#btn").on("click", function() {
                             });
                         }
                         console.log(JSON.stringify(data));
-                         $.each(data.nodes[0].node.field_videolar.split(" "), function(k,v) {
-                            $("#contentHolder.profiles").append('<a href='+v.video_url+'>');
+                         $.each(data.nodes[0].node, function(k,v) {
+                            $("#contentHolder.profiles").append('<a href='+v.field_videolar+'>');
                         });
                         $("#contentHolder.profiles").append(share);
                         $("#shareViaEmail").on("click", function() {

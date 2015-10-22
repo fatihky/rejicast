@@ -1,6 +1,6 @@
 document.addEventListener("deviceready", function() {
-  loggedIn = "";
-  if (window.location.pathname.split("/")[3] == "index.html" && loggedIn != 1) {
+  var name = window.localStorage.getItem("name");
+  if (window.location.pathname.split("/")[3] == "index.html" && (!name || name.length === 0)) {
     checkStatus();
     checkNotifications();
   }
@@ -41,8 +41,6 @@ function checkStatus() {
             $("#logoutBtn").css("display","block");
             $("a[href='applications.html']").css("display","block");
             $("#loginHolder").text(data.user.name);
-            loggedIn = 1;
-            console.log(loggedIn);
           }
         },
         error: function(xhr,status,message) {
@@ -76,9 +74,9 @@ function logout() {
               r.setRequestHeader("X-CSRF-Token", token.token)
             },
             success: function() {
+              window.localStorage.removeItem("name");
               $(".loader-container > p").text("Başarıyla çıkış yapıldı");
               $(".loader-container").show();
-              loggedIn = "0";
               setTimeout(function() {
                 $(".loader-container").fadeOut(500);
               }, 1000);
