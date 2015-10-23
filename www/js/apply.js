@@ -11,24 +11,39 @@ document.addEventListener("deviceready", function() {
   $("#uploadotherpicture").on("click", function() {
     window.imagePicker.getPictures(
       function(res) {
-      var file;
-      var destination = $('#otherpicture');
-      destination.html('');
-      // Looping in case they uploaded multiple files
-      for(var x = 0, xlen = res.length; x < xlen; x++) {
-        file = res[x];
-        var reader = new FileReader();
-        reader.onload = function(e) {
-          var img = new Image();
-          img.attr("src", e.res); // File contents here
-          destination.append(img);
-        };
-        reader.readAsDataURL(file);
+      for (var x = 0;x<res.length;x++) {
+        img = $("<img/>");
+        img.attr({
+          "src":res[x],
+          "class":"otherpicture"
+        });
+        $("#otherpicture").append(img);
       }
-    }
-    );
+    });
   });
 });
+/*
+   function(res) {
+   var file;
+   var destination = $('#otherpicture');
+   destination.html('');
+// Looping in case they uploaded multiple files
+for(var x = 0, xlen = res.length; x < xlen; x++) {
+file = res[x];
+var reader = new FileReader();
+reader.onload = function(e) {
+var img = new Image();
+img.attr("src", e.res); // File contents here
+destination.append(img);
+};
+reader.readAsDataURL(file);
+}
+}
+                         );
+                         $(".otherpicture").css("display", "block");
+});
+});
+*/
 function onSuccess(imageData) {
   var image = $("img#picture");
   image.attr("src", "data:image/jpeg;base64,"+imageData);
