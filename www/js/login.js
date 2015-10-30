@@ -31,7 +31,6 @@ $('#login').on('click', function () {
                 },
                 success: function (data) {
                     var uid=data.user.uid;
-                    window.localStorage.setItem("name", data.user.name);
                     $(".loader-container > p").text("Hoşgeldin "+data.user.name);
                     setTimeout(function() {
                         $(".loader-container").fadeOut(500);
@@ -40,6 +39,12 @@ $('#login').on('click', function () {
                     $("#logoutBtn").css("display","block");
                     $("#loginHolder").text(data.user.name);
                     window.location.href = "index.html";
+                    var loggedIn = 1;
+                },
+                error: function(xhr, status, message) {
+                    console.log(xhr);
+                    console.log(status);
+                    console.log(message);
                 }
             });
             return false;
