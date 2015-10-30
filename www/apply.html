@@ -123,14 +123,26 @@
                     <option value="bay">Bay</option>
                     <option value="bayan">Bayan</option>
                 </select>
-                <select id="category">
-                    <option selected disabled style="display:none;">- Kategori -</option>
-                    <option value="oyuncu">Oyuncu</option>
-                    <option value="cocuk_oyuncu">Çocuk oyuncu</option>
-                    <option value="yardimci_oyuncu">Yardımcı oyuncu</option>
-                    <option value="stand_hostesi">Stand hostesi</option>
-                    <option value="yesilcam">Yeşilçam</option>
-                </select>
+                <fieldset id="oyuncuKategori">
+                    <legend>Kategori</legend>
+                    <div class="roundedOne">
+                        <input type="checkbox" name="kategori" id="oyuncu" class="squareTwo" />
+                        <label for="oyuncu">Oyuncu</label>
+                    </div>
+                    <div class="roundedOne">
+                        <input type="checkbox" name="kategori" id="cocuk_oyuncu" class="squareTwo" />
+                        <label for="cocuk_oyuncu">Çocuk oyuncu</label>
+                    </div>
+                    <div class="roundedOne">
+                        <input type="checkbox" name="kategori" id="yardimci_oyuncu" class="squareTwo" />
+                        <label for="yardimci_oyuncu">Yardımcı oyuncu</label>
+                    </div>
+                    <div class="roundedOne">
+                        <input type="checkbox" name="kategori" id="stand_hostesi" class="squareTwo" />
+                        <label for="stand_hostesi">Stand hostesi</label>
+                    </div>
+                </fieldset>
+
                 <select id="chest" class="stand_hostesi" style="display:none">
                     <option selected disabled style="display:none;">- Göğüs -</option>
                     <option value="75">75-80</option>
