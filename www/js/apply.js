@@ -9,31 +9,57 @@ document.addEventListener("deviceready", function() {
     });
   });
   $("#uploadotherpicture").on("click", function() { // TODO: Work on uploading multiple pictures.
-    /*
     navigator.camera.getPicture(onSuccessOther, onFail, {
       quality:100,
-      allowEdit:true,
       destinationType:Camera.DestinationType.DATA_URL,
       sourceType:Camera.PictureSourceType.PHOTOLIBRARY,
       correctOrientation:true
     });
-    */
+  $("#uploadotherpicture-2").on("click", function() { // TODO: Work on uploading multiple pictures.
+    navigator.camera.getPicture(onSuccessOther2, onFail, {
+      quality:100,
+      destinationType:Camera.DestinationType.DATA_URL,
+      sourceType:Camera.PictureSourceType.PHOTOLIBRARY,
+      correctOrientation:true
+    });
+  $("#uploadotherpicture-3").on("click", function() { // TODO: Work on uploading multiple pictures.
+    navigator.camera.getPicture(onSuccessOther3, onFail, {
+      quality:100,
+      destinationType:Camera.DestinationType.DATA_URL,
+      sourceType:Camera.PictureSourceType.PHOTOLIBRARY,
+      correctOrientation:true
+    });
+  $("#uploadotherpicture-4").on("click", function() { // TODO: Work on uploading multiple pictures.
+    navigator.camera.getPicture(onSuccessOther4, onFail, {
+      quality:100,
+      destinationType:Camera.DestinationType.DATA_URL,
+      sourceType:Camera.PictureSourceType.PHOTOLIBRARY,
+      correctOrientation:true
+    });
+  $("#uploadotherpicture-5").on("click", function() { // TODO: Work on uploading multiple pictures.
+    navigator.camera.getPicture(onSuccessOther5, onFail, {
+      quality:100,
+      destinationType:Camera.DestinationType.DATA_URL,
+      sourceType:Camera.PictureSourceType.PHOTOLIBRARY,
+      correctOrientation:true
+    });
+    /*
     window.imagePicker.getPictures(
       function(res) {
-      for (var x = 0;x<res.length;x++) {
-        console.log(res[x]);
-        var canvas = $("<canvas>");
-        var ctx = canvas[0].getContext["2d"];
-        var img = new Image();
-        img.src = res[x];
-        img.onload = function() {
-          ctx.drawImage(img, 0,0,300,300);
+        for (var x = 0;x<res.length;x++) {
+          var canvas = $("<canvas />");
+          var ctx = canvas[0].getContext("2d");
+          var img = new Image();
+          img.src = res[x];
+          img.onload = function() {
+            ctx.drawImage(img, 0, 0);
+          }
+          $("#otherpicture").append(canvas);
+          canvas.css("display", "block");
         }
-        canvas.css("display", "block");
-        $("#otherpicture").append(canvas);
       }
-    }
     );
+    */
   });
 });
 function onSuccess(imageData) {
@@ -47,12 +73,12 @@ function onSuccess(imageData) {
       "filepath":"public://"+imageData.replace(/\//g,"").replace(/\+/g,"").substr(0,10)+".jpg"
     }
   };
-  imagedata=imageData;
 }
 function onSuccessOther(imageDataOther) {
   var image = $("img#otherpicture");
   image.attr("src", "data:image/jpeg;base64,"+imageDataOther);
   image.css("display", "block");
+  $("uploadotherpicture-2").css("display", "block");
   fileDataOther = {
     "file":{
       "file":imageDataOther,
@@ -60,7 +86,58 @@ function onSuccessOther(imageDataOther) {
       "filepath":"public://"+imageDataOther.replace(/\//g,"").replace(/\+/g,"").substr(0,10)+".jpg"
     }
   };
-  imagedataother=imageDataOther;
+}
+function onSuccessOther2(imageDataOther2) {
+  var image = $("img#otherpicture-2");
+  image.attr("src", "data:image/jpeg;base64,"+imageDataOther2);
+  image.css("display", "block");
+  $("uploadotherpicture-3").css("display", "block");
+  fileDataOther2 = {
+    "file":{
+      "file":imageDataOther2,
+      "filename":"rejicast.jpg",
+      "filepath":"public://"+imageDataOther2.replace(/\//g,"").replace(/\+/g,"").substr(0,10)+".jpg"
+    }
+  };
+}
+function onSuccessOther3(imageDataOther3) {
+  var image = $("img#otherpicture-3");
+  image.attr("src", "data:image/jpeg;base64,"+imageDataOther3);
+  image.css("display", "block");
+  $("uploadotherpicture-4").css("display", "block");
+  fileDataOther3 = {
+    "file":{
+      "file":imageDataOther3,
+      "filename":"rejicast.jpg",
+      "filepath":"public://"+imageDataOther3.replace(/\//g,"").replace(/\+/g,"").substr(0,10)+".jpg"
+    }
+  };
+}
+function onSuccessOther4(imageDataOther4) {
+  var image = $("img#otherpicture-4");
+  image.attr("src", "data:image/jpeg;base64,"+imageDataOther4);
+  image.css("display", "block");
+  $("uploadotherpicture-4").css("display", "block");
+  fileDataOther4 = {
+    "file":{
+      "file":imageDataOther4,
+      "filename":"rejicast.jpg",
+      "filepath":"public://"+imageDataOther4.replace(/\//g,"").replace(/\+/g,"").substr(0,10)+".jpg"
+    }
+  };
+}
+function onSuccessOther5(imageDataOther5) {
+  var image = $("img#otherpicture");
+  image.attr("src", "data:image/jpeg;base64,"+imageDataOther5);
+  image.css("display", "block");
+  $("id^='uploadotherpicture'").css("display", "none");
+  fileDataOther5 = {
+    "file":{
+      "file":imageDataOther5,
+      "filename":"rejicast.jpg",
+      "filepath":"public://"+imageDataOther5.replace(/\//g,"").replace(/\+/g,"").substr(0,10)+".jpg"
+    }
+  };
 }
 function onFail() {
   setTimeout(function() { //iOS quirk for camera plugin
