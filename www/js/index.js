@@ -1,6 +1,6 @@
 document.addEventListener("deviceready", function() {
   var appStarted = window.localStorage.setItem("appStarted", 1);
-  if (window.location.pathname.split("/")[3] == "index.html" && appStarted || loggedIn) {
+  if (window.location.pathname.split("/")[3] == "index.html") {
     checkStatus();
     checkNotifications();
   }
