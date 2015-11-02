@@ -316,8 +316,12 @@ img.otherpicture {
     -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
     filter: alpha(opacity=100); opacity: .5;
 }
-div[id*="otherpicture"],button[id^="uploadotherpicture-"] {
+img[id*="otherpicture"],button[id^="uploadotherpicture-"] {
     display:none;
+}
+img[id*="otherpicture"] {
+    width:100%;
+    height:auto;
 }
 .loader-container {
     position:fixed;
