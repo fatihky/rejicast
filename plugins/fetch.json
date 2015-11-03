@@ -42,8 +42,9 @@
     },
     "cordova-plugin-camera": {
         "source": {
-            "type": "registry",
-            "id": "cordova-plugin-camera"
+            "type": "git",
+            "url": "https://github.com/photomania/cordova-plugin-camera",
+            "subdir": "."
         },
         "is_top_level": true,
         "variables": {}
