@@ -336,7 +336,7 @@ img[id*="otherpicture"] {
     opacity:0.5;
     display:none;
     text-align:center;
-    margin:0 0 0 -125px;
+    margin:0 auto;
 }
 .loader {
     margin:0 auto;
