@@ -67,19 +67,20 @@ document.addEventListener("deviceready", function() {
      */
 });
 function onSuccess(imageData) {
-  var image = $("#picture");
+  var image = $("img#picture");
   image.attr("src", "data:image/jpeg;base64,"+imageData);
   image.css("display", "block");
   fileData = {
     "file":{
       "file":imageData,
       "filename":"rejicast.jpg",
-      "filepath":"public://"+imageData.replace(/\//g,"").replace(/\+/g,"").substr(0,10)+".jpg"
+      "filepath":"public://"+imageData.replace(/\//g,"").replace(/\+/g,"").substr(50,20)+".jpg"
     }
   };
+  imagedata = imageData;
 }
 function onSuccessOther(imageDataOther) {
-  var image = $("#otherpicture");
+  var image = $("img#otherpicture");
   image.attr("src", "data:image/jpeg;base64,"+imageDataOther);
   image.css("display", "block");
   $("uploadotherpicture").css("display", "none");
@@ -88,12 +89,13 @@ function onSuccessOther(imageDataOther) {
     "file":{
       "file":imageDataOther,
       "filename":"rejicast.jpg",
-      "filepath":"public://"+imageDataOther.replace(/\//g,"").replace(/\+/g,"").substr(0,10)+".jpg"
+      "filepath":"public://"+imageDataOther.replace(/\//g,"").replace(/\+/g,"").substr(50,20)+".jpg"
     }
   };
+  imagedataother = imageDataOther;
 }
 function onSuccessOther2(imageDataOther2) {
-  var image = $("#otherpicture-2");
+  var image = $("img#otherpicture-2");
   image.attr("src", "data:image/jpeg;base64,"+imageDataOther2);
   image.css("display", "block");
   $("uploadotherpicture-2").css("display", "none");
@@ -102,12 +104,12 @@ function onSuccessOther2(imageDataOther2) {
     "file":{
       "file":imageDataOther2,
       "filename":"rejicast.jpg",
-      "filepath":"public://"+imageDataOther2.replace(/\//g,"").replace(/\+/g,"").substr(0,10)+".jpg"
+      "filepath":"public://"+imageDataOther2.replace(/\//g,"").replace(/\+/g,"").substr(50,20)+".jpg"
     }
   };
 }
 function onSuccessOther3(imageDataOther3) {
-  var image = $("#otherpicture-3");
+  var image = $("img#otherpicture-3");
   image.attr("src", "data:image/jpeg;base64,"+imageDataOther3);
   image.css("display", "block");
   $("uploadotherpicture-3").css("display", "none");
@@ -116,12 +118,12 @@ function onSuccessOther3(imageDataOther3) {
     "file":{
       "file":imageDataOther3,
       "filename":"rejicast.jpg",
-      "filepath":"public://"+imageDataOther3.replace(/\//g,"").replace(/\+/g,"").substr(0,10)+".jpg"
+      "filepath":"public://"+imageDataOther3.replace(/\//g,"").replace(/\+/g,"").substr(50,20)+".jpg"
     }
   };
 }
 function onSuccessOther4(imageDataOther4) {
-  var image = $("#otherpicture-4");
+  var image = $("img#otherpicture-4");
   image.attr("src", "data:image/jpeg;base64,"+imageDataOther4);
   image.css("display", "block");
   $("uploadotherpicture-4").css("display", "none");
@@ -130,12 +132,12 @@ function onSuccessOther4(imageDataOther4) {
     "file":{
       "file":imageDataOther4,
       "filename":"rejicast.jpg",
-      "filepath":"public://"+imageDataOther4.replace(/\//g,"").replace(/\+/g,"").substr(0,10)+".jpg"
+      "filepath":"public://"+imageDataOther4.replace(/\//g,"").replace(/\+/g,"").substr(50,20)+".jpg"
     }
   };
 }
 function onSuccessOther5(imageDataOther5) {
-  var image = $("#otherpicture-5");
+  var image = $("img#otherpicture-5");
   image.attr("src", "data:image/jpeg;base64,"+imageDataOther5);
   image.css("display", "block");
   $("id^='uploadotherpicture'").css("display", "none");
@@ -143,7 +145,7 @@ function onSuccessOther5(imageDataOther5) {
     "file":{
       "file":imageDataOther5,
       "filename":"rejicast.jpg",
-      "filepath":"public://"+imageDataOther5.replace(/\//g,"").replace(/\+/g,"").substr(0,10)+".jpg"
+      "filepath":"public://"+imageDataOther5.replace(/\//g,"").replace(/\+/g,"").substr(50,20)+".jpg"
     }
   };
 }
@@ -218,7 +220,7 @@ $("#apply").on("click", function() {
                         data:fileDataOther,
                         success:function(resOther5) {
                           var fid = '';
-                          var fids = [resOther1,resOther2,resOther3,resOther4,resOther5];
+                          var fids = [resOther,resOther2,resOther3,resOther4,resOther5];
                           $.each(fids, function(k,v) {
                             fid += '&node[field_fotograflar][und]['+k+'][fid]='+v;
                           });
