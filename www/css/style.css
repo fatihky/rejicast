@@ -194,7 +194,7 @@ option {
 .singleProfileContent {
     float:left; width:70%;
 }
-.singleProfileOtherPics, .singleProfileImage {
+.singleProfileOtherPics, .singleProfileImage, img[id^='otherpicture'] {
     width:100%; height:auto; margin:5px auto 10px; display:block;
     background:#FFF; border:1px solid #CCCCCC;
     border-radius:4px; box-shadow:1px 1px 6px -3px #000;

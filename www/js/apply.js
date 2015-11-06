@@ -74,78 +74,78 @@ function onSuccess(imageData) {
     "file":{
       "file":imageData,
       "filename":"rejicast.jpg",
-      "filepath":"public://"+imageData.replace(/\//g,"").replace(/\+/g,"").substr(50,20)+".jpg"
+      "filepath":"public://"+imageData.replace(/\//g,"").replace(/\+/g,"").substr(100,50)+".jpg"
     }
   };
   imagedata = imageData;
 }
 function onSuccessOther(imageDataOther) {
-  var image = $("img#otherpicture");
-  image.attr("src", "data:image/jpeg;base64,"+imageDataOther);
-  image.css("display", "block");
-  $("uploadotherpicture").css("display", "none");
-  $("uploadotherpicture-2").css("display", "block");
+  var imageOther = $("img#otherpicture");
+  imageOther.attr("src", "data:image/jpeg;base64,"+imageDataOther);
+  imageOther.css("display", "block");
+  $("#uploadotherpicture").css("display", "none");
+  $("#uploadotherpicture-2").css("display", "block");
   fileDataOther = {
     "file":{
       "file":imageDataOther,
       "filename":"rejicast.jpg",
-      "filepath":"public://"+imageDataOther.replace(/\//g,"").replace(/\+/g,"").substr(50,20)+".jpg"
+      "filepath":"public://"+imageDataOther.replace(/\//g,"").replace(/\+/g,"").substr(100,50)+Date.now()+".jpg"
     }
   };
   imagedataother = imageDataOther;
 }
 function onSuccessOther2(imageDataOther2) {
-  var image = $("img#otherpicture-2");
-  image.attr("src", "data:image/jpeg;base64,"+imageDataOther2);
-  image.css("display", "block");
-  $("uploadotherpicture-2").css("display", "none");
-  $("uploadotherpicture-3").css("display", "block");
+  var imageOther2 = $("img#otherpicture-2");
+  imageOther2.attr("src", "data:image/jpeg;base64,"+imageDataOther2);
+  imageOther2.css("display", "block");
+  $("#uploadotherpicture-2").css("display", "none");
+  $("#uploadotherpicture-3").css("display", "block");
   fileDataOther2 = {
     "file":{
       "file":imageDataOther2,
       "filename":"rejicast.jpg",
-      "filepath":"public://"+imageDataOther2.replace(/\//g,"").replace(/\+/g,"").substr(50,20)+".jpg"
+      "filepath":"public://"+imageDataOther2.replace(/\//g,"").replace(/\+/g,"").substr(100,50)+Date.now()+".jpg"
     }
   };
 }
 function onSuccessOther3(imageDataOther3) {
-  var image = $("img#otherpicture-3");
-  image.attr("src", "data:image/jpeg;base64,"+imageDataOther3);
-  image.css("display", "block");
-  $("uploadotherpicture-3").css("display", "none");
-  $("uploadotherpicture-4").css("display", "block");
+  var imageOther3 = $("img#otherpicture-3");
+  imageOther3.attr("src", "data:image/jpeg;base64,"+imageDataOther3);
+  imageOther3.css("display", "block");
+  $("#uploadotherpicture-3").css("display", "none");
+  $("#uploadotherpicture-4").css("display", "block");
   fileDataOther3 = {
     "file":{
       "file":imageDataOther3,
       "filename":"rejicast.jpg",
-      "filepath":"public://"+imageDataOther3.replace(/\//g,"").replace(/\+/g,"").substr(50,20)+".jpg"
+      "filepath":"public://"+imageDataOther3.replace(/\//g,"").replace(/\+/g,"").substr(100,50)+Date.now()+".jpg"
     }
   };
 }
 function onSuccessOther4(imageDataOther4) {
-  var image = $("img#otherpicture-4");
-  image.attr("src", "data:image/jpeg;base64,"+imageDataOther4);
-  image.css("display", "block");
-  $("uploadotherpicture-4").css("display", "none");
-  $("uploadotherpicture-5").css("display", "block");
+  var imageOther4 = $("img#otherpicture-4");
+  imageOther4.attr("src", "data:image/jpeg;base64,"+imageDataOther4);
+  imageOther4.css("display", "block");
+  $("#uploadotherpicture-4").css("display", "none");
+  $("#uploadotherpicture-5").css("display", "block");
   fileDataOther4 = {
     "file":{
       "file":imageDataOther4,
       "filename":"rejicast.jpg",
-      "filepath":"public://"+imageDataOther4.replace(/\//g,"").replace(/\+/g,"").substr(50,20)+".jpg"
+      "filepath":"public://"+imageDataOther4.replace(/\//g,"").replace(/\+/g,"").substr(100,50)+Date.now()+".jpg"
     }
   };
 }
 function onSuccessOther5(imageDataOther5) {
-  var image = $("img#otherpicture-5");
-  image.attr("src", "data:image/jpeg;base64,"+imageDataOther5);
-  image.css("display", "block");
-  $("id^='uploadotherpicture'").css("display", "none");
+  var imageOther5 = $("img#otherpicture-5");
+  imageOther5.attr("src", "data:image/jpeg;base64,"+imageDataOther5);
+  imageOther5.css("display", "block");
+  $("#uploadotherpicture-5").css("display", "none");
   fileDataOther5 = {
     "file":{
       "file":imageDataOther5,
       "filename":"rejicast.jpg",
-      "filepath":"public://"+imageDataOther5.replace(/\//g,"").replace(/\+/g,"").substr(50,20)+".jpg"
+      "filepath":"public://"+imageDataOther5.replace(/\//g,"").replace(/\+/g,"").substr(100,50)+Date.now()+".jpg"
     }
   };
 }
