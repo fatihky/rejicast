@@ -25,7 +25,7 @@ $("#search").on("click", function() {
             $.each(data.nodes, function (key, value) {
                 profile = $('<div class="profile"><img class="profileImage" data-nid="' + value.node.nid + '" src="' + value.node.field_oyuncu_fotografi.src + '"><div class="profileName">' + value.node.field_gosterilecek_ad + '</div></div>');
                 $("#profiles").append(profile);
-                window.location.href = "#profiles";
+                window.scrollTo(0,726);
             });
             $(".profileImage").on("click", function(ev) {
                 $(".loader-container > p").text('Oyuncu bilgileri alınıyor');
@@ -39,6 +39,9 @@ $("#search").on("click", function() {
                         nid: nid
                     },
                     success: function(data) {
+                        var pd = $("<div>");
+                        pd.attr("id", "profile");
+                        $("body").append(pd);
                         var category = data.nodes[0].node.field_kategorisi.indexOf("Stand hostesi") != -1;
                         $(".loader-container").hide();
                         var share = $('<div id="shareViaEmail"><img id="email" src="img/email.png"/></div><div id="shareViaWhatsApp"><img id="whatsapp" src="img/whatsapp.png"/></div>');
