@@ -12,10 +12,16 @@ document.addEventListener("deviceready", function() {
     window.imagePicker.getPictures(function(res) {
       for (var i = 0;i < res.length;i++) {
         var canvas = $("<canvas>");
+        var ctx = canvas[0].getContext("2d");
         canvas.attr("class", i);
-        $("#otherpictures").append(canvas);
+        var img = new Image();
+        img.src = res[i];
+        img.onload = function() {
+          ctx.drawImage(img, 0, 0);
+          $("#otherpictures").append(canvas);
+        }
       }
-    })
+    });
   });
 });
     /*
