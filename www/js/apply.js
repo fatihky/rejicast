@@ -111,7 +111,7 @@ function onSuccess(imageData) {
     "file":{
       "file":imageData,
       "filename":"rejicast.jpg",
-      "filepath":"public://"+imageData.replace(/\//g,"").replace(/\+/g,"").substr(100,50)+".jpg"
+      "filepath":"public://"+imageData.replace(/\//g,"").replace(/\+/g,"").slice(-10)+".jpg"
     }
   };
   imagedata = imageData;
@@ -126,7 +126,7 @@ function onSuccessOther(imageDataOther) {
     "file":{
       "file":imageDataOther,
       "filename":"rejicast.jpg",
-      "filepath":"public://"+imageDataOther.replace(/\//g,"").replace(/\+/g,"").substr(100,50)+Date.now()+".jpg"
+      "filepath":"public://"+imageDataOther.replace(/\//g,"").replace(/\+/g,"").slice(-10)+Date.now()+".jpg"
     }
   };
   imagedataother = imageDataOther;
@@ -141,7 +141,7 @@ function onSuccessOther2(imageDataOther2) {
     "file":{
       "file":imageDataOther2,
       "filename":"rejicast.jpg",
-      "filepath":"public://"+imageDataOther2.replace(/\//g,"").replace(/\+/g,"").substr(100,50)+Date.now()+".jpg"
+      "filepath":"public://"+imageDataOther2.replace(/\//g,"").replace(/\+/g,"").slice(-10)+Date.now()+".jpg"
     }
   };
 }
@@ -155,7 +155,7 @@ function onSuccessOther3(imageDataOther3) {
     "file":{
       "file":imageDataOther3,
       "filename":"rejicast.jpg",
-      "filepath":"public://"+imageDataOther3.replace(/\//g,"").replace(/\+/g,"").substr(100,50)+Date.now()+".jpg"
+      "filepath":"public://"+imageDataOther3.replace(/\//g,"").replace(/\+/g,"").slice(-10)+Date.now()+".jpg"
     }
   };
 }
@@ -169,7 +169,7 @@ function onSuccessOther4(imageDataOther4) {
     "file":{
       "file":imageDataOther4,
       "filename":"rejicast.jpg",
-      "filepath":"public://"+imageDataOther4.replace(/\//g,"").replace(/\+/g,"").substr(100,50)+Date.now()+".jpg"
+      "filepath":"public://"+imageDataOther4.replace(/\//g,"").replace(/\+/g,"").slice(-10)+Date.now()+".jpg"
     }
   };
 }
@@ -182,7 +182,7 @@ function onSuccessOther5(imageDataOther5) {
     "file":{
       "file":imageDataOther5,
       "filename":"rejicast.jpg",
-      "filepath":"public://"+imageDataOther5.replace(/\//g,"").replace(/\+/g,"").substr(100,50)+Date.now()+".jpg"
+      "filepath":"public://"+imageDataOther5.replace(/\//g,"").replace(/\+/g,"").slice(-10)+Date.now()+".jpg"
     }
   };
 }
