@@ -8,44 +8,6 @@ document.addEventListener("deviceready", function() {
       correctOrientation:true
     });
   });
-  $(".uploadotherpictures").on("click", function() {
-    window.imagePicker.getPictures(function(res) {
-      for (var i = 0;i < res.length;i++) {
-        var canvas = $("<canvas>");
-        var ctx = canvas[0].getContext("2d");
-        canvas.attr("class", i);
-        var img = new Image();
-        img.src = res[i];
-        img.onload = function() {
-          ctx.drawImage(img, 0, 0);
-          $("#otherpictures").append(canvas);
-        }
-      }
-    });
-  });
-});
-    /*
-function onSuccessOther(imageDataOther, theImage) {
-  var image = $(".otherpicture."+theImage);
-  image.attr("src", "data:image/jpeg;base64"+imageDataOther);
-  image.css("display", "block");
-  fileDataOther = {
-    'file': {
-      'file':imageDataOther,
-      'filename':"rejicast.jpg",
-      'filepath':"public://"+imageDataOther.replace(/\//g,"").replace(/\+/g,"").slice(-5)
-    }
-  }
-}
-    var theImage = $(this).data("image");
-    navigator.camera.getPicture(onSuccess, onFail, {
-      quality:100,
-      destinationType:Camera.DestinationType.DATA_URL,
-      sourceType:Camera.PictureSourceType.PHOTOLIBRARY,
-      correctOrientation:true
-    });
-  })
-  /*
   $("#uploadotherpicture").on("click", function() { // TODO: Work on uploading multiple pictures.
     navigator.camera.getPicture(onSuccessOther, onFail, {
       quality:100,
@@ -86,23 +48,6 @@ function onSuccessOther(imageDataOther, theImage) {
       correctOrientation:true
     });
   });
-     window.imagePicker.getPictures(
-     function(res) {
-     for (var x = 0;x<res.length;x++) {
-     var canvas = $("<canvas />");
-     var ctx = canvas[0].getContext("2d");
-     var img = new Image();
-     img.src = res[x];
-     img.onload = function() {
-     ctx.drawImage(img, 0, 0);
-     }
-     $("#otherpicture").append(canvas);
-     canvas.css("display", "block");
-     }
-     }
-     );
-});
-     */
 function onSuccess(imageData) {
   var image = $("img#picture");
   image.attr("src", "data:image/jpeg;base64,"+imageData);
