@@ -1,4 +1,5 @@
 document.addEventListener("deviceready", function() {
+  fids = [];
   $("#uploadpicture").on("click", function() {
     navigator.camera.getPicture(onSuccess, onFail, {
       quality:100,
@@ -8,7 +9,7 @@ document.addEventListener("deviceready", function() {
       correctOrientation:true
     });
   });
-  $("#uploadotherpicture").on("click", function() { // TODO: Work on uploading multiple pictures.
+  $("#uploadotherpicture").on("click", function() {
     navigator.camera.getPicture(onSuccessOther, onFail, {
       quality:100,
       destinationType:Camera.DestinationType.DATA_URL,
@@ -16,7 +17,7 @@ document.addEventListener("deviceready", function() {
       correctOrientation:true
     });
   });
-  $("#uploadotherpicture-2").on("click", function() { // TODO: Work on uploading multiple pictures.
+  $("#uploadotherpicture-2").on("click", function() {
     navigator.camera.getPicture(onSuccessOther2, onFail, {
       quality:100,
       destinationType:Camera.DestinationType.DATA_URL,
@@ -24,7 +25,7 @@ document.addEventListener("deviceready", function() {
       correctOrientation:true
     });
   });
-  $("#uploadotherpicture-3").on("click", function() { // TODO: Work on uploading multiple pictures.
+  $("#uploadotherpicture-3").on("click", function() {
     navigator.camera.getPicture(onSuccessOther3, onFail, {
       quality:100,
       destinationType:Camera.DestinationType.DATA_URL,
@@ -32,7 +33,7 @@ document.addEventListener("deviceready", function() {
       correctOrientation:true
     });
   });
-  $("#uploadotherpicture-4").on("click", function() { // TODO: Work on uploading multiple pictures.
+  $("#uploadotherpicture-4").on("click", function() {
     navigator.camera.getPicture(onSuccessOther4, onFail, {
       quality:100,
       destinationType:Camera.DestinationType.DATA_URL,
@@ -40,7 +41,7 @@ document.addEventListener("deviceready", function() {
       correctOrientation:true
     });
   });
-  $("#uploadotherpicture-5").on("click", function() { // TODO: Work on uploading multiple pictures.
+  $("#uploadotherpicture-5").on("click", function() {
     navigator.camera.getPicture(onSuccessOther5, onFail, {
       quality:100,
       destinationType:Camera.DestinationType.DATA_URL,
@@ -48,6 +49,7 @@ document.addEventListener("deviceready", function() {
       correctOrientation:true
     });
   });
+});
 function onSuccess(imageData) {
   var image = $("img#picture");
   image.attr("src", "data:image/jpeg;base64,"+imageData);
@@ -74,7 +76,16 @@ function onSuccessOther(imageDataOther) {
       "filepath":"public://"+imageDataOther.replace(/\//g,"").replace(/\+/g,"").slice(-10)+Date.now()+".jpg"
     }
   };
-  imagedataother = imageDataOther;
+  $.ajax({
+    url:'http://www.rejicast.com/services/file.json',
+    type:'post',
+    dataType:'json',
+    data:fileDataOther,
+    success:function(resOther) {
+      console.log(JSON.stringify(resOther));
+      fids.push(resOther.fid);
+    }
+  });
 }
 function onSuccessOther2(imageDataOther2) {
   var imageOther2 = $("img#otherpicture-2");
@@ -89,6 +100,15 @@ function onSuccessOther2(imageDataOther2) {
       "filepath":"public://"+imageDataOther2.replace(/\//g,"").replace(/\+/g,"").slice(-10)+Date.now()+".jpg"
     }
   };
+  $.ajax({
+    url:'http://www.rejicast.com/services/file.json',
+    type:'post',
+    dataType:'json',
+    data:fileDataOther2,
+    success:function(resOther2) {
+      fids.push(resOther2.fid);
+    }
+  });
 }
 function onSuccessOther3(imageDataOther3) {
   var imageOther3 = $("img#otherpicture-3");
@@ -103,6 +123,15 @@ function onSuccessOther3(imageDataOther3) {
       "filepath":"public://"+imageDataOther3.replace(/\//g,"").replace(/\+/g,"").slice(-10)+Date.now()+".jpg"
     }
   };
+  $.ajax({
+    url:'http://www.rejicast.com/services/file.json',
+    type:'post',
+    dataType:'json',
+    data:fileDataOther3,
+    success:function(resOther3) {
+      fids.push(resOther3.fid);
+    }
+  });
 }
 function onSuccessOther4(imageDataOther4) {
   var imageOther4 = $("img#otherpicture-4");
@@ -117,6 +146,15 @@ function onSuccessOther4(imageDataOther4) {
       "filepath":"public://"+imageDataOther4.replace(/\//g,"").replace(/\+/g,"").slice(-10)+Date.now()+".jpg"
     }
   };
+  $.ajax({
+    url:'http://www.rejicast.com/services/file.json',
+    type:'post',
+    dataType:'json',
+    data:fileDataOther4,
+    success:function(resOther4) {
+      fids.push(resOther4.fid);
+    }
+  });
 }
 function onSuccessOther5(imageDataOther5) {
   var imageOther5 = $("img#otherpicture-5");
@@ -130,9 +168,18 @@ function onSuccessOther5(imageDataOther5) {
       "filepath":"public://"+imageDataOther5.replace(/\//g,"").replace(/\+/g,"").slice(-10)+Date.now()+".jpg"
     }
   };
+  $.ajax({
+    url:'http://www.rejicast.com/services/file.json',
+    type:'post',
+    dataType:'json',
+    data:fileDataOther5,
+    success:function(resOther5) {
+      fids.push(resOther5.fid);
+    }
+  });
 }
 function onFail() {
-  setTimeout(function() { //iOS quirk for camera plugin
+  setTimeout(function() {
     navigator.notification.alert("Bir hata oluştu", function(){return;}, "Hata", "Tamam");
   }, 0);
 }
@@ -177,79 +224,40 @@ $("#apply").on("click", function() {
         dataType:'json',
         data:fileDataOther,
         success:function(resOther) {
+          $.each(fids, function(k,v) {
+            fid += '&node[field_fotograflar][und]['+k+'][fid]='+v;
+          });
+          var cat = '';
+          $('#oyuncuKategori input:checked').each(function(k,v) {
+            cat += '&node[field_kategorisi][und]['+k+']='+$(this).attr('id');
+          });
           $.ajax({
-            url:'http://www.rejicast.com/services/file.json',
+            url:'http://www.rejicast.com/services/node.json',
             type:'post',
             dataType:'json',
-            data:fileDataOther,
-            success:function(resOther2) {
-              $.ajax({
-                url:'http://www.rejicast.com/services/file.json',
-                type:'post',
-                dataType:'json',
-                data:fileDataOther,
-                success:function(resOther3) {
-                  $.ajax({
-                    url:'http://www.rejicast.com/services/file.json',
-                    type:'post',
-                    dataType:'json',
-                    data:fileDataOther,
-                    success:function(resOther4) {
-                      $.ajax({
-                        url:'http://www.rejicast.com/services/file.json',
-                        type:'post',
-                        dataType:'json',
-                        data:fileDataOther,
-                        success:function(resOther5) {
-                          var fid = '';
-                          var fids = [resOther,resOther2,resOther3,resOther4,resOther5];
-                          $.each(fids, function(k,v) {
-                            fid += '&node[field_fotograflar][und]['+k+'][fid]='+v;
-                          });
-                          var cat = '';
-                          $('#oyuncuKategori input:checked').each(function(k,v) {
-                            cat += '&node[field_kategorisi][und]['+k+']='+$(this).attr('id');
-                          });
-                          $.ajax({
-                            url:'http://www.rejicast.com/services/node.json',
-                            type:'post',
-                            dataType:'json',
-                            data:'node[type]=oyuncu&node[field_oyuncu_fotografi][und][0][fid]='+res.fid+'&node[field_oyuncu_fotografi][und][0][cropbox_x]=0&node[field_oyuncu_fotografi][und][0][cropbox_y]=0&node[field_oyuncu_fotografi][und][0][cropbox_height]=800&node[field_oyuncu_fotografi][und][0][cropbox_width]=600&node[title]='+encodeURIComponent($("#name").val())+'&node[language]=und&node[field_tc_kimlik_no][und][0][value]='+encodeURIComponent($("#tckn").val())+'&node[field_sgk_durumu][und][value]='+encodeURIComponent($("#sgk option:selected").val())+'&node[field_telefon][und][0][value]='+encodeURIComponent($("#tel").val())+'&node[field_telefon_2][und][0][value]='+encodeURIComponent($("#tel2").val())+'&node[field_adres][und][0][value]='+encodeURIComponent($("#address").val())+'&node[field_yasadigi_sehir][und][value]='+encodeURIComponent($("#city option:selected").val())+'&node[field_e_posta][und][0][value]='+encodeURIComponent($("#email").val())+'&node[field_cinsiyet][und][value]='+encodeURIComponent($("#gender option:selected").val())+cat+'&node[field_gogus][und][value]='+$("#chest option:selected").val()+'&node[field_bel][und][value]='+$("#waist option:selected").val()+'&node[field_kalca][und][value]='+$("#thigh option:selected").val()+'&node[field_dogum_tarihi][und][0][value][date]='+finalDate+'&node[field_boy][und][value]='+encodeURIComponent($("#height option:checked").val())+'&node[field_kilo][und][value]='+encodeURIComponent($("#weight option:selected").val())+'&node[field_goz_rengi][und][value]='+encodeURIComponent($("#eyecolour option:selected").val())+'&node[field_ten_rengi][und][value]='+encodeURIComponent($("#skincolour option:selected").val())+'&node[field_ayak_no][und][value]='+encodeURIComponent($("#shoesize option:selected").val())+'&node[field_egitim_duzeyi][und][value]='+encodeURIComponent($("#education option:selected").val())+'&node[field_oyunculuk_egitimleri][und][0][value]='+encodeURIComponent($("#training").val())+'&node[field_diller][und][0][value]='+encodeURIComponent($("#languages").val())+'&node[field_beceriler][und][0][value]='+encodeURIComponent($("#skills").val())+'&node[field_kisisel][und][0][value]='+encodeURIComponent($("#personal").val())+fid+'&node[field_videolar][und][0][video_url]='+encodeURIComponent($(".videolink").val())+'&node[field_videolar][und][0][description]='+encodeURIComponent($(".videodesc").val())+'&node[field_okudum_anladim][und][value]='+encodeURIComponent($(".privacy").is(':selected')?1:0),
-                            success:function(data) {
-                              $(".loader-container").text("Kaydınız başarıyla yapıldı");
-                              setTimeout(function() {
-                                $(".loader-container").fadeOut(500);
-                              },1000);
-                              console.log(JSON.stringify(data));
-                              window.location.href = "received.html";
-                            },
-                            error:function(xhr,status,message) {
-                              console.log(xhr);
-                              console.log(status);
-                              console.log(message);
-                              navigator.notification.alert("Eksik bırakılan alan var, lütfen doldurup tekrar deneyin.", function(){return;}, "Hata", "Tamam");
-                            }
-                          });
-                        },
-                        error:function(xhr,status,message) {
-                          console.log(xhr);
-                          console.log(status);
-                          console.log(message);
-                        }
-                      });
-                    }
-                  });
-                }
-              });
+            data:'node[type]=oyuncu&node[field_oyuncu_fotografi][und][0][fid]='+res.fid+'&node[field_oyuncu_fotografi][und][0][cropbox_x]=0&node[field_oyuncu_fotografi][und][0][cropbox_y]=0&node[field_oyuncu_fotografi][und][0][cropbox_height]=800&node[field_oyuncu_fotografi][und][0][cropbox_width]=600&node[title]='+encodeURIComponent($("#name").val())+'&node[language]=und&node[field_tc_kimlik_no][und][0][value]='+encodeURIComponent($("#tckn").val())+'&node[field_sgk_durumu][und][value]='+encodeURIComponent($("#sgk option:selected").val())+'&node[field_telefon][und][0][value]='+encodeURIComponent($("#tel").val())+'&node[field_telefon_2][und][0][value]='+encodeURIComponent($("#tel2").val())+'&node[field_adres][und][0][value]='+encodeURIComponent($("#address").val())+'&node[field_yasadigi_sehir][und][value]='+encodeURIComponent($("#city option:selected").val())+'&node[field_e_posta][und][0][value]='+encodeURIComponent($("#email").val())+'&node[field_cinsiyet][und][value]='+encodeURIComponent($("#gender option:selected").val())+cat+'&node[field_gogus][und][value]='+$("#chest option:selected").val()+'&node[field_bel][und][value]='+$("#waist option:selected").val()+'&node[field_kalca][und][value]='+$("#thigh option:selected").val()+'&node[field_dogum_tarihi][und][0][value][date]='+finalDate+'&node[field_boy][und][value]='+encodeURIComponent($("#height option:checked").val())+'&node[field_kilo][und][value]='+encodeURIComponent($("#weight option:selected").val())+'&node[field_goz_rengi][und][value]='+encodeURIComponent($("#eyecolour option:selected").val())+'&node[field_ten_rengi][und][value]='+encodeURIComponent($("#skincolour option:selected").val())+'&node[field_ayak_no][und][value]='+encodeURIComponent($("#shoesize option:selected").val())+'&node[field_egitim_duzeyi][und][value]='+encodeURIComponent($("#education option:selected").val())+'&node[field_oyunculuk_egitimleri][und][0][value]='+encodeURIComponent($("#training").val())+'&node[field_diller][und][0][value]='+encodeURIComponent($("#languages").val())+'&node[field_beceriler][und][0][value]='+encodeURIComponent($("#skills").val())+'&node[field_kisisel][und][0][value]='+encodeURIComponent($("#personal").val())+fid+'&node[field_videolar][und][0][video_url]='+encodeURIComponent($(".videolink").val())+'&node[field_videolar][und][0][description]='+encodeURIComponent($(".videodesc").val())+'&node[field_okudum_anladim][und][value]='+encodeURIComponent($(".privacy").is(':selected')?1:0),
+            success:function(data) {
+              $(".loader-container").text("Kaydınız başarıyla yapıldı");
+              setTimeout(function() {
+                $(".loader-container").fadeOut(500);
+              },1000);
+              console.log(JSON.stringify(data));
+              window.location.href = "received.html";
+            },
+            error:function(xhr,status,message) {
+              console.log(xhr);
+              console.log(status);
+              console.log(message);
+              navigator.notification.alert("Eksik bırakılan alan var, lütfen doldurup tekrar deneyin.", function(){return;}, "Hata", "Tamam");
             }
           });
+        },
+        error:function(xhr,status,message) {
+          console.log(xhr);
+          console.log(status);
+          console.log(message);
         }
       });
-    },
-    error: function(xhr,status,message) {
-      console.log(xhr);
-      console.log(status);
-      console.log(message);
     }
   });
 });
