@@ -24,11 +24,9 @@
                 <button id="uploadpicture">Profil fotoğrafı seçin</button>
                 <input type="text" id="name" placeholder="Adı & Soyadı" name="title"/>
                 <input type="number" id="tckn" placeholder="TC Kimlik No"/>
-                <select id="sgk">
-                    <option selected disabled style="display:none">- SGK durumu -</option>
-                    <option value="devam_ediyor">Devam ediyor</option>
-                    <option value="emekli">Emekli</option>
-                </select>
+                <label for="dob">Doğum Tarihiniz</label>
+                <input type="date" id="dob"/>
+                <input id="email" type="email" placeholder="E-posta"/>
                 <input type="tel" id="tel" placeholder="Telefon"/>
                 <input type="tel" id="tel2" placeholder="Telefon 2"/>
                 <div class="description">Size ulaşamadığımız durumda ulaşabileceğimiz bir yakınınızın telefonunu yazınız.</div>
@@ -116,11 +114,10 @@
                     <option value="79">Kilis</option>
                     <option value="80">Osmaniye</option>
                 </select>
-                <input id="email" type="email" placeholder="E-posta"/>
-                <select id="gender">
-                    <option selected disabled style="display:none;">- Cinsiyet -</option>
-                    <option value="bay">Bay</option>
-                    <option value="bayan">Bayan</option>
+                <select id="sgk">
+                    <option selected disabled style="display:none">- SGK durumu -</option>
+                    <option value="devam_ediyor">Devam ediyor</option>
+                    <option value="emekli">Emekli</option>
                 </select>
                 <fieldset id="oyuncuKategori">
                     <legend>Kategori</legend>
@@ -141,7 +138,11 @@
                         <label for="stand_hostesi">Stand hostesi</label>
                     </div>
                 </fieldset>
-
+                <select id="gender">
+                    <option selected disabled style="display:none;">- Cinsiyet -</option>
+                    <option value="bay">Bay</option>
+                    <option value="bayan">Bayan</option>
+                </select>
                 <select id="chest" class="stand_hostesi" style="display:none">
                     <option selected disabled style="display:none;">- Göğüs -</option>
                     <option value="75">75-80</option>
@@ -170,8 +171,6 @@
                     <option value="111">111-115</option>
                     <option value="116">116-120</option>
                 </select>
-                <label for="dob">Doğum Tarihiniz</label>
-                <input type="date" id="dob"/>
                 <select id="height">
                     <option selected disabled style="display:none;">- Boy -</option>
                     <option value="150">1.50 - 1.60</option>
@@ -255,8 +254,7 @@
                 <textarea id="training" placeholder="Oyunculuk eğitimleri (Virgül ile ayırabilirsiniz)" rows="3"></textarea>
                 <input type="text" id="languages" placeholder="Diller (Virgül ile ayırabilirsiniz)"/>
                 <input type="text" id="skills" placeholder="Beceriler (Virgül ile ayırabilirsiniz)"/>
-                <textarea id="personal" placeholder="Kişisel" rows="2"/></textarea>
-                <div class="description">Oyuncu hakkında biyografi niteliğinde bilgi</div>
+                <textarea id="personal" placeholder="Oyuncu hakkında kısa bilgi" rows="2"/></textarea>
                 <img id="otherpicture"/>
                 <button id="uploadotherpicture" data-image="one">Daha fazla fotoğraf yükleyin</button>
                 <img id="otherpicture-2"/>
@@ -268,7 +266,6 @@
                 <img id="otherpicture-5"/>
                 <button id="uploadotherpicture-5" data-image="five">Daha fazla fotoğraf yükleyin</button>
                 <div id="otherpictures"></div>
-                <button id="uploadotherpictures">Daha fazla fotoğraf yükleyin</button>
                 <label for="videos">Videolar</label>
                 <table id="videos">
                     <tr class="videos">

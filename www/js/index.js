@@ -1,5 +1,5 @@
 document.addEventListener("deviceready", function() {
-  if (window.location.pathname.split("/")[3] == "index.html" && !localStorage.getItem("user")) {
+  if (window.location.pathname.split("/")[3] == "index.html") {
     checkStatus();
     checkNotifications();
   }
