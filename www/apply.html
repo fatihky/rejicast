@@ -24,8 +24,7 @@
                 <button id="uploadpicture">Profil fotoğrafı seçin</button>
                 <input type="text" id="name" placeholder="Adı & Soyadı" name="title"/>
                 <input type="number" id="tckn" placeholder="TC Kimlik No"/>
-                <label for="dob">Doğum Tarihiniz</label>
-                <input type="date" id="dob"/>
+                <input type="text" id="dob" onFocus="(this.type='date')" placeholder="Doğum tarihiniz"/>
                 <input id="email" type="email" placeholder="E-posta"/>
                 <input type="tel" id="tel" placeholder="Telefon"/>
                 <input type="tel" id="tel2" placeholder="Telefon 2"/>
@@ -120,22 +119,21 @@
                     <option value="emekli">Emekli</option>
                 </select>
                 <fieldset id="oyuncuKategori">
-                    <legend>Kategori</legend>
                     <div class="roundedOne">
                         <input type="checkbox" name="kategori" id="oyuncu" class="squareTwo" />
-                        <label for="oyuncu">Oyuncu</label>
+                        <label for="oyuncu">Oyuncuyum</label>
                     </div>
                     <div class="roundedOne">
                         <input type="checkbox" name="kategori" id="cocuk_oyuncu" class="squareTwo" />
-                        <label for="cocuk_oyuncu">Çocuk oyuncu</label>
+                        <label for="cocuk_oyuncu">Çocuk oyuncuyum</label>
                     </div>
                     <div class="roundedOne">
                         <input type="checkbox" name="kategori" id="yardimci_oyuncu" class="squareTwo" />
-                        <label for="yardimci_oyuncu">Yardımcı oyuncu</label>
+                        <label for="yardimci_oyuncu">Yardımcı oyuncuyum</label>
                     </div>
                     <div class="roundedOne">
                         <input type="checkbox" name="kategori" id="stand_hostesi" class="squareTwo" />
-                        <label for="stand_hostesi">Stand hostesi</label>
+                        <label for="stand_hostesi">Stand hostesiyim</label>
                     </div>
                 </fieldset>
                 <select id="gender">
@@ -266,14 +264,12 @@
                 <img id="otherpicture-5"/>
                 <button id="uploadotherpicture-5" data-image="five">Daha fazla fotoğraf yükleyin</button>
                 <div id="otherpictures"></div>
-                <label for="videos">Videolar</label>
                 <table id="videos">
                     <tr class="videos">
                         <td>
                             <fieldset>
-                                <input type="url" class="videolink" placeholder="Video linki (Youtube, Vimeo)"/>
-                                <input type="text" class="videodesc" placeholder="Açıklama"/>
-                                <div class="description">Açıklama alanı aynı zamanda başlık olarak kullanılacaktır.</div>
+                                <input type="url" class="videolink" placeholder="Youtube videosu ekleyin"/>
+                                <input type="text" class="videodesc" placeholder="Video başlığı"/>
                             </fieldset>
                         </td>
                     </tr>
