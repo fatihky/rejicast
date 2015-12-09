@@ -342,16 +342,6 @@ img[id*="otherpicture"] {
 button[id*="uploadotherpicture"] {
     font-size:1.1em;
 }
-#videos .videos fieldset {
-    border:none;
-    padding:0;
-    width:90%;
-    margin:auto;
-}
-#videos .videos fieldset input {
-    margin:10px 0;
-    width:100%;
-}
 .loader-container {
     position:fixed;
     top:40%;
@@ -394,4 +384,14 @@ button[id*="uploadotherpicture"] {
     to {
         transform:rotate(360deg);
     }
+}
+#videos fieldset {
+    border:none;
+    padding:0;
+    width:90%;
+    margin:auto;
+}
+#videos fieldset input {
+    margin:10px 0;
+    width:100%;
 }
