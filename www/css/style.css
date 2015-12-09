@@ -385,6 +385,9 @@ button[id*="uploadotherpicture"] {
         transform:rotate(360deg);
     }
 }
+#videos {
+    width:100%;
+}
 #videos fieldset {
     border:none;
     padding:0;
