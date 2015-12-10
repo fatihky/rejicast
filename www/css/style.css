@@ -35,19 +35,19 @@ body {
 #topHolder {
     position:fixed; top:0; width:100%; height:60px;
     background:url(../img/header.png) top center no-repeat;
-    z-index:1;
+    z-index:1; 
 }
 
 #logoHolder {
-    position:fixed; top:3px; left:6%;
+    position:fixed; top:4px; left:5%;
 }
 #logo {
-    width:45px; height:auto;
+    width:45px; height:auto; 
 }
 
 #titleHolder {
     font-size:1.9em; font-weight:600; color:white; position:fixed;
-    right:4%; top:4px; text-shadow:-1px -1px 1px #000;
+    right:4%; top:9px; text-shadow:-1px -1px 1px #000;
 }
 
 #contentHolder {
@@ -88,6 +88,10 @@ p {
 #profiles, #profile {
     background:url(../img/bg.png) top center;
     float:left;
+}
+
+#profile{
+  width: 90%; padding: 50px 5% 100px 5%;
 }
 a[data-role='button'], button {
     width:90%; margin:10px auto 10px; display:block; text-align:center;
@@ -195,10 +199,13 @@ option {
     width:90%; margin:.1em auto .1em;
 }
 .singleProfileLabel {
-    float:left; width:30%; font-weight:bold;
+    float:left; width:32%; font-weight:bold; 
 }
 .singleProfileContent {
-    float:left; width:70%;
+    float:left; width:68%;
+}
+.singleHolder {
+    padding: 10px 0 8px 0; border-bottom: 1px dotted #999; float: left; width: 100%;
 }
 .singleProfileOtherPics, .singleProfileImage, img[id^='otherpicture'] {
     width:100%; height:auto; margin:5px auto 10px; display:block;
@@ -286,9 +293,9 @@ img.otherpicture {
 .roundedOne label {
     cursor:pointer;
     position:absolute;
-    width:96%;
-    height:28px;
-    padding:4px 0 0 0;
+    width:96.5%;
+    height:26px;
+    padding:6px 0 0 0;
     text-align:center;
     font-size:20px;
     border-radius:50px;
@@ -384,6 +391,25 @@ button[id*="uploadotherpicture"] {
     to {
         transform:rotate(360deg);
     }
+}
+
+.profiles #search{
+    width:95%;
+}
+.filterAll{
+    width:50%; float:left;
+}
+.filterFirst select{
+    width:95%; float:none; margin:auto;
+}
+.filterFirst{
+    padding-bottom:8px;
+}
+.filterLast{
+    padding-bottom:8px;
+}
+#uploadpicture{
+    font-size:1.5em;
 }
 #videos {
     width:100%;
