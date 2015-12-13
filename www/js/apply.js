@@ -1,9 +1,13 @@
+// cropper globals - start
+var getCroppedProfileImage;
+// cropper globals - start
+
 document.addEventListener("deviceready", function() {
   fids = [];
   $("#uploadpicture").on("click", function() {
     navigator.camera.getPicture(onSuccess, onFail, {
       quality:100,
-      allowEdit:true,
+      //allowEdit:true,
       destinationType:Camera.DestinationType.DATA_URL,
       sourceType:Camera.PictureSourceType.PHOTOLIBRARY,
       correctOrientation:true
@@ -56,12 +60,83 @@ function onSuccess(imageData) {
   image.css("display", "block");
   fileData = {
     "file":{
-      "file":imageData,
-      "filename":"rejicast.jpg",
-      "filepath":"public://"+imageData.replace(/\//g,"").replace(/\+/g,"").slice(-10)+".jpg"
+      "file": imageData,
+      "filename": "rejicast.jpg",
+      "filepath": "public://"+imageData.replace(/\//g,"").replace(/\+/g,"").slice(-10)+".jpg"
     }
   };
   imagedata = imageData;
+  
+  // cropper start
+  var cropper = null;
+  var cropper_loaded = false;
+  var $p = image;
+
+  createCropper();
+
+  getCroppedProfileImage = function () {
+    var data = getDataURL();
+    var str = data.replace(/data:image\/\w+;base64,/, '');
+    return str;
+  }
+
+  function getDataURL() {
+    var _self = cropper;
+    var canvas = document.createElement('canvas');
+    var ctx = canvas.getContext('2d');
+    canvas.width = 600;
+    canvas.height = 800;
+    //console.log('getDataURL', _self.result.cropW, _self.result.cropH);
+    //canvas.width = _self.options.width;
+    //canvas.height = _self.options.height;
+    ctx.drawImage(_self.$image.get(0),
+      _self.result.cropX, _self.result.cropY,
+      _self.result.cropW, _self.result.cropH,
+      0, 0,
+      600, 800);
+    // _self.options.width, _self.options.height);
+    return canvas.toDataURL('image/jpeg');
+  }
+
+  function destroyCropper() {
+    if (cropper !== null)
+      cropper.remove();
+
+    cropper = null;
+    cropper_loaded = false;
+  }
+
+  function createCropper() {
+    destroyCropper();
+    var w = (screen.width * 60) / 100;
+    var h = (w * 4) / 3;
+
+    cropper = $p.cropbox({
+      width: w, // 300,
+      height: h, // 400,
+      setCrop: {
+        cropX: 0,
+        cropY: 0,
+        cropW: 600,
+        cropH: 800
+      }
+    }, function() {
+      //on load
+      //console.log('on load');
+      cropper = this;
+      cropper_loaded = true;
+      //updateResultImage();
+    });
+
+    cropper.on('cropbox', function(e, data) {
+      var ratio = data.cropW / data.cropH;
+      //console.log('crop window: ', data, ratio);
+      //if (cropper_loaded)
+      //  updateResultImage();
+    });
+  }
+  // cropper end
+  
 }
 function onSuccessOther(imageDataOther) {
   var imageOther = $("img#otherpicture");
@@ -212,6 +287,15 @@ $("#apply").on("click", function() {
   monthIndex = date.getMonth();
   year = date.getFullYear();
   finalDate = day+' '+monthNames[monthIndex]+' '+year;
+  
+  // change profile image with croppped one
+  //console.log('fileData.file:', fileData.file);
+  fileData.file = {
+      "file": getCroppedProfileImage(),
+      "filename": "rejicast.jpg",
+      "filepath": "public://"+getCroppedProfileImage().replace(/\//g,"").replace(/\+/g,"").slice(-10)+".jpg"
+  };
+  
   $.ajax({
     url:'http://www.rejicast.com/services/file.json',
     type:'post',
@@ -262,3 +346,8 @@ $("#apply").on("click", function() {
     }
   });
 });
+
+
+
+
+

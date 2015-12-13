@@ -6,8 +6,15 @@
         <meta name="msapplication-tap-highlight" content="no">
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
         <link rel="stylesheet" type="text/css" href="css/style.css">
+        <link rel="stylesheet" type="text/css" href="css/jquery.cropbox.css">
+        <style type="text/css">
+            #picture-container .cropFrame {
+                display: block;
+                margin: 0 auto;
+            }
+        </style>
         <title>Rejicast</title>
-    </head>
+      </head>
     <body>
         <div id="appHolder">
             <div id="topHolder">
@@ -20,7 +27,9 @@
                 </div>
             </div>
             <div id="contentHolder" class="apply">
-                <img id="picture"/>
+                <div id="picture-container">
+                    <img id="picture"/>
+                </div>
                 <button id="uploadpicture">Profil fotoğrafı seçin</button>
                 <input type="text" id="name" placeholder="Adı & Soyadı" name="title"/>
                 <input type="number" id="tckn" placeholder="TC Kimlik No"/>
@@ -254,6 +263,7 @@
                 <input type="text" id="skills" placeholder="Beceriler (Virgül ile ayırabilirsiniz)"/>
                 <textarea id="personal" placeholder="Oyuncu hakkında kısa bilgi" rows="2"/></textarea>
                 <img id="otherpicture"/>
+
                 <button id="uploadotherpicture" data-image="one">Daha fazla fotoğraf yükleyin</button>
                 <img id="otherpicture-2"/>
                 <button id="uploadotherpicture-2" data-image="two">Daha fazla fotoğraf yükleyin</button>
@@ -297,9 +307,15 @@
         </div>
     </div>
     <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="js/hammer.min.js"></script>
     <script type="text/javascript" src="js/jquery.js"></script>
     <script type="text/javascript" src="js/jquery.maskedinput.js"></script>
+    <script type="text/javascript" src="js/jquery.cropbox.js"></script>
     <script type="text/javascript" src="js/index.js"></script>
     <script type="text/javascript" src="js/apply.js"></script>
 </body>
 </html>
+
+
+
+
