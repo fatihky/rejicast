@@ -1,3 +1,11 @@
+document.addEventListener("backbutton", function() {
+    if ($(".singleHolder").length) {
+        window.scrollTo(0,432);
+    }
+    if ($(".profile").length) {
+        $(".profile").remove();
+    }
+});
 $("#search").on("click", function() {
     $(".loader-container > p").text("Lütfen bekleyin, liste yükleniyor");
     $(".loader-container").show();
@@ -24,8 +32,8 @@ $("#search").on("click", function() {
             $.each(data.nodes, function (key, value) {
                 profile = $('<div class="profile"><img class="profileImage" data-nid="' + value.node.nid + '" src="' + value.node.field_oyuncu_fotografi.src + '"><div class="profileName">' + value.node.field_gosterilecek_ad + '</div></div>');
                 $("#profiles").append(profile);
-                window.scrollTo(0,432);
             });
+            window.scrollTo(0,432);
             $(".profileImage").on("click", function(ev) {
                 $(".loader-container > p").text('Oyuncu bilgileri alınıyor');
                 $(".loader-container").show();
@@ -38,6 +46,9 @@ $("#search").on("click", function() {
                         nid: nid
                     },
                     success: function(data) {
+                        if ($("#profiles").is(":hidden")) {
+                            $("#profiles").show();
+                        }
                         var pd = $("<div>");
                         pd.attr("id", "profile");
                         pd.insertAfter($("#profiles"));
