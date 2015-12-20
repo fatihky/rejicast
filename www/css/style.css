@@ -294,8 +294,8 @@ img.otherpicture {
     cursor:pointer;
     position:absolute;
     width:96.5%;
-    height:26px;
-    padding:6px 0 0 0;
+    height:28px;
+    padding:4px 0 0 0;
     text-align:center;
     font-size:20px;
     border-radius:50px;
@@ -330,10 +330,10 @@ img.otherpicture {
     box-shadow:inset 0px 1px 1px white, 0px 1px 3px rgba(0,0,0,0.5);
 }
 
-.roundedOne label:hover::after {
+/* .roundedOne label:hover::after {
     -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=30)";
     filter:alpha(opacity=30); opacity: 0.3;
-}
+} */
 
 .roundedOne input[type=checkbox]:checked + label:after {
     -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
@@ -423,4 +423,8 @@ button[id*="uploadotherpicture"] {
 #videos fieldset input {
     margin:10px 0;
     width:100%;
+}
+
+#applyNote{
+  width:92%; margin:auto; text-align:center;
 }
