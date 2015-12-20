@@ -9,33 +9,22 @@
         <title>Rejicast</title>
     </head>
     <body>
-        <div id="appHolder">
+        <div id="appHolder" class="single">
             <div id="topHolder">
                 <div id="logoHolder">
                     <img id="logo" src="img/logo.png" />
                 </div>
-
                 <div id="titleHolder">
-                    Face in Cast
+                    Tüm oyuncular
                 </div>
             </div>
-            <div id="contentHolder" class="index">
-                <a class="grayBtn" href="apply.html" data-transition="slide" data-role="button">Başvuru Yap</a>
-                <a class="grayBtn" href="applications.html" data-transition="slide" data-role="button">Başvurularım</a>
-                <a class="grayBtn" href="filtres.html" data-transition="slide" data-role="button">Cast ara</a>
-                <a class="grayBtn" href="login.html" data-transition="slide" data-role="button" id="loginBtn">Giriş yap</a>
-                <a class="grayBtn" data-role="button" id="logoutBtn" onClick="logout()">Çıkış yap</a>
-                <div class="loader-container">
-                    <p></p>
-                    <div class="loader"></div>
-                </div>
+            <div id="contentHolder" class="profile single">
             </div>
             <div id="navHolder">
                 <div id="homeHolder">
                     <img id="homeBtn" src="img/homeBtn.png" />
                 </div>
                 <div id="loginHolder">
-                    <p></p> 
                 </div>
                 <div id="notificationHolder">
                     <div id="notification"></div>
@@ -46,5 +35,6 @@
         <script type="text/javascript" src="cordova.js"></script>
         <script type="text/javascript" src="js/jquery.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
+        <script type="text/javascript" src="js/profile.js"></script>
     </body>
 </html>

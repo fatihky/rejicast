@@ -180,6 +180,20 @@ option {
     background:#FFF; box-shadow:1px 1px 6px -3px #000;
 }
 
+.profile.single {
+    width: 92%;
+    float: left;
+    border-radius: 4px;
+    overflow: hidden;
+    background: none;
+    box-shadow: 1px 1px 6px -3px #000;
+    margin:0;
+}
+
+#appHolder.single {
+   overflow:hidden;
+}
+
 .profileImage {
     width:100%; height:auto;
 }
