@@ -27,10 +27,23 @@
                 </div>
             </div>
             <div id="contentHolder" class="apply">
+                <div id="applyNote">Yeni oyuncu kaydı esnasında <strong>daha önce kullanılmamış</strong> bir e-posta adresi kullanmalısınız.</div>
                 <div id="picture-container">
                     <img id="picture"/>
                 </div>
                 <button id="uploadpicture">Profil fotoğrafı seçin</button>
+                <img id="otherpicture"/>
+                <button id="uploadotherpicture" data-image="one">Daha fazla fotoğraf yükleyin</button>
+                <img id="otherpicture-2"/>
+                <button id="uploadotherpicture-2" data-image="two">Daha fazla fotoğraf yükleyin</button>
+                <img id="otherpicture-3"/>
+                <button id="uploadotherpicture-3" data-image="three">Daha fazla fotoğraf yükleyin</button>
+                <img id="otherpicture-4"/>
+                <button id="uploadotherpicture-4" data-image="four">Daha fazla fotoğraf yükleyin</button>
+                <img id="otherpicture-5"/>
+                <button id="uploadotherpicture-5" data-image="five">Daha fazla fotoğraf yükleyin</button>
+                <div id="otherpictures"></div>
+                
                 <input type="text" id="name" placeholder="Adı & Soyadı" name="title"/>
                 <input type="number" id="tckn" placeholder="TC Kimlik No"/>
                 <input type="text" id="dob" onFocus="(this.type='date')" placeholder="Doğum tarihiniz"/>
@@ -249,40 +262,31 @@
                     <option value="50">50</option>
                 </select>
                 <select id="education">
-                    <option selected disabled style="display:none;">- Eğitim düzeyi -</option>
-                    <option value="İlkokul">İlkokul</option>
-                    <option value="Ortaokul">Ortaokul</option>
-                    <option value="Lise">Lise</option>
-                    <option value="Önlisans">Önlisans</option>
-                    <option value="Lisans">Lisans</option>
-                    <option value="Yüksek_lisans">Yüksek lisans</option>
-                    <option value="Doktora">Doktora</option>
+                  <option selected disabled style="display:none;">- Eğitim düzeyi -</option>
+                  <option value="İlkokul">İlkokul</option>
+                  <option value="Ortaokul">Ortaokul</option>
+                  <option value="Lise">Lise</option>
+                  <option value="Önlisans">Önlisans</option>
+                  <option value="Lisans">Lisans</option>
+                  <option value="Yüksek_lisans">Yüksek lisans</option>
+                  <option value="Doktora">Doktora</option>
                 </select>
                 <textarea id="training" placeholder="Oyunculuk eğitimleri (Virgül ile ayırabilirsiniz)" rows="3"></textarea>
                 <input type="text" id="languages" placeholder="Diller (Virgül ile ayırabilirsiniz)"/>
                 <input type="text" id="skills" placeholder="Beceriler (Virgül ile ayırabilirsiniz)"/>
                 <textarea id="personal" placeholder="Oyuncu hakkında kısa bilgi" rows="2"/></textarea>
-                <img id="otherpicture"/>
-
-                <button id="uploadotherpicture" data-image="one">Daha fazla fotoğraf yükleyin</button>
-                <img id="otherpicture-2"/>
-                <button id="uploadotherpicture-2" data-image="two">Daha fazla fotoğraf yükleyin</button>
-                <img id="otherpicture-3"/>
-                <button id="uploadotherpicture-3" data-image="three">Daha fazla fotoğraf yükleyin</button>
-                <img id="otherpicture-4"/>
-                <button id="uploadotherpicture-4" data-image="four">Daha fazla fotoğraf yükleyin</button>
-                <img id="otherpicture-5"/>
-                <button id="uploadotherpicture-5" data-image="five">Daha fazla fotoğraf yükleyin</button>
-                <div id="otherpictures"></div>
+                
+                <div id="applyNote" style="padding-top:15px; text-align:left; width:88%; font-size:.9em;"><strong>Showreel: </strong>Size ait bir showreel ekleyin. (Youtube adresini kopyalayıp aşağıya yapıştırmanız yeterlidir.)</div>
+                
                 <table id="videos">
-                    <tr class="videos">
-                        <td>
-                            <fieldset>
-                                <input type="url" class="videolink" placeholder="Youtube video adresi ekleyin"/>
-                                <input type="text" class="videodesc" placeholder="Video başlığı"/>
-                            </fieldset>
-                        </td>
-                    </tr>
+                  <tr class="videos">
+                    <td>
+                      <fieldset>
+                        <input type="url" class="videolink" placeholder="Youtube adresi"/>
+                        <input type="text" class="videodesc" placeholder="Showreel başlığı"/>
+                      </fieldset>
+                    </td>
+                  </tr>
                 </table>
                 <input type="checkbox" id="privacy" value="0">
                 <label for="privacy">Sayın üyemiz, başvuru formunda yer alan bilgiler, üçüncü şahıslar tarafından görüntülenmeyecektir. Lütfen <a href="inst.html" data-transition="pop" id="inst">başvuru talimatını</a> okuyunuz.</label>
