@@ -1,8 +1,3 @@
-document.addEventListener("backbutton", function() {
-    if ($(".singleHolder").length) {
-        window.scrollTo(0,432);
-    }
-});
 $("#search").on("click", function() {
     localStorage.setItem("city", $("#city").val());
     localStorage.setItem("gender", $("#gender").val());
