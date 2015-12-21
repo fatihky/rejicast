@@ -356,12 +356,23 @@ img.otherpicture {
 img[id*="otherpicture"],button[id^="uploadotherpicture-"] {
     display:none;
 }
-img[id*="otherpicture"] {
-    width:100%;
-    height:auto;
+img[id*="otherpicture"] { 
+    width:auto;
+    height:50px;
+    float:left;
 }
 button[id*="uploadotherpicture"] {
     font-size:1.1em;
+}
+
+input[type="date"]:before {
+  content: attr(placeholder) !important;
+  color: #aaa;
+  margin-right: 0.5em;
+}
+input[type="date"]:focus:before,
+input[type="date"]:valid:before {
+  content: "Doğum tarihiniz"; 
 }
 .loader-container {
     position:fixed;
