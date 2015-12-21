@@ -273,7 +273,7 @@
       maxZoom: 1,
       controls: null,
       showControls: 'auto',
-      label: 'Drag to crop'
+      label: 'Kırpmak için sürükleyin'
     };
   }
 

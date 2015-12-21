@@ -327,7 +327,7 @@ img.otherpicture {
     filter:progid:DXImageTransform.Microsoft.gradient( startColorstr='#222', endColorstr='#45484d',GradientType=0 );
 }
 
-.roundedOne label:after {
+.roundedOne label:after { 
     -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
     filter:alpha(opacity=0);
     opacity:0; content: ''; position: absolute; width: 98%;
@@ -407,22 +407,22 @@ button[id*="uploadotherpicture"] {
     }
 }
 
-.profiles #search{
+.profiles #search {
     width:95%;
 }
-.filterAll{
+.filterAll {
     width:50%; float:left;
 }
-.filterFirst select{
+.filterFirst select {
     width:95%; float:none; margin:auto;
 }
-.filterFirst{
+.filterFirst {
     padding-bottom:8px;
 }
-.filterLast{
+.filterLast {
     padding-bottom:8px;
 }
-#uploadpicture{
+#uploadpicture {
     font-size:1.5em;
 }
 #videos {
@@ -439,6 +439,20 @@ button[id*="uploadotherpicture"] {
     width:100%;
 }
 
-#applyNote{
+#applyNote {
   width:92%; margin:auto; text-align:center;
+}
+
+// crop css modifications
+
+.cropControls { // bunu görmüyor 
+     height:40px !important;
+}
+
+.cropZoomIn, .cropZoomOut {
+     height:32px !important; width:32px !important;
+}
+
+.cropFrame div {
+    height:40px !important;
 }

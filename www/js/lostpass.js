@@ -3,7 +3,7 @@ $("#lostpassbtn").on("click", function(){
     navigator.notification.alert("Lütfen kullanıcı adınızı girin.");
   } else {
     $.ajax({
-      url: "http://www.rejicast.com/services/user/request_new_password.json",
+      url: "http://rejicast.webcinizim.com/services/user/request_new_password.json",
       type: "post",
       dataType: "json",
       data: {

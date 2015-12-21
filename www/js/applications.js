@@ -1,12 +1,12 @@
 $(".loader-container > p").text("Oyuncu listesi alınıyor");
 $(".loader-container").show();
 $.ajax({
-    url: 'http://www.rejicast.com/services/user/token.json',
+    url: 'http://rejicast.webcinizim.com/services/user/token.json',
     type: 'post',
     dataType: 'json',
     success: function(token) {
         $.ajax({
-            url: 'http://www.rejicast.com/services/system/connect.json',
+            url: 'http://rejicast.webcinizim.com/services/system/connect.json',
             type: 'post',
             dataType: 'json',
             beforeSend: function(r) {
@@ -14,7 +14,7 @@ $.ajax({
             },
             success: function(data) {
                 $.ajax({
-                    url: 'http://www.rejicast.com/oyuncularim.json',
+                    url: 'http://rejicast.webcinizim.com/oyuncularim.json',
                     type: 'get',
                     dataType: 'json',
                     data: {
@@ -34,7 +34,7 @@ $.ajax({
                             $(".loader-container").show();
                             var nid=$(ev.target).attr("data-nid");
                             $.ajax({
-                                url: 'http://www.rejicast.com/oyuncu.json',
+                                url: 'http://rejicast.webcinizim.com/oyuncu.json',
                                 type: 'get',
                                 dataType: 'json',
                                 data: {
@@ -67,10 +67,10 @@ $.ajax({
                                     }
                                     $("#contentHolder.applications").append(share);
                                     $("#shareViaEmail").on("click", function() {
-                                        window.plugins.socialsharing.shareViaEmail('http://www.rejicast.com/node/'+nid);
+                                        window.plugins.socialsharing.shareViaEmail('http://rejicast.webcinizim.com/node/'+nid);
                                     });
                                     $("#shareViaWhatsApp").on("click", function() {
-                                        window.plugins.socialsharing.shareViaWhatsApp('http://www.rejicast.com/node/'+nid);
+                                        window.plugins.socialsharing.shareViaWhatsApp('http://rejicast.webcinizim.com/node/'+nid);
                                     });
                                 },
                             });

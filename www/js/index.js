@@ -16,12 +16,12 @@ function checkStatus() {
   $(".loader-container > p").text("Başlangıç kontrolleri yapılıyor, lütfen bekleyin");
   $(".loader-container").show();
   $.ajax({
-    url: 'http://www.rejicast.com/services/user/token.json',
+    url: 'http://rejicast.webcinizim.com/services/user/token.json',
     type: 'post',
     dataType: 'json',
     success: function(token) {
       $.ajax({
-        url: 'http://www.rejicast.com/services/system/connect.json',
+        url: 'http://rejicast.webcinizim.com/services/system/connect.json',
         type: 'post',
         dataType: 'json',
         beforeSend: function(r) {
@@ -61,12 +61,12 @@ function logout() {
         $(".loader-container").fadeOut(500);
       }, 1000);
       $.ajax({
-        url: 'http://www.rejicast.com/services/user/token.json',
+        url: 'http://rejicast.webcinizim.com/services/user/token.json',
         type: 'post',
         dataType: 'json',
         success: function(token) {
           $.ajax({
-            url: 'http://www.rejicast.com/services/user/logout.json',
+            url: 'http://rejicast.webcinizim.com/services/user/logout.json',
             type: 'post',
             dataType: 'json',
             beforeSend: function(r) {
@@ -94,12 +94,12 @@ function logout() {
 }
 function checkNotifications() {
   $.ajax({
-    url: 'http://www.rejicast.com/services/user/token.json',
+    url: 'http://rejicast.webcinizim.com/services/user/token.json',
     type: 'post',
     dataType: 'json',
     success: function(token) {
       $.ajax({
-        url: 'http://www.rejicast.com/services/system/connect.json',
+        url: 'http://rejicast.webcinizim.com/services/system/connect.json',
         type: 'post',
         dataType: 'json',
         beforeSend: function(r) {
@@ -107,7 +107,7 @@ function checkNotifications() {
         },
         success: function(connect) {
           $.ajax({
-            url: 'http://www.rejicast.com/duyurular.json',
+            url: 'http://rejicast.webcinizim.com/duyurular.json',
             type: 'get',
             dataType: 'json',
             success: function (data) {

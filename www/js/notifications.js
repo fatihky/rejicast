@@ -1,12 +1,12 @@
 $(".loader-container > p").text("Duyurular alınıyor, lütfen bekleyin.")
 $(".loader-container").show();
 $.ajax({
-    url: 'http://www.rejicast.com/services/user/token.json',
+    url: 'http://rejicast.webcinizim.com/services/user/token.json',
     type: 'post',
     dataType: 'json',
     success: function(token) {
         $.ajax({
-            url: 'http://www.rejicast.com/services/system/connect.json',
+            url: 'http://rejicast.webcinizim.com/services/system/connect.json',
             type: 'post',
             dataType: 'json',
             beforeSend: function(r) {
@@ -15,7 +15,7 @@ $.ajax({
             success: function(connect) {
                 $("#loginHolder").text(connect.user.name);
                 $.ajax({
-                    url: 'http://www.rejicast.com/duyurular.json',
+                    url: 'http://rejicast.webcinizim.com/duyurular.json',
                     type: 'get',
                     dataType: 'json',
                     success: function (data) {

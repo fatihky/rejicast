@@ -1,7 +1,7 @@
 $(".loader-container > p").text("Oyuncu bilgileri alınıyor, lütfen bekleyin");
 $(".loader-container").show();
 $.ajax({
-    url: 'http://www.rejicast.com/oyuncu.json',
+    url: 'http://rejicast.webcinizim.com/oyuncu.json',
     type: 'get',
     dataType: 'json',
     data: {
@@ -32,10 +32,10 @@ $.ajax({
         }
         $("#contentHolder.profile").append(share);
         $("#shareViaEmail").on("click", function() {
-            window.plugins.socialsharing.shareViaEmail('http://www.rejicast.com/node/'+nid);
+            window.plugins.socialsharing.shareViaEmail('http://rejicast.webcinizim.com/node/'+nid);
         });
         $("#shareViaWhatsApp").on("click", function() {
-            window.plugins.socialsharing.shareViaWhatsApp('http://www.rejicast.com/node/'+nid);
+            window.plugins.socialsharing.shareViaWhatsApp('http://rejicast.webcinizim.com/node/'+nid);
         });
     }
 });

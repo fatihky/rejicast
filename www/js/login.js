@@ -12,12 +12,12 @@ $('#login').on('click', function () {
         return false;
     }
     $.ajax({
-        url: 'http://www.rejicast.com/services/user/token.json',
+        url: 'http://rejicast.webcinizim.com/services/user/token.json',
         type: 'post',
         dataType: 'json',
         success: function(token) {
             $.ajax({
-                url: 'http://www.rejicast.com/services/user/login.json',
+                url: 'http://rejicast.webcinizim.com/services/user/login.json',
                 type: 'post',
                 dataType: 'json',
                 data: 'username='+name.trim()+'&password='+pass,

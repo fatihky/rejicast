@@ -1,7 +1,7 @@
 $(".loader-container > p").text("Lütfen bekleyin, liste yükleniyor");
 $(".loader-container").show();
 $.ajax({
-    url: 'http://www.rejicast.com/oyuncular.json',
+    url: 'http://rejicast.webcinizim.com/oyuncular.json',
     type: 'get',
     dataType: 'json',
     data: {
