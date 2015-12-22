@@ -112,7 +112,7 @@ function checkNotifications() {
             dataType: 'json',
             success: function (data) {
               var num = data.nodes.reduce(function(currNum, node) { 
-                if (node.node.field_kime.indexOf(connect.user.uid) !== -1) { 
+                if (node.node.field_kime.indexOf(data.user.uid) !== -1) { 
                   currNum++;
                 }
                 return currNum;
