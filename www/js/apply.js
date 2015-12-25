@@ -7,7 +7,6 @@ document.addEventListener("deviceready", function() {
   $("#uploadpicture").on("click", function() {
     navigator.camera.getPicture(onSuccess, onFail, {
       quality:100,
-      //allowEdit:true,
       destinationType:Camera.DestinationType.DATA_URL,
       sourceType:Camera.PictureSourceType.PHOTOLIBRARY,
       correctOrientation:true
@@ -87,15 +86,11 @@ function onSuccess(imageData) {
     var ctx = canvas.getContext('2d');
     canvas.width = 600;
     canvas.height = 800;
-    //console.log('getDataURL', _self.result.cropW, _self.result.cropH);
-    //canvas.width = _self.options.width;
-    //canvas.height = _self.options.height;
     ctx.drawImage(_self.$image.get(0),
                   _self.result.cropX, _self.result.cropY,
                   _self.result.cropW, _self.result.cropH,
                   0, 0,
                   600, 800);
-                  // _self.options.width, _self.options.height);
                   return canvas.toDataURL('image/jpeg');
   }
 
@@ -122,21 +117,14 @@ function onSuccess(imageData) {
         cropH: 800
       }
     }, function() {
-      //on load
-      //console.log('on load');
       cropper = this;
       cropper_loaded = true;
-      //updateResultImage();
     });
 
     cropper.on('cropbox', function(e, data) {
       var ratio = data.cropW / data.cropH;
-      //console.log('crop window: ', data, ratio);
-      //if (cropper_loaded)
-      //  updateResultImage();
     });
   }
-  // cropper end
 
 }
 function onSuccessOther(imageDataOther) {
@@ -147,8 +135,8 @@ function onSuccessOther(imageDataOther) {
   $("#uploadotherpicture-2").css("display", "block");
   fileDataOther = {
     "file":{
-      "file":imageDataOther,
       "filename":"rejicast.jpg",
+      "file":imageDataOther,
       "filepath":"public://"+imageDataOther.replace(/\//g,"").replace(/\+/g,"").slice(-10)+Date.now()+".jpg"
     }
   };
@@ -173,8 +161,8 @@ function onSuccessOther2(imageDataOther2) {
   $("#uploadotherpicture-3").css("display", "block");
   fileDataOther2 = {
     "file":{
-      "file":imageDataOther2,
       "filename":"rejicast.jpg",
+      "file":imageDataOther2,
       "filepath":"public://"+imageDataOther2.replace(/\//g,"").replace(/\+/g,"").slice(-10)+Date.now()+".jpg"
     }
   };
@@ -198,8 +186,8 @@ function onSuccessOther3(imageDataOther3) {
   $("#uploadotherpicture-4").css("display", "block");
   fileDataOther3 = {
     "file":{
-      "file":imageDataOther3,
       "filename":"rejicast.jpg",
+      "file":imageDataOther3,
       "filepath":"public://"+imageDataOther3.replace(/\//g,"").replace(/\+/g,"").slice(-10)+Date.now()+".jpg"
     }
   };
@@ -223,8 +211,8 @@ function onSuccessOther4(imageDataOther4) {
   $("#uploadotherpicture-5").css("display", "block");
   fileDataOther4 = {
     "file":{
-      "file":imageDataOther4,
       "filename":"rejicast.jpg",
+      "file":imageDataOther4,
       "filepath":"public://"+imageDataOther4.replace(/\//g,"").replace(/\+/g,"").slice(-10)+Date.now()+".jpg"
     }
   };
@@ -247,8 +235,8 @@ function onSuccessOther5(imageDataOther5) {
   $("#uploadotherpicture-5").css("display", "none");
   fileDataOther5 = {
     "file":{
-      "file":imageDataOther5,
       "filename":"rejicast.jpg",
+      "file":imageDataOther5,
       "filepath":"public://"+imageDataOther5.replace(/\//g,"").replace(/\+/g,"").slice(-10)+Date.now()+".jpg"
     }
   };
@@ -299,12 +287,10 @@ $("#apply").on("click", function() {
   year = date.getFullYear();
   finalDate = day+' '+monthNames[monthIndex]+' '+year;
 
-  // change profile image with croppped one
-  //console.log('fileData.file:', fileData.file);
   fileData.file = {
-    "file": getCroppedProfileImage(),
     "filename": "rejicast.jpg",
-    "filepath": "public://"+getCroppedProfileImage().replace(/\//g,"").replace(/\+/g,"").slice(-10)+".jpg"
+    "file": getCroppedProfileImage(),
+    "filepath": "public://"+getCroppedProfileImage().replace(/\//g,"").replace(/\+/g,"").slice(-10)+Date.now()+".jpg"
   };
 
   $.ajax({

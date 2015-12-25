@@ -360,6 +360,7 @@ img[id*="otherpicture"] {
     width:auto;
     height:50px;
     float:left;
+    margin-left:5%;
 }
 button[id*="uploadotherpicture"] {
     font-size:1.1em;
