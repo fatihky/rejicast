@@ -1,14 +1,16 @@
-$(".loader-container > p").text("Oyuncu bilgileri alınıyor, lütfen bekleyin");
-$(".loader-container").show();
+document.addEventListener("deviceready",function() {
+    navigator.notification.activityStart("Face in Cast","Oyuncu bilgileri alınıyor, lütfen bekleyin");
+});
+var nid=localStorage.getItem("nid");
 $.ajax({
-    url: 'http://rejicast.webcinizim.com/oyuncu.json',
+    url: 'http://www.rejicast.com/oyuncu.json',
     type: 'get',
     dataType: 'json',
     data: {
         nid: localStorage.getItem("nid")
     },
     success: function(data) {
-        $(".loader-container").hide();
+        navigator.notification.activityStop();
         var stand_hostesi = data.nodes[0].node.field_kategorisi.indexOf("Stand hostesi") != -1;
         var share = $('<div id="shareViaEmail"><img id="email" src="img/email.png"/></div><div id="shareViaWhatsApp"><img id="whatsapp" src="img/whatsapp.png"/></div>');
         var profile = $('<img class="singleProfileImage" src="' + data.nodes[0].node.field_oyuncu_fotografi.src + '"><div class="singleProfileName">' + data.nodes[0].node.field_gosterilecek_ad + '</div><div class="singleHolder"><div class="singleProfileLabel">Cinsiyet:</div><div class="singleProfileContent">' + data.nodes[0].node.field_cinsiyet + '</div></div><div class="singleHolder"><div class="singleProfileLabel">Doğum tarihi:</div><div class="singleProfileContent">' + data.nodes[0].node.field_dogum_tarihi + '</div></div><div class="singleHolder"><div class="singleProfileLabel">Şehir:</div><div class="singleProfileContent">' + data.nodes[0].node.field_yasadigi_sehir + '</div></div><div class="singleHolder"><div class="singleProfileLabel">Kategorisi:</div><div class="singleProfileContent">' + data.nodes[0].node.field_kategorisi + '</div></div><div class="singleHolder"><div class="singleProfileLabel">Eğitim düzeyi:</div><div class="singleProfileContent">' + data.nodes[0].node.field_egitim_duzeyi + '</div></div><div class="singleHolder"><div class="singleProfileLabel">Diller:</div><div class="singleProfileContent">' + data.nodes[0].node.field_diller + '</div></div><div class="singleHolder"><div class="singleProfileLabel">Kişisel:</div><div class="singleProfileContent">' + data.nodes[0].node.field_kisisel + '</div></div><div class="singleHolder"><div class="singleProfileLabel">Boy:</div><div class="singleProfileContent">' + data.nodes[0].node.field_boy + '</div></div><div class="singleHolder"><div class="singleProfileLabel">Kilo:</div><div class="singleProfileContent">' + data.nodes[0].node.field_kilo + '</div></div><div class="singleHolder"><div class="singleProfileLabel">Ten Rengi:</div><div class="singleProfileContent">' + data.nodes[0].node.field_ten_rengi + '</div>');
@@ -32,10 +34,10 @@ $.ajax({
         }
         $("#contentHolder.profile").append(share);
         $("#shareViaEmail").on("click", function() {
-            window.plugins.socialsharing.shareViaEmail('http://rejicast.webcinizim.com/node/'+nid);
+            window.plugins.socialsharing.shareViaEmail('http://www.rejicast.com/node/'+nid);
         });
         $("#shareViaWhatsApp").on("click", function() {
-            window.plugins.socialsharing.shareViaWhatsApp('http://rejicast.webcinizim.com/node/'+nid);
+            window.plugins.socialsharing.shareViaWhatsApp('http://www.rejicast.com/node/'+nid);
         });
     }
 });

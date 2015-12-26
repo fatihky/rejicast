@@ -13,22 +13,21 @@ $("#navHolder #notificationBtn").on("click", function() {
 });
 
 function checkStatus() {
-  $(".loader-container > p").text("Başlangıç kontrolleri yapılıyor, lütfen bekleyin");
-  $(".loader-container").show();
+  navigator.notification.activityStart("Face in Cast", "Başlangıç kontrolleri yapılıyor, lütfen bekleyin");
   $.ajax({
-    url: 'http://rejicast.webcinizim.com/services/user/token.json',
+    url: 'http://www.rejicast.com/services/user/token.json',
     type: 'post',
     dataType: 'json',
     success: function(token) {
       $.ajax({
-        url: 'http://rejicast.webcinizim.com/services/system/connect.json',
+        url: 'http://www.rejicast.com/services/system/connect.json',
         type: 'post',
         dataType: 'json',
         beforeSend: function(r) {
           r.setRequestHeader("X-CSRF-Token", token.token)
         },
         success: function(data) {
-          $(".loader-container").fadeOut(500);
+          navigator.notification.activityStop();
           var duser = data.user;
           if (duser.uid === 0) {
             $("#loginBtn").css("display","block");
@@ -55,30 +54,23 @@ function checkStatus() {
 function logout() {
   navigator.notification.confirm("Çıkış yapmak istiyor musunuz?", function(buttonIndex) {
     if (buttonIndex === 1) {
-      $(".loader-container > p").text("Çıkış yapılıyor, lütfen bekleyin");
-      $(".loader-container").show();
-      setTimeout(function() {
-        $(".loader-container").fadeOut(500);
-      }, 1000);
+      navigator.notification.activityStart("Face in Cast","Çıkış yapılıyor, lütfen bekleyin");
       $.ajax({
-        url: 'http://rejicast.webcinizim.com/services/user/token.json',
+        url: 'http://www.rejicast.com/services/user/token.json',
         type: 'post',
         dataType: 'json',
         success: function(token) {
           $.ajax({
-            url: 'http://rejicast.webcinizim.com/services/user/logout.json',
+            url: 'http://www.rejicast.com/services/user/logout.json',
             type: 'post',
             dataType: 'json',
             beforeSend: function(r) {
               r.setRequestHeader("X-CSRF-Token", token.token)
             },
             success: function() {
+              navigator.notification.activityStop();
               window.localStorage.removeItem("name");
-              $(".loader-container > p").text("Başarıyla çıkış yapıldı");
-              $(".loader-container").show();
-              setTimeout(function() {
-                $(".loader-container").fadeOut(500);
-              }, 1000);
+              navigator.notification.alert("Başarıyla çıkış yapıldı", function() {return;},"Face in Cast","Tamam");
               $("#loginBtn").css("display","block");
               $("#logoutBtn").css("display","none");
               $("a[href='applications.html']").css("display","none");
@@ -94,12 +86,12 @@ function logout() {
 }
 function checkNotifications() {
   $.ajax({
-    url: 'http://rejicast.webcinizim.com/services/user/token.json',
+    url: 'http://www.rejicast.com/services/user/token.json',
     type: 'post',
     dataType: 'json',
     success: function(token) {
       $.ajax({
-        url: 'http://rejicast.webcinizim.com/services/system/connect.json',
+        url: 'http://www.rejicast.com/services/system/connect.json',
         type: 'post',
         dataType: 'json',
         beforeSend: function(r) {
@@ -107,12 +99,12 @@ function checkNotifications() {
         },
         success: function(connect) {
           $.ajax({
-            url: 'http://rejicast.webcinizim.com/duyurular.json',
+            url: 'http://www.rejicast.com/duyurular.json',
             type: 'get',
             dataType: 'json',
             success: function (data) {
-              var num = data.nodes.reduce(function(currNum, node) { 
-                if (node.node.field_kime.indexOf(data.user.uid) !== -1) { 
+              var num = data.nodes.reduce(function(currNum, node) {
+                if (node.node.field_kime.indexOf(connect.user.uid) !== -1) {
                   currNum++;
                 }
                 return currNum;

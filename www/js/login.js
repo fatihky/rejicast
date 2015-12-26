@@ -1,6 +1,5 @@
 $('#login').on('click', function () {
-    $(".loader-container > p").text("Giriş yapılıyor");
-    $(".loader-container").show();
+    navigator.notification.activityStart("Face in Cast","Giriş yapılıyor");
     var name = $('#username').val();
     if (!name) {
         navigator.notification.alert("Lütfen kullanıcı adınızı girin.", function(){return;}, "Hata", "Tamam");
@@ -12,12 +11,12 @@ $('#login').on('click', function () {
         return false;
     }
     $.ajax({
-        url: 'http://rejicast.webcinizim.com/services/user/token.json',
+        url: 'http://www.rejicast.com/services/user/token.json',
         type: 'post',
         dataType: 'json',
         success: function(token) {
             $.ajax({
-                url: 'http://rejicast.webcinizim.com/services/user/login.json',
+                url: 'http://www.rejicast.com/services/user/login.json',
                 type: 'post',
                 dataType: 'json',
                 data: 'username='+name.trim()+'&password='+pass,
@@ -32,12 +31,9 @@ $('#login').on('click', function () {
                 success: function (data) {
                     var uid=data.user.uid;
                     localStorage.setItem("user", uid);
-                    $(".loader-container > p").text("Hoşgeldin "+data.user.name);
-                    setTimeout(function() {
-                        $(".loader-container").fadeOut(500);
-                    }, 1000);
-                    $("#loginBtn").css("display","none");
-                    $("#logoutBtn").css("display","block");
+                    navigator.notification.alert("Başarıyla giriş yapıldı. Hoşgeldin "+data.user.name, function(){return;},"Face in Cast","Hoşbulduk");
+                    $("#loginBtn").hide();
+                    $("#logoutBtn").show();
                     $("#loginHolder").text(data.user.name);
                     window.location.href = "index.html";
                 },

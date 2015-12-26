@@ -1,7 +1,8 @@
-$(".loader-container > p").text("Lütfen bekleyin, liste yükleniyor");
-$(".loader-container").show();
+document.addEventListener("deviceready",function() {
+    navigator.notification.activityStart("Face in Cast","Lütfen bekleyin, liste yükleniyor");
+});
 $.ajax({
-    url: 'http://rejicast.webcinizim.com/oyuncular.json',
+    url: 'http://www.rejicast.com/oyuncular.json',
     type: 'get',
     dataType: 'json',
     data: {
@@ -16,21 +17,19 @@ $.ajax({
     success: function (data) {
         if (data.nodes.length === 0) {
             $(".container").fadeOut(50);
-            $(".loader-container").hide();
+            navigator.notification.activityStop();
             navigator.notification.alert("Oyuncu bulunamadı", function() {return;}, "Hata", "Tamam");
         }
-        $(".loader-container").fadeOut(500);
+        navigator.notification.activityStop();
         $.each(data.nodes, function (key, value) {
             profile = $('<div class="profile"><img class="profileImage" data-nid="' + value.node.nid + '" src="' + value.node.field_oyuncu_fotografi.src + '"><div class="profileName">' + value.node.field_gosterilecek_ad + '</div></div>');
-            $("#profiles").append(profile);
+            $("#contentHolder.profiles").append(profile);
         });
+        window.scrollTo(0,0);
         $(".profileImage").on("click", function(ev) {
-            $(".loader-container > p").text('Oyuncu bilgileri alınıyor');
-            $(".loader-container").show();
-            var nid=$(ev.target).attr("data-nid");
-            localStorage.setItem("nid",nid);
+            navigator.notification.activityStart("Face in Cast","Oyuncu bilgileri alınıyor");
+            localStorage.setItem("nid",$(ev.target).attr("data-nid"));
             window.location.href = "profile.html";
         });
     }
 });
-

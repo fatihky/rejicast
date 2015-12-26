@@ -21,7 +21,6 @@
                 <div id="logoHolder">
                     <img id="logo" src="img/logo.png" />
                 </div>
-
                 <div id="titleHolder">
                     Başvuru yap
                 </div> 
@@ -32,21 +31,18 @@
                     <img id="picture"/>
                 </div>
                 <button id="uploadpicture">Profil fotoğrafı seçin</button> 
-                
                 <div id="otherPictures"> 
                   <img id="otherpicture" />
                   <img id="otherpicture-2" />
                   <img id="otherpicture-3" />
                   <img id="otherpicture-4" />
                   <img id="otherpicture-5" /> 
-                  
                   <button id="uploadotherpicture" data-image="one">Daha fazla fotoğraf yükleyin</button>
                   <button id="uploadotherpicture-2" data-image="two">Daha fazla fotoğraf yükleyin</button>
                   <button id="uploadotherpicture-3" data-image="three">Daha fazla fotoğraf yükleyin</button>
                   <button id="uploadotherpicture-4" data-image="four">Daha fazla fotoğraf yükleyin</button>
                   <button id="uploadotherpicture-5" data-image="five">Daha fazla fotoğraf yükleyin</button>
                 </div>
-                
                 <input type="text" id="name" placeholder="Adı & Soyadı" name="title"/>
                 <input type="number" id="tckn" placeholder="TC Kimlik No"/>
                 <input type="date" id="dob" placeholder="Doğum tarihiniz"/>
@@ -145,19 +141,19 @@
                 </select>
                 <fieldset id="oyuncuKategori">
                     <div class="roundedOne">
-                        <input type="checkbox" name="kategori" id="oyuncu" class="squareTwo" />
+                        <input type="checkbox" name="kategori" id="oyuncu" class="squareTwo" value="oyuncu"/>
                         <label for="oyuncu">Oyuncuyum</label>
                     </div>
                     <div class="roundedOne">
-                        <input type="checkbox" name="kategori" id="cocuk_oyuncu" class="squareTwo" />
+                        <input type="checkbox" name="kategori" id="cocuk_oyuncu" class="squareTwo" value="cocuk_oyuncu"/>
                         <label for="cocuk_oyuncu">Çocuk oyuncuyum</label>
                     </div>
                     <div class="roundedOne">
-                        <input type="checkbox" name="kategori" id="yardimci_oyuncu" class="squareTwo" />
+                        <input type="checkbox" name="kategori" id="yardimci_oyuncu" class="squareTwo" value="yardimci_oyuncu"/>
                         <label for="yardimci_oyuncu">Yardımcı oyuncuyum</label>
                     </div>
                     <div class="roundedOne">
-                        <input type="checkbox" name="kategori" id="stand_hostesi" class="squareTwo" />
+                        <input type="checkbox" name="kategori" id="stand_hostesi" class="squareTwo" value="stand_hostesi"/>
                         <label for="stand_hostesi">Stand hostesiyim</label>
                     </div>
                 </fieldset>
@@ -166,7 +162,7 @@
                     <option value="bay">Bay</option>
                     <option value="bayan">Bayan</option>
                 </select>
-                <select id="chest" class="stand_hostesi" style="display:none">
+                <select id="chest" class="stand_hostesi hidden">
                     <option selected disabled style="display:none;">- Göğüs -</option>
                     <option value="75">75-80</option>
                     <option value="80">81-85</option>
@@ -174,7 +170,7 @@
                     <option value="91">91-95</option>
                     <option value="96">96-100</option>
                 </select>
-                <select id="waist" class="stand_hostesi" style="display:none">
+                <select id="waist" class="stand_hostesi hidden">
                     <option selected disabled style="display:none;">- Bel -</option>
                     <option value="75">75-80</option>
                     <option value="80">81-85</option>
@@ -182,7 +178,7 @@
                     <option value="91">91-95</option>
                     <option value="96">96-100</option>
                 </select>
-                <select id="thigh" class="stand_hostesi" style="display:none">
+                <select id="thigh" class="stand_hostesi hidden">
                     <option selected disabled style="display:none;">- Göğüs -</option>
                     <option value="75">75-80</option>
                     <option value="80">81-85</option>
@@ -278,9 +274,7 @@
                 <input type="text" id="languages" placeholder="Diller (Virgül ile ayırabilirsiniz)"/>
                 <input type="text" id="skills" placeholder="Beceriler (Virgül ile ayırabilirsiniz)"/>
                 <textarea id="personal" placeholder="Oyuncu hakkında kısa bilgi" rows="2"/></textarea>
-                
                 <div id="applyNote" style="padding-top:15px; text-align:left; width:88%; font-size:.9em;"><strong>Showreel: </strong>Size ait bir showreel ekleyin. (Youtube adresini kopyalayıp aşağıya yapıştırmanız yeterlidir.)</div>
-                
                 <table id="videos">
                   <tr class="videos">
                     <td>
@@ -294,10 +288,6 @@
                 <input type="checkbox" id="privacy" value="0">
                 <label for="privacy">Sayın üyemiz, başvuru formunda yer alan bilgiler, üçüncü şahıslar tarafından görüntülenmeyecektir. Lütfen <a href="inst.html" data-transition="pop" id="inst">başvuru talimatını</a> okuyunuz.</label>
                 <a id="apply" data-role="button">Kaydol</a>
-            </div>
-            <div class="loader-container">
-                <p></p>
-                <div class="loader"></div>
             </div>
             <div id="navHolder">
                 <div id="homeHolder">
@@ -322,7 +312,3 @@
     <script type="text/javascript" src="js/apply.js"></script>
 </body>
 </html>
-
-
-
-

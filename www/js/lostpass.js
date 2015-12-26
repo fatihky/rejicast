@@ -1,9 +1,9 @@
 $("#lostpassbtn").on("click", function(){
   if (!$("#lostpass").val()) {
-    navigator.notification.alert("Lütfen kullanıcı adınızı girin.");
+    navigator.notification.alert("Lütfen kullanıcı adınızı girin.", function(){return;},"Face in Cast","Tamam");
   } else {
     $.ajax({
-      url: "http://rejicast.webcinizim.com/services/user/request_new_password.json",
+      url: "http://www.rejicast.com/services/user/request_new_password.json",
       type: "post",
       dataType: "json",
       data: {
