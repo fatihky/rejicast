@@ -33,26 +33,10 @@
             },
             "AndroidManifest.xml": {
                 "parents": {
-                    "/manifest/application": [
+                    "/*": [
                         {
-                            "xml": "<activity android:exported=\"true\" android:name=\"com.adobe.phonegap.push.PushHandlerActivity\" />",
-                            "count": 1
-                        },
-                        {
-                            "xml": "<receiver android:exported=\"true\" android:name=\"com.google.android.gms.gcm.GcmReceiver\" android:permission=\"com.google.android.c2dm.permission.SEND\"><intent-filter><action android:name=\"com.google.android.c2dm.intent.RECEIVE\" /><category android:name=\"${applicationId}\" /></intent-filter></receiver>",
-                            "count": 1
-                        },
-                        {
-                            "xml": "<service android:exported=\"false\" android:name=\"com.adobe.phonegap.push.GCMIntentService\"><intent-filter><action android:name=\"com.google.android.c2dm.intent.RECEIVE\" /></intent-filter></service>",
-                            "count": 1
-                        },
-                        {
-                            "xml": "<service android:exported=\"false\" android:name=\"com.adobe.phonegap.push.PushInstanceIDListenerService\"><intent-filter><action android:name=\"com.google.android.gms.iid.InstanceID\" /></intent-filter></service>",
-                            "count": 1
-                        },
-                        {
-                            "xml": "<service android:exported=\"false\" android:name=\"com.adobe.phonegap.push.RegistrationIntentService\"></service>",
-                            "count": 1
+                            "xml": "<uses-permission android:name=\"android.permission.WRITE_EXTERNAL_STORAGE\" />",
+                            "count": 2
                         }
                     ],
                     "/manifest": [
@@ -85,10 +69,26 @@
                             "count": 1
                         }
                     ],
-                    "/*": [
+                    "/manifest/application": [
                         {
-                            "xml": "<uses-permission android:name=\"android.permission.WRITE_EXTERNAL_STORAGE\" />",
-                            "count": 2
+                            "xml": "<activity android:exported=\"true\" android:name=\"com.adobe.phonegap.push.PushHandlerActivity\" />",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<receiver android:exported=\"true\" android:name=\"com.google.android.gms.gcm.GcmReceiver\" android:permission=\"com.google.android.c2dm.permission.SEND\"><intent-filter><action android:name=\"com.google.android.c2dm.intent.RECEIVE\" /><category android:name=\"${applicationId}\" /></intent-filter></receiver>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<service android:exported=\"false\" android:name=\"com.adobe.phonegap.push.GCMIntentService\"><intent-filter><action android:name=\"com.google.android.c2dm.intent.RECEIVE\" /></intent-filter></service>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<service android:exported=\"false\" android:name=\"com.adobe.phonegap.push.PushInstanceIDListenerService\"><intent-filter><action android:name=\"com.google.android.gms.iid.InstanceID\" /></intent-filter></service>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<service android:exported=\"false\" android:name=\"com.adobe.phonegap.push.RegistrationIntentService\"></service>",
+                            "count": 1
                         }
                     ]
                 }
