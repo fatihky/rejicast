@@ -9,6 +9,11 @@ $("#lostpassbtn").on("click", function(){
       data: {
         name: encodeURIComponent($("#lostpass").val())
       },
+      statusCode: {
+        406: function() {
+          navigator.notification.alert("Kullanıcı adı bulunamadı.", function(){$("#lostpass").val("");$("#lostpass").focus();}, "Hata", "Tamam");
+        }
+      },
       success: function() {
         navigator.notification.alert("Şifre sıfırlama talimatları kayıtlı e-posta adresinize gönderildi, lütfen kontrol ediniz.", function(){return;}, "Bilgi", "Tamam");
         window.location.href = "index.html";

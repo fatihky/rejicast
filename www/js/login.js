@@ -1,5 +1,4 @@
 $('#login').on('click', function () {
-    navigator.notification.activityStart("Face in Cast","Giriş yapılıyor");
     var name = $('#username').val();
     if (!name) {
         navigator.notification.alert("Lütfen kullanıcı adınızı girin.", function(){return;}, "Hata", "Tamam");
@@ -15,6 +14,7 @@ $('#login').on('click', function () {
         type: 'post',
         dataType: 'json',
         success: function(token) {
+            navigator.notification.activityStart("Face in Cast","Giriş yapılıyor");
             $.ajax({
                 url: 'http://www.rejicast.com/services/user/login.json',
                 type: 'post',
@@ -25,7 +25,7 @@ $('#login').on('click', function () {
                 },
                 statusCode: {
                     401: function() {
-                        navigator.notification.alert("Kullanıcı adı ya da şifreniz yanlış", function(){return;}, "Hata", "Tamam");
+                        navigator.notification.alert("Kullanıcı adı ya da şifreniz yanlış", function(){navigator.notification.activityStop();$("#username").val("");$("#password").val("");$("#username").focus();}, "Hata", "Tamam");
                     }
                 },
                 success: function (data) {
